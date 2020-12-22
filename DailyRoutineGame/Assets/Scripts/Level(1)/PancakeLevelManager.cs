@@ -8,6 +8,8 @@ public class PancakeLevelManager : MonoBehaviour
 	[Header("Filling Attributes")]
 	public GameObject Filler;
 	public ParticleSystem FillingParticle;
+	public int NumberOfPointsToFill;
+	int NumberOfFilledPoints;
 	
 	[Header("Painting Attributes")]
 	[SerializeField]
@@ -16,6 +18,23 @@ public class PancakeLevelManager : MonoBehaviour
 	LayerMask PaintLayer;
 	RaycastHit hit;
 
+	[Header("Baking Attributes")]
+	public GameObject Pancake;
+
+	#region Singelton Region
+	public static PancakeLevelManager Instance;
+	private void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+		else
+		{
+			Destroy(this.gameObject);
+		}
+	}
+	#endregion
 
 	private void Update()
 	{
@@ -40,5 +59,22 @@ public class PancakeLevelManager : MonoBehaviour
 		{
 			FillingParticle.Stop();
 		}
+	}
+
+	public void UpdateNumberOfFilledPoints()
+	{
+		NumberOfFilledPoints++;
+
+		if (NumberOfFilledPoints == NumberOfPointsToFill)
+		{
+			Debug.Log("Filling Stage has finished !");
+			StartBakingState();
+		}
+	}
+
+	private void StartBakingState()
+	{
+		Filler.gameObject.SetActive(false);
+		Pancake.SetActive(true);
 	}
 }
