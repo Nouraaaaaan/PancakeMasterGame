@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Level(1)\DraggableObject.cs" />
     <Compile Include="Assets\Scripts\Level(1)\FillerCollisionPoint.cs" />
     <Compile Include="Assets\Scripts\Level(1)\PancakeLevelManager.cs" />
+    <Compile Include="Assets\Scripts\Level(1)\Sweeter.cs" />
     <None Include="Assets\InkPainter\Shader\Effective\HeightDrip.shader" />
     <None Include="Assets\InkPainter\Shader\Effective\InvertAlpha.shader" />
     <None Include="Assets\InkPainter\Shader\Effective\SingleColorFill.shader" />
