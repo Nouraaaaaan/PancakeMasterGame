@@ -21,6 +21,12 @@ public class PancakeLevelManager : MonoBehaviour
 	[Header("Baking Attributes")]
 	public GameObject Pancake;
 
+	[Header("UI")]
+	public GameObject CookingCanvas;
+
+	[Header("VFX")]
+	public ParticleSystem[] GoodEmojis;
+
 	#region Singelton Region
 	public static PancakeLevelManager Instance;
 	private void Awake()
@@ -68,13 +74,27 @@ public class PancakeLevelManager : MonoBehaviour
 		if (NumberOfFilledPoints == NumberOfPointsToFill)
 		{
 			Debug.Log("Filling Stage has finished !");
-			StartBakingState();
+			StartCoroutine(FinishFillingState());
 		}
 	}
 
-	private void StartBakingState()
+	IEnumerator FinishFillingState()
 	{
+		GoodEmojis[Random.Range(0, GoodEmojis.Length - 1)].Play();
+
+		yield return new WaitForSeconds(1f);
+
+		StartCookingState();
+	}
+
+	private void StartCookingState()
+	{
+		CookingCanvas.SetActive(true);
 		Filler.gameObject.SetActive(false);
-		Pancake.SetActive(true);
+	}
+
+	public void ClickCookButton()
+	{
+		
 	}
 }
