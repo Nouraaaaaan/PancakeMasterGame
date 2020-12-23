@@ -26,7 +26,7 @@ namespace Es.InkPainter.Effective
 		private bool useNormalMapFluid = true;
 
 		[SerializeField]
-		private int createTextureSize = 1024;
+		private int createTextureSize = 512;
 
 		[SerializeField]
 		private ColorSynthesis colorSynthesis = ColorSynthesis.Overwrite;
@@ -34,8 +34,10 @@ namespace Es.InkPainter.Effective
 		[SerializeField, Range(0, 1)]
 		private float alpha = 1f;
 
-		[SerializeField]
-		private Vector2 flowDirection = Vector2.up;
+		[SerializeField] Vector2 flowDirection = Vector2.up;
+		[SerializeField] float flowDirectionSpeed = 1;
+		[SerializeField] bool randomizeFlowDierection;
+		private int randomizecount = 0;
 
 		[SerializeField, Range(0, 1)]
 		private float flowingForce = 1;
@@ -73,7 +75,7 @@ namespace Es.InkPainter.Effective
 		private Material singleColorFill;
 		private Material invertAlpha;
 		private InkCanvas canvas;
-		private Color lastPaintedColor;
+		[ColorUsage(true,true)]private Color lastPaintedColor;
 
 		#endregion PrivateField
 
@@ -207,7 +209,27 @@ namespace Es.InkPainter.Effective
 				heightFluid.SetFloat("_Viscosity", easeOfDripping);
 				heightFluid.SetFloat("_HorizontalSpread", horizontalSpread);
 				heightFluid.SetFloat("_InfluenceOfNormal", influenceOfNormal);
-				heightFluid.SetVector("_FlowDirection", flowDirection.normalized);
+				heightFluid.SetVector("_FlowDirection", flowDirection * flowDirectionSpeed);
+                if (randomizeFlowDierection)
+                {
+                    switch(randomizecount)
+                    {
+						case 0:
+							flowDirection = new Vector2(-1, 0);
+							break;
+						case 1:
+							flowDirection = new Vector2(1, 0);
+							break;
+						case 2:
+							flowDirection = new Vector2(0, -1);
+							break;
+						case 3:
+							flowDirection = new Vector2(0, 1);
+							break;
+					}
+				
+					randomizecount = (randomizecount + 1) % 4;
+                }
 				heightFluid.SetVector("_FixedColor", lastPaintedColor);
 				foreach(var key in heightFluid.shaderKeywords)
 					heightFluid.DisableKeyword(key);

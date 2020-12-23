@@ -123,7 +123,7 @@ namespace Es.InkPainter
 		[SerializeField, Range(0, 1)]
 		private float brushHeightBlend = 0.1f;
 
-		[SerializeField]
+		[SerializeField][ColorUsage(true,true)]
 		private Color brushColor;
 
 		[SerializeField]
