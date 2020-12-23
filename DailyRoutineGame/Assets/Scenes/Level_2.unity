@@ -433,6 +433,36 @@ Transform:
   m_Father: {fileID: 2041632303}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &136993246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136993247}
+  m_Layer: 0
+  m_Name: SweeterFinalPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &136993247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136993246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.981, y: 0.909, z: 0.301}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158010728
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +527,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   Pancake: {fileID: 1726970765}
+  Sweeter: {fileID: 878565467}
   CookingCanvas: {fileID: 423867754}
   GoodEmojis:
   - {fileID: 1087121049}
@@ -1238,6 +1269,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 850117289}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &876004083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 876004084}
+  m_Layer: 0
+  m_Name: SweetsHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &876004084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876004083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.407, y: 1.2390506, z: 0.301}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &878565465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,7 +1333,7 @@ Transform:
   - {fileID: 1730560390}
   - {fileID: 2054312945}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &878565467
 MonoBehaviour:
@@ -1286,6 +1347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3594296f5aa0abd43bc5d69df181efc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Holder: {fileID: 876004083}
   SweetsPrefab: {fileID: 6398545598093787705, guid: 1e131603a4d1ccc4da83ec0bb6d1647d,
     type: 3}
   CanClick: 1
@@ -1293,6 +1355,9 @@ MonoBehaviour:
   - {fileID: 1651012783}
   - {fileID: 1730560390}
   - {fileID: 2054312945}
+  SweeterInitialPos: {fileID: 1254842501}
+  SweeterNewPos: {fileID: 136993247}
+  MaxClicks: 3
 --- !u!65 &878565468
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1540,6 +1605,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178352882}
   m_Mesh: {fileID: 3106058977084320682, guid: 418e4ecbd36de8a4ba7b917ce2ec5b23, type: 3}
+--- !u!1 &1254842500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254842501}
+  m_Layer: 0
+  m_Name: SweeterInitialPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1254842501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254842500}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 35.257, y: 0.7290506, z: 0.301}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1412638541
 GameObject:
   m_ObjectHideFlags: 0

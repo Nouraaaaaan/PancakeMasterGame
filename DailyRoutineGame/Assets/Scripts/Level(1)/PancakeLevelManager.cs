@@ -21,6 +21,9 @@ public class PancakeLevelManager : MonoBehaviour
 	[Header("Baking Attributes")]
 	public GameObject Pancake;
 
+	[Header("Sweeting Attributes")]
+	public Sweeter Sweeter;
+
 	[Header("UI")]
 	public GameObject CookingCanvas;
 
