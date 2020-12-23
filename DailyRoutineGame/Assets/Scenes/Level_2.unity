@@ -1316,7 +1316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &878565466
 Transform:
   m_ObjectHideFlags: 0
@@ -1357,7 +1357,7 @@ MonoBehaviour:
   - {fileID: 2054312945}
   SweeterInitialPos: {fileID: 1254842501}
   SweeterNewPos: {fileID: 136993247}
-  MaxClicks: 3
+  MaxClicks: 5
 --- !u!65 &878565468
 BoxCollider:
   m_ObjectHideFlags: 0

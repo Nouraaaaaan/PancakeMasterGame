@@ -64,6 +64,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Cake Master\Editor\ConditionalHidePropertyDrawer.cs" />
+    <Compile Include="Assets\Cake Master\ServicesManager\Scripts\Editor\AdsDefineSymbol.cs" />
+    <Compile Include="Assets\Cake Master\ServicesManager\Scripts\Editor\AdsManagerEditor.cs" />
     <Compile Include="Assets\InkPainter\Script\Editor\UVChecker.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -263,23 +266,23 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="DOTweenEditor">
-      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenProEditor">
-      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
-    </Reference>
     <Reference Include="DemiLib">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DemiEditor">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
     <Reference Include="DOTweenPro">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenProEditor">
+      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
