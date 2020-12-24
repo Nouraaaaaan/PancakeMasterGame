@@ -337,7 +337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &40422600
 Transform:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ MonoBehaviour:
     rotateAngle: 0
     brushNormalBlend: 0.522
     brushHeightBlend: 0.522
-    brushColor: {r: 0.9811321, g: 0.92166036, b: 0.72659314, a: 1}
+    brushColor: {r: 1, g: 0.9980728, b: 0.3537736, a: 1}
     colorBlendType: 3
     normalBlendType: 4
     heightBlendType: 5
@@ -527,6 +527,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   Pancake: {fileID: 1726970765}
+  PancakeMaterial: {fileID: 2100000, guid: 32be4da115a566c4295bc42f84c444c6, type: 2}
   Sweeter: {fileID: 878565467}
   CookingCanvas: {fileID: 423867754}
   GoodEmojis:
@@ -1708,17 +1709,17 @@ PrefabInstance:
     - target: {fileID: 1413091184470020825, guid: 5f0cbef6969afce47a6e583ce06331db,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2722169972850991306, guid: 5f0cbef6969afce47a6e583ce06331db,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.066
+      value: 35.057
       objectReference: {fileID: 0}
     - target: {fileID: 2722169972850991306, guid: 5f0cbef6969afce47a6e583ce06331db,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.382
+      value: -0.417
       objectReference: {fileID: 0}
     - target: {fileID: 2722169972850991306, guid: 5f0cbef6969afce47a6e583ce06331db,
         type: 3}
@@ -2087,7 +2088,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1761589588}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 158010730}
+        m_MethodName: ClickCookButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1761589588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,7 +2157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1800275946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2225,7 +2237,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9ccb1a77b83f34d42aa5aab3bf022491, type: 2}
+  - {fileID: 2100000, guid: 0b9e2d288826ae74eafea35b023ad262, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2262,7 +2274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800275945}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 35.07, y: -0.46, z: -0.19}
+  m_LocalPosition: {x: 35.07, y: -0.416, z: -0.19}
   m_LocalScale: {x: 1, y: 1.1518, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

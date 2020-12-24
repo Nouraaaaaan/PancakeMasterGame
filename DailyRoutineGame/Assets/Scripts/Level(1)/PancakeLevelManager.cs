@@ -18,8 +18,9 @@ public class PancakeLevelManager : MonoBehaviour
 	LayerMask PaintLayer;
 	RaycastHit hit;
 
-	[Header("Baking Attributes")]
+	[Header("Cooking Attributes")]
 	public GameObject Pancake;
+	public Material PancakeMaterial;
 
 	[Header("Sweeting Attributes")]
 	public Sweeter Sweeter;
@@ -70,6 +71,7 @@ public class PancakeLevelManager : MonoBehaviour
 		}
 	}
 
+	#region Filling State
 	public void UpdateNumberOfFilledPoints()
 	{
 		NumberOfFilledPoints++;
@@ -90,14 +92,44 @@ public class PancakeLevelManager : MonoBehaviour
 		StartCookingState();
 	}
 
+	#endregion
+
+	#region Cooking state
 	private void StartCookingState()
 	{
 		CookingCanvas.SetActive(true);
 		Filler.gameObject.SetActive(false);
+		Pancake.SetActive(true);
 	}
 
 	public void ClickCookButton()
 	{
-		
+		StartCoroutine(Cook());
 	}
+
+	IEnumerator Cook()
+	{
+		var color = PancakeMaterial.color;
+
+		while (PancakeMaterial.color.a < 1f)
+		{
+			PancakeMaterial.color = new Color(color.r, color.g, color.b, PancakeMaterial.color.a + 0.008f);
+			yield return new WaitForEndOfFrame();
+		}
+
+		yield return null;
+		StartSweetingState();
+	}
+
+	#endregion
+
+	#region Sweeting State
+
+	private void StartSweetingState()
+	{
+		Sweeter.gameObject.SetActive(true);
+	}
+
+    #endregion
+
 }
