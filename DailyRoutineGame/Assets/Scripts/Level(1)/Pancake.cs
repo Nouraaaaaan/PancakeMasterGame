@@ -17,7 +17,9 @@ public class Pancake : MonoBehaviour
         PancakeRB.AddForce(Vector3.up * 6, ForceMode.VelocityChange);
 
         yield return new WaitForSeconds(0.5f);
-
         gameObject.transform.DORotate(new Vector3(0f, 0f, 180f), 0.5f);
+
+        yield return new WaitForSeconds(1f);
+        PancakeLevelManager.Instance.StartSweetingState();
     }
 }

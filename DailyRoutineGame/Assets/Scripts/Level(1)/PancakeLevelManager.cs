@@ -5,8 +5,18 @@ using Es.InkPainter;
 
 public class PancakeLevelManager : MonoBehaviour
 {
+	enum State
+	{
+		FillingState,
+		CookingState,
+		FlippingState,
+		SweetingState
+	}
+	private State currentState;
+
 	[Header("Filling Attributes")]
 	public GameObject Filler;
+	public GameObject FillerCollisionPoints;
 	public ParticleSystem FillingParticle;
 	public int NumberOfPointsToFill;
 	int NumberOfFilledPoints;
@@ -29,7 +39,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public bool IsArrowInsideGreenArea;
 
 	[Header("Sweeting Attributes")]
-	public Sweeter Sweeter;
+	public GameObject SweeterSatge;
 
 	[Header("UI")]
 	public GameObject CookingCanvas;
@@ -56,33 +66,55 @@ public class PancakeLevelManager : MonoBehaviour
 
     private void Start()
     {
+		currentState = State.FillingState;
+
 		color = PancakeMaterial.color;
 		PancakeMaterial.color = new Color(color.r, color.g, color.b, 0f);
 	}
 
     private void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (currentState == State.FillingState)
 		{
-			FillingParticle.Play();
-		}
-
-		else if (Input.GetMouseButton(0))
-		{
-			if (Physics.Raycast(Filler.transform.position, -Vector3.up, out hit, 50, PaintLayer))
+			if (Input.GetMouseButtonDown(0))
 			{
-				var paintObject = hit.transform.GetComponent<InkCanvas>();
+				FillingParticle.Play();
+			}
 
-				if (paintObject != null)
-					paintObject.Paint(brush, hit);
+			else if (Input.GetMouseButton(0))
+			{
+				if (Physics.Raycast(Filler.transform.position, -Vector3.up, out hit, 50, PaintLayer))
+				{
+					var paintObject = hit.transform.GetComponent<InkCanvas>();
 
+					if (paintObject != null)
+						paintObject.Paint(brush, hit);
+
+				}
+			}
+
+			else if (Input.GetMouseButtonUp(0))
+			{
+				FillingParticle.Stop();
 			}
 		}
 
-		else if (Input.GetMouseButtonUp(0))
-		{
-			FillingParticle.Stop();
-		}
+        else if (currentState == State.FlippingState)
+        {
+			if (Input.GetMouseButtonDown(0))
+			{
+				if (IsArrowInsideGreenArea)
+				{
+					PancakeLevelManager.Instance.ClickAtrightTime();
+
+				}
+				else
+				{
+					PancakeLevelManager.Instance.ClickAtWrongTime();
+				}
+			}
+        }
+		
 	}
 
 	#region Filling State
@@ -92,7 +124,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		if (NumberOfFilledPoints == NumberOfPointsToFill)
 		{
-			Debug.Log("Filling Stage has finished !");
+			//Debug.Log("Filling Stage has finished !");
 			StartCoroutine(FinishFillingState());
 		}
 	}
@@ -112,6 +144,7 @@ public class PancakeLevelManager : MonoBehaviour
 	private void StartCookingState()
 	{
 		Filler.gameObject.SetActive(false);
+		FillerCollisionPoints.gameObject.SetActive(false);
 
 		CookingCanvas.SetActive(true);
 		Pancake.gameObject.SetActive(true);
@@ -145,6 +178,7 @@ public class PancakeLevelManager : MonoBehaviour
 	#region Flipping State
 	private void StartFlippingState()
 	{
+		currentState = State.FlippingState;
 		Meter.gameObject.SetActive(true);
 		Arrow.SetActive(true);
 		Meter.MoveArrow();
@@ -165,15 +199,16 @@ public class PancakeLevelManager : MonoBehaviour
 
     #region Sweeting State
 
-    private void StartSweetingState()
+    public void StartSweetingState()
 	{
-		Sweeter.gameObject.SetActive(true);
+		//Debug.Log("Sweeting Stage has Started !");
+		SweeterSatge.SetActive(true);
 	}
 
 	public void FinishSweetingStage()
 	{
-		Debug.Log("Finished !");
-		Sweeter.gameObject.SetActive(false);
+		//Debug.Log("Sweeting Stage has Finished !");
+		//Sweeter.gameObject.SetActive(false);
 		SFXManager.Instance.StopSoundEffect();
 		TextEffect.PlayEffect();
 	}
