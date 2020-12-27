@@ -19,12 +19,14 @@ public class PancakeLevelManager : MonoBehaviour
 	RaycastHit hit;
 
 	[Header("Cooking Attributes")]
-	public GameObject Pancake;
+	public Pancake Pancake;
 	public Material PancakeMaterial;
 	private Color color;
 
 	[Header("Flipping Attributes")]
 	public Meter Meter;
+	public GameObject Arrow;
+	public bool IsArrowInsideGreenArea;
 
 	[Header("Sweeting Attributes")]
 	public Sweeter Sweeter;
@@ -112,7 +114,7 @@ public class PancakeLevelManager : MonoBehaviour
 		Filler.gameObject.SetActive(false);
 
 		CookingCanvas.SetActive(true);
-		Pancake.SetActive(true);
+		Pancake.gameObject.SetActive(true);
 	}
 
 	public void ClickCookButton()
@@ -134,14 +136,36 @@ public class PancakeLevelManager : MonoBehaviour
 
 		yield return null;
 		Smoke.SetActive(false);
-		StartSweetingState();
+		//StartSweetingState();
+		StartFlippingState();
 	}
 
 	#endregion
 
-	#region Sweeting State
+	#region Flipping State
+	private void StartFlippingState()
+	{
+		Meter.gameObject.SetActive(true);
+		Arrow.SetActive(true);
+		Meter.MoveArrow();
+	}
 
-	private void StartSweetingState()
+	public void ClickAtrightTime()
+	{
+		Meter.StopArrow();
+
+		Pancake.Flip();
+	}
+
+	public void ClickAtWrongTime()
+	{
+		Meter.StopArrow();
+	}
+    #endregion
+
+    #region Sweeting State
+
+    private void StartSweetingState()
 	{
 		Sweeter.gameObject.SetActive(true);
 	}

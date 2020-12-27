@@ -18,4 +18,20 @@ public class Meter : MonoBehaviour
     {
         Arrow.transform.DOKill();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Equals("Arrow"))
+        {
+            PancakeLevelManager.Instance.IsArrowInsideGreenArea = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag.Equals("Arrow"))
+        {
+            PancakeLevelManager.Instance.IsArrowInsideGreenArea = false;
+        }
+    }
 }
