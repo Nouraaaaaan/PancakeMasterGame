@@ -64,9 +64,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Cake Master\Editor\ConditionalHidePropertyDrawer.cs" />
-    <Compile Include="Assets\Cake Master\ServicesManager\Scripts\Editor\AdsDefineSymbol.cs" />
-    <Compile Include="Assets\Cake Master\ServicesManager\Scripts\Editor\AdsManagerEditor.cs" />
     <Compile Include="Assets\InkPainter\Script\Editor\UVChecker.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

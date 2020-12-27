@@ -64,6 +64,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Helpers\ConditionalHideAttribute.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Helpers\Singleton.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Helpers\UISettings.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\Cake.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\ColorTrigger.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\GameManagerCakeMaster.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\IcingCakeMaster.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\LevelGenerator.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\Rotating.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\Stars.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Shop\CakeData.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Shop\ItemHolder.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Shop\Shop.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\Sound\SoundManager.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\UI\Scripts\ColorChooser.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\UI\Scripts\Gameplay.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\Game Data\UI\Scripts\UIManagerCakeMaster.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\ServicesManager\Scripts\AdsData.cs" />
+    <Compile Include="Assets\Plugins\Cake Master\ServicesManager\Scripts\ServicesManager.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -77,10 +96,78 @@
     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenProShortcuts.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenTextMeshPro.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\DOTweenTk2d.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Sample\Script\ClipPainter.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Sample\Script\CollisionPainter.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Sample\Script\CollisionReflectionPainter.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Sample\Script\MousePainter.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Sample\Script\ReflectPainter.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Sample\Script\TextureRecovery.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Script\Core\Brush.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Script\Core\InkCanvas.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Script\Core\Math.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Script\Core\MeshOperator.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Script\Effective\GrabArea.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Script\Effective\HeightFluid.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Script\Effective\ReverseUV.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Script\Effective\TextureMorphing.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Script\Extenision\GameObjectExtension.cs" />
+    <Compile Include="Assets\Plugins\InkPainter\Script\Util\SceneViewCamera.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Archived\TestingPunch.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\Following.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\GeneralBasic.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\GeneralBasics2d.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\GeneralSequencer.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\GeneralUISpace.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\LogoCinematic.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\PathBezier.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\PathBezier2d.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\PathSpline.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\PathSpline2d.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\PathSplineEndless.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\PathSplines.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Framework\LTDescr.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Framework\LTDescrOptional.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Framework\LTSeq.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Framework\LeanAudio.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Framework\LeanSmooth.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Framework\LeanTest.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Framework\LeanTween.cs" />
+    <Compile Include="Assets\Plugins\LeanTween\Framework\LeanTweenExt.cs" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Effective\HeightDrip.shader" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Effective\InvertAlpha.shader" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Effective\SingleColorFill.shader" />
+    <None Include="Assets\Plugins\LeanTween\ReadMe.txt" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Effective\TextureMorphing.shader" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Effective\ReverseUV.shader" />
+    <None Include="Assets\Plugins\LeanTween\License.txt" />
     <None Include="Assets\Plugins\Demigiant\readme_DOTweenPro.txt" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Paint\PaintMain.shader" />
+    <None Include="Assets\Plugins\InkPainter\Sample\Shader\TessellateHeightTransform.shader" />
+    <None Include="Assets\Plugins\InkPainter\readme_en.txt" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Effective\HeightToColor.shader" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Paint\PaintNormal.shader" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Paint\PaintHeight.shader" />
+    <None Include="Assets\Plugins\InkPainter\readme_jp.txt" />
     <None Include="Assets\Plugins\Demigiant\DOTweenPro\readme.txt" />
+    <None Include="Assets\Plugins\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
     <None Include="Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.xml" />
+    <None Include="Assets\Plugins\InkPainter\Sample\Shader\VTFHeightTransform.shader" />
     <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Effective\HeightToNormal.shader" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Effective\GrabArea.shader" />
+    <None Include="Assets\Plugins\InkPainter\Shader\Lib\InkPainterFoundation.cginc" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -641,6 +728,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

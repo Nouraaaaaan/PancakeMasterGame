@@ -115,6 +115,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 3997132681706202438, guid: a42e3a8a2590cbb49a55c70deb25a5f5,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a42e3a8a2590cbb49a55c70deb25a5f5, type: 3}
 --- !u!4 &3470795597755526515 stripped
@@ -130,6 +135,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4677786647079284469}
     m_Modifications:
+    - target: {fileID: 7457433084902481218, guid: 24f8225cfbafe414194acc985fe6d28c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7457433084904407832, guid: 24f8225cfbafe414194acc985fe6d28c,
         type: 3}
       propertyPath: m_Name
@@ -220,6 +230,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4677786647079284469}
     m_Modifications:
+    - target: {fileID: 1051530461196629, guid: b178a9ba590291d4bb9ac9dce2383e3c, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1051530463097727, guid: b178a9ba590291d4bb9ac9dce2383e3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.000015258789

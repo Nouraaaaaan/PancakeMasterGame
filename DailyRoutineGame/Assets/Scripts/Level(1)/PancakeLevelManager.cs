@@ -21,6 +21,7 @@ public class PancakeLevelManager : MonoBehaviour
 	[Header("Cooking Attributes")]
 	public GameObject Pancake;
 	public Material PancakeMaterial;
+	private Color color;
 
 	[Header("Sweeting Attributes")]
 	public Sweeter Sweeter;
@@ -30,6 +31,8 @@ public class PancakeLevelManager : MonoBehaviour
 
 	[Header("VFX")]
 	public ParticleSystem[] GoodEmojis;
+	public TextEffect TextEffect;
+	public GameObject Smoke;
 
 	#region Singelton Region
 	public static PancakeLevelManager Instance;
@@ -44,9 +47,15 @@ public class PancakeLevelManager : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 	}
-	#endregion
+    #endregion
 
-	private void Update()
+    private void Start()
+    {
+		color = PancakeMaterial.color;
+		PancakeMaterial.color = new Color(color.r, color.g, color.b, 0f);
+	}
+
+    private void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -97,19 +106,22 @@ public class PancakeLevelManager : MonoBehaviour
 	#region Cooking state
 	private void StartCookingState()
 	{
-		CookingCanvas.SetActive(true);
 		Filler.gameObject.SetActive(false);
+
+		CookingCanvas.SetActive(true);
 		Pancake.SetActive(true);
 	}
 
 	public void ClickCookButton()
 	{
 		StartCoroutine(Cook());
+		CookingCanvas.SetActive(false);
+
 	}
 
 	IEnumerator Cook()
 	{
-		var color = PancakeMaterial.color;
+		Smoke.SetActive(true);
 
 		while (PancakeMaterial.color.a < 1f)
 		{
@@ -118,6 +130,7 @@ public class PancakeLevelManager : MonoBehaviour
 		}
 
 		yield return null;
+		Smoke.SetActive(false);
 		StartSweetingState();
 	}
 
@@ -128,6 +141,14 @@ public class PancakeLevelManager : MonoBehaviour
 	private void StartSweetingState()
 	{
 		Sweeter.gameObject.SetActive(true);
+	}
+
+	public void FinishSweetingStage()
+	{
+		Debug.Log("Finished !");
+		Sweeter.gameObject.SetActive(false);
+		SFXManager.Instance.StopSoundEffect();
+		TextEffect.PlayEffect();
 	}
 
     #endregion

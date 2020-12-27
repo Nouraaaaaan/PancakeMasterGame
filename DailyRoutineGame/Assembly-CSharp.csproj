@@ -64,42 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Cake Master\Game Data\Helpers\ConditionalHideAttribute.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Helpers\Singleton.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Helpers\UISettings.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Scripts\Cake.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Scripts\ColorTrigger.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Scripts\GameManagerCakeMaster.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Scripts\IcingCakeMaster.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Scripts\LevelGenerator.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Scripts\Rotating.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Scripts\Stars.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Shop\CakeData.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Shop\ItemHolder.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Shop\Shop.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\Sound\SoundManager.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\UI\Scripts\ColorChooser.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\UI\Scripts\Gameplay.cs" />
-    <Compile Include="Assets\Cake Master\Game Data\UI\Scripts\UIManagerCakeMaster.cs" />
-    <Compile Include="Assets\Cake Master\ServicesManager\Scripts\AdsData.cs" />
-    <Compile Include="Assets\Cake Master\ServicesManager\Scripts\ServicesManager.cs" />
     <Compile Include="Assets\Imported Assets\Liquid Paint\LiquidPaint.cs" />
-    <Compile Include="Assets\InkPainter\Sample\Script\ClipPainter.cs" />
-    <Compile Include="Assets\InkPainter\Sample\Script\CollisionPainter.cs" />
-    <Compile Include="Assets\InkPainter\Sample\Script\CollisionReflectionPainter.cs" />
-    <Compile Include="Assets\InkPainter\Sample\Script\MousePainter.cs" />
-    <Compile Include="Assets\InkPainter\Sample\Script\ReflectPainter.cs" />
-    <Compile Include="Assets\InkPainter\Sample\Script\TextureRecovery.cs" />
-    <Compile Include="Assets\InkPainter\Script\Core\Brush.cs" />
-    <Compile Include="Assets\InkPainter\Script\Core\InkCanvas.cs" />
-    <Compile Include="Assets\InkPainter\Script\Core\Math.cs" />
-    <Compile Include="Assets\InkPainter\Script\Core\MeshOperator.cs" />
-    <Compile Include="Assets\InkPainter\Script\Effective\GrabArea.cs" />
-    <Compile Include="Assets\InkPainter\Script\Effective\HeightFluid.cs" />
-    <Compile Include="Assets\InkPainter\Script\Effective\ReverseUV.cs" />
-    <Compile Include="Assets\InkPainter\Script\Effective\TextureMorphing.cs" />
-    <Compile Include="Assets\InkPainter\Script\Extenision\GameObjectExtension.cs" />
-    <Compile Include="Assets\InkPainter\Script\Util\SceneViewCamera.cs" />
     <Compile Include="Assets\Scripts\Donutes\Donut.cs" />
     <Compile Include="Assets\Scripts\Donutes\DonutSweet.cs" />
     <Compile Include="Assets\Scripts\Donutes\DonutSyrup.cs" />
@@ -110,29 +75,16 @@
     <Compile Include="Assets\Scripts\Donutes\SyrupItem.cs" />
     <Compile Include="Assets\Scripts\Level(1)\DraggableObject.cs" />
     <Compile Include="Assets\Scripts\Level(1)\FillerCollisionPoint.cs" />
+    <Compile Include="Assets\Scripts\Level(1)\Flip.cs" />
     <Compile Include="Assets\Scripts\Level(1)\PancakeLevelManager.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Sweeter.cs" />
+    <Compile Include="Assets\Scripts\Level(1)\TextEffect.cs" />
     <Compile Include="Assets\Scripts\Make Cookie\CakeIcing.cs" />
     <Compile Include="Assets\Scripts\Make Cookie\CookiePaint.cs" />
     <Compile Include="Assets\Scripts\Make Cookie\CookieTemplateHolder.cs" />
     <Compile Include="Assets\Scripts\Make Cookie\MakeCookie_LevelManager.cs" />
     <Compile Include="Assets\Scripts\Make Cookie\SweetsSpawnerfiller.cs" />
-    <None Include="Assets\InkPainter\Shader\Effective\HeightDrip.shader" />
-    <None Include="Assets\InkPainter\Shader\Effective\InvertAlpha.shader" />
-    <None Include="Assets\InkPainter\Shader\Effective\SingleColorFill.shader" />
-    <None Include="Assets\InkPainter\Shader\Effective\TextureMorphing.shader" />
-    <None Include="Assets\InkPainter\Shader\Effective\ReverseUV.shader" />
-    <None Include="Assets\InkPainter\Shader\Paint\PaintMain.shader" />
-    <None Include="Assets\InkPainter\Sample\Shader\TessellateHeightTransform.shader" />
-    <None Include="Assets\InkPainter\readme_en.txt" />
-    <None Include="Assets\InkPainter\Shader\Effective\HeightToColor.shader" />
-    <None Include="Assets\InkPainter\Shader\Paint\PaintNormal.shader" />
-    <None Include="Assets\InkPainter\Shader\Paint\PaintHeight.shader" />
-    <None Include="Assets\InkPainter\readme_jp.txt" />
-    <None Include="Assets\InkPainter\Sample\Shader\VTFHeightTransform.shader" />
-    <None Include="Assets\InkPainter\Shader\Effective\HeightToNormal.shader" />
-    <None Include="Assets\InkPainter\Shader\Effective\GrabArea.shader" />
-    <None Include="Assets\InkPainter\Shader\Lib\InkPainterFoundation.cginc" />
+    <Compile Include="Assets\Scripts\SFXManager.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -693,6 +645,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
