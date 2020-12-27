@@ -27,6 +27,7 @@ public class PancakeLevelManager : MonoBehaviour
 	[SerializeField]
 	LayerMask PaintLayer;
 	RaycastHit hit;
+	public GameObject PaintingQuad;
 
 	[Header("Cooking Attributes")]
 	public Pancake Pancake;
@@ -46,6 +47,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	[Header("VFX")]
 	public ParticleSystem[] GoodEmojis;
+	public ParticleSystem[] BadEmojis;
 	public TextEffect TextEffect;
 	public GameObject Smoke;
 
@@ -105,12 +107,12 @@ public class PancakeLevelManager : MonoBehaviour
 			{
 				if (IsArrowInsideGreenArea)
 				{
-					PancakeLevelManager.Instance.ClickAtrightTime();
+					ClickAtrightTime();
 
 				}
 				else
 				{
-					PancakeLevelManager.Instance.ClickAtWrongTime();
+					ClickAtWrongTime();
 				}
 			}
         }
@@ -143,6 +145,7 @@ public class PancakeLevelManager : MonoBehaviour
 	#region Cooking state
 	private void StartCookingState()
 	{
+		currentState = State.CookingState;
 		Filler.gameObject.SetActive(false);
 		FillerCollisionPoints.gameObject.SetActive(false);
 
@@ -169,7 +172,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		yield return null;
 		Smoke.SetActive(false);
-		//StartSweetingState();
+		PaintingQuad.SetActive(false);
 		StartFlippingState();
 	}
 
@@ -187,13 +190,13 @@ public class PancakeLevelManager : MonoBehaviour
 	public void ClickAtrightTime()
 	{
 		Meter.StopArrow();
-
 		Pancake.Flip();
 	}
 
 	public void ClickAtWrongTime()
 	{
-		Meter.StopArrow();
+		//Meter.StopArrow();
+		BadEmojis[Random.Range(0, BadEmojis.Length - 1)].Play();
 	}
     #endregion
 
@@ -202,13 +205,16 @@ public class PancakeLevelManager : MonoBehaviour
     public void StartSweetingState()
 	{
 		//Debug.Log("Sweeting Stage has Started !");
+		currentState = State.SweetingState;
+		Pancake.FreezePancake();
 		SweeterSatge.SetActive(true);
 	}
 
 	public void FinishSweetingStage()
 	{
 		//Debug.Log("Sweeting Stage has Finished !");
-		//Sweeter.gameObject.SetActive(false);
+
+		SweeterSatge.SetActive(false);
 		SFXManager.Instance.StopSoundEffect();
 		TextEffect.PlayEffect();
 	}

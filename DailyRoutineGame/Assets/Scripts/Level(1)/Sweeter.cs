@@ -25,12 +25,12 @@ public class Sweeter : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && CanClick && (NumberOfClicks <= MaxClicks))
         {
-            Debug.Log("Click on sweeter !");
+            //Debug.Log("Click on sweeter !");
             NumberOfClicks++;
             ShakeSweetCan();
             InstantiateSweet();
         }
-        else if (NumberOfClicks > MaxClicks)
+        else if ((NumberOfClicks > MaxClicks) && CanClick)
         {
             CanClick = false;
             PancakeLevelManager.Instance.FinishSweetingStage();

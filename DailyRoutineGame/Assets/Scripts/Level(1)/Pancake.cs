@@ -22,4 +22,9 @@ public class Pancake : MonoBehaviour
         yield return new WaitForSeconds(1f);
         PancakeLevelManager.Instance.StartSweetingState();
     }
+
+    public void FreezePancake()
+    {
+        PancakeRB.constraints = RigidbodyConstraints.FreezeAll;
+    }
 }
