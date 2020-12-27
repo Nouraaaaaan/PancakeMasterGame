@@ -32,11 +32,16 @@ public class DraggableObject : MonoBehaviour
         pos.x += delta.x * DragSpeed * -1f;
         pos.z += delta.y * DragSpeed * -1f;
 
+
+        transform.position = pos;
+
+        /*
         if ((MinPosX <= pos.x) && (MaxPosX >= pos.x) && (MinPosZ <= pos.z) && (MaxPosZ >= pos.z))
         {
             transform.position = pos;
         }
-        
+        */
+
 
         lastMousePos = Input.mousePosition;
     }

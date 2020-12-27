@@ -13,5 +13,6 @@ public class FillerCollisionPoint : MonoBehaviour
             this.IsCollidedWithFiller = true;
             PancakeLevelManager.Instance.UpdateNumberOfFilledPoints();
         }
+        
     }
 }

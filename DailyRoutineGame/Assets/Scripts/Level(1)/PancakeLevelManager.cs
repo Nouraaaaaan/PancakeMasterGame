@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Es.InkPainter;
+using DG.Tweening;
 
 public class PancakeLevelManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PancakeLevelManager : MonoBehaviour
 		FillingState,
 		CookingState,
 		FlippingState,
+		SyrupState,
 		SweetingState
 	}
 	private State currentState;
@@ -28,6 +30,8 @@ public class PancakeLevelManager : MonoBehaviour
 	LayerMask PaintLayer;
 	RaycastHit hit;
 	public GameObject PaintingQuad;
+	[SerializeField]
+	private Brush brush2;
 
 	[Header("Cooking Attributes")]
 	public Pancake Pancake;
@@ -40,7 +44,24 @@ public class PancakeLevelManager : MonoBehaviour
 	public bool IsArrowInsideGreenArea;
 
 	[Header("Sweeting Attributes")]
-	public GameObject SweeterSatge;
+	public Camera Camera;
+	public Transform CameraNewPos;
+	public GameObject Pan;
+	public Transform PanNewPos;
+	public Transform PancakeNewPos;
+	public Transform PancakeInitialPos;
+	public GameObject Sweeter;
+	public Transform SweeterInitialPos;
+	public Transform SweeterFinalPos;
+
+	[Header("Syrup Attributes")]
+	public GameObject Syrup;
+	public ParticleSystem SyrupVFX;
+	public Transform SyrupInitialPos;
+	public Transform SyrupFinalPos;
+	public GameObject PouringPoint;
+	public GameObject SyrupPaintingQuad;
+	public int NumberofSyrupPoints;
 
 	[Header("UI")]
 	public GameObject CookingCanvas;
@@ -116,7 +137,32 @@ public class PancakeLevelManager : MonoBehaviour
 				}
 			}
         }
-		
+
+		else if (currentState == State.SyrupState)
+		{
+			if (Input.GetMouseButtonDown(0))
+			{
+				SyrupVFX.Play();
+			}
+
+			else if (Input.GetMouseButton(0))
+			{
+				if (Physics.Raycast(PouringPoint.transform.position, -Vector3.up, out hit, 50, PaintLayer))
+				{
+					var paintObject = hit.transform.GetComponent<InkCanvas>();
+
+					if (paintObject != null)
+						paintObject.Paint(brush2, hit);
+
+				}
+			}
+
+			else if (Input.GetMouseButtonUp(0))
+			{
+				SyrupVFX.Stop();
+			}
+		}
+
 	}
 
 	#region Filling State
@@ -198,6 +244,32 @@ public class PancakeLevelManager : MonoBehaviour
 		//Meter.StopArrow();
 		BadEmojis[Random.Range(0, BadEmojis.Length - 1)].Play();
 	}
+	#endregion
+
+	#region Syrup State
+	public void UpdateNumberOfSyrupPoints()
+	{
+		NumberofSyrupPoints++;
+
+		if (NumberofSyrupPoints >= 4)
+		{
+			StartCoroutine(FinishSyrupState());
+		}
+	}
+
+	private IEnumerator FinishSyrupState()
+	{
+		currentState = State.SweetingState;
+
+		SyrupVFX.Stop();
+		Syrup.transform.DOMove(SyrupInitialPos.position, 1f);
+		Syrup.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f);
+		Syrup.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+		yield return new WaitForSeconds(2f);
+
+		MoveSweeter();
+	}
     #endregion
 
     #region Sweeting State
@@ -205,16 +277,59 @@ public class PancakeLevelManager : MonoBehaviour
     public void StartSweetingState()
 	{
 		//Debug.Log("Sweeting Stage has Started !");
-		currentState = State.SweetingState;
+		//currentState = State.SweetingState;
 		Pancake.FreezePancake();
-		SweeterSatge.SetActive(true);
+		//SweeterSatge.SetActive(true);
+		StartCoroutine(MoveToPlate());
+
+		Meter.gameObject.SetActive(false);
+		Arrow.SetActive(false);
+	}
+
+	private IEnumerator MoveToPlate()
+	{
+		Camera.transform.DOMove(CameraNewPos.position , 2f);
+		yield return new WaitForSeconds(1f);
+
+		Pancake.transform.parent = Pan.transform;
+		Pan.transform.DOMove(PanNewPos.position, 2f);
+		yield return new WaitForSeconds(1f);
+
+		Pan.transform.DORotate(new Vector3(40f, 0f, 0f), 2f);
+		yield return new WaitForSeconds(1f);
+
+		Pancake.gameObject.transform.DOMove(PancakeNewPos.position, 1f);
+		Pancake.gameObject.transform.DOLocalRotate(new Vector3(-48.963f, 0.001f, 180f), 1f);
+		yield return new WaitForSeconds(1f);
+
+		Pancake.transform.parent = null;
+		Pan.SetActive(false);
+
+		//MoveSweeter();
+		MoveSyrup();
+	}
+
+	private void MoveSyrup()
+	{
+		currentState = State.SyrupState;
+
+		Syrup.transform.DOMove(SyrupFinalPos.position, 1f);
+		Syrup.transform.DOLocalRotate(new Vector3(0f, 0f, -51.728f), 1f);
+
+		SyrupPaintingQuad.SetActive(true);
+	}
+
+	private void MoveSweeter()
+    {
+		Sweeter.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f);
+		Sweeter.transform.DOMove(SweeterFinalPos.position, 1f);
 	}
 
 	public void FinishSweetingStage()
 	{
 		//Debug.Log("Sweeting Stage has Finished !");
 
-		SweeterSatge.SetActive(false);
+		//SweeterSatge.SetActive(false);
 		SFXManager.Instance.StopSoundEffect();
 		TextEffect.PlayEffect();
 	}

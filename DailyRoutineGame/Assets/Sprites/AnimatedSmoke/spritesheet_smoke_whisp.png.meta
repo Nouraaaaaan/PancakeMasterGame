@@ -80,6 +80,9 @@ TextureImporter:
   - first:
       213: 7805023598442481657
     second: spritesheet_smoke_whisp_25
+  - first:
+      213: -1073123139146744001
+    second: spritesheet_smoke_whisp_26
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -98,7 +101,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
@@ -110,7 +113,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -100
     wrapU: 1
     wrapV: 1
@@ -139,7 +142,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -151,7 +154,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -163,7 +166,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -181,9 +184,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 598
-        width: 179
-        height: 602
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +204,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_1
       rect:
         serializedVersion: 2
-        x: 185
-        y: 599
-        width: 162
-        height: 601
+        x: 180
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,10 +225,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_2
       rect:
         serializedVersion: 2
-        x: 372
-        y: 603
-        width: 142
-        height: 577
+        x: 360
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,10 +246,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_3
       rect:
         serializedVersion: 2
-        x: 554
-        y: 599
-        width: 136
-        height: 601
+        x: 540
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,10 +267,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_4
       rect:
         serializedVersion: 2
-        x: 746
-        y: 598
-        width: 120
-        height: 602
+        x: 720
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +288,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_5
       rect:
         serializedVersion: 2
-        x: 923
-        y: 598
-        width: 118
-        height: 602
+        x: 900
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,10 +309,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_6
       rect:
         serializedVersion: 2
-        x: 1115
-        y: 598
-        width: 125
-        height: 602
+        x: 1080
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,10 +330,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_7
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 598
-        width: 125
-        height: 602
+        x: 1260
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,10 +351,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_8
       rect:
         serializedVersion: 2
-        x: 1477
-        y: 599
-        width: 120
-        height: 601
+        x: 1440
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,9 +372,9 @@ TextureImporter:
       name: spritesheet_smoke_whisp_9
       rect:
         serializedVersion: 2
-        x: 1654
+        x: 1620
         y: 600
-        width: 120
+        width: 180
         height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -390,10 +393,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_10
       rect:
         serializedVersion: 2
-        x: 1824
-        y: 608
-        width: 145
-        height: 553
+        x: 1800
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -411,10 +414,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_11
       rect:
         serializedVersion: 2
-        x: 1996
-        y: 598
-        width: 150
-        height: 602
+        x: 1980
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -432,10 +435,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_12
       rect:
         serializedVersion: 2
-        x: 2163
-        y: 0
-        width: 172
-        height: 1180
+        x: 2160
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -453,10 +456,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_13
       rect:
         serializedVersion: 2
-        x: 2335
-        y: 608
-        width: 185
-        height: 569
+        x: 2340
+        y: 600
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -474,10 +477,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_14
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 175
-        height: 567
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -495,10 +498,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_15
       rect:
         serializedVersion: 2
-        x: 194
+        x: 180
         y: 0
-        width: 153
-        height: 570
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -516,10 +519,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_16
       rect:
         serializedVersion: 2
-        x: 383
+        x: 360
         y: 0
-        width: 149
-        height: 548
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -537,10 +540,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_17
       rect:
         serializedVersion: 2
-        x: 570
+        x: 540
         y: 0
-        width: 139
-        height: 551
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -558,10 +561,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_18
       rect:
         serializedVersion: 2
-        x: 748
+        x: 720
         y: 0
-        width: 128
-        height: 528
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -579,10 +582,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_19
       rect:
         serializedVersion: 2
-        x: 933
+        x: 900
         y: 0
-        width: 113
-        height: 531
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -600,10 +603,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_20
       rect:
         serializedVersion: 2
-        x: 1103
+        x: 1080
         y: 0
-        width: 137
-        height: 531
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -621,10 +624,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_21
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1260
         y: 0
-        width: 120
-        height: 551
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -642,10 +645,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_22
       rect:
         serializedVersion: 2
-        x: 1464
+        x: 1440
         y: 0
-        width: 118
-        height: 548
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -663,10 +666,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_23
       rect:
         serializedVersion: 2
-        x: 1634
+        x: 1620
         y: 0
-        width: 130
-        height: 570
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -684,10 +687,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_24
       rect:
         serializedVersion: 2
-        x: 1811
+        x: 1800
         y: 0
-        width: 145
-        height: 567
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -705,10 +708,10 @@ TextureImporter:
       name: spritesheet_smoke_whisp_25
       rect:
         serializedVersion: 2
-        x: 1986
+        x: 1980
         y: 0
-        width: 162
-        height: 591
+        width: 180
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -722,10 +725,31 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spritesheet_smoke_whisp_26
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 0
+        width: 180
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ff7eac0308b11f0800000000000000
+      internalID: -1073123139146744001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 703101cae924bac4daab1a93acfae4c5
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

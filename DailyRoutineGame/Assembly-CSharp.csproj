@@ -64,14 +64,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Imported Assets\Liquid Paint\LiquidPaint.cs" />
     <Compile Include="Assets\Scripts\Level(1)\DraggableObject.cs" />
     <Compile Include="Assets\Scripts\Level(1)\FillerCollisionPoint.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Flip.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Meter.cs" />
-    <Compile Include="Assets\Scripts\Level(1)\Pan.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Pancake.cs" />
     <Compile Include="Assets\Scripts\Level(1)\PancakeLevelManager.cs" />
+    <Compile Include="Assets\Scripts\Level(1)\Sweet.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Sweeter.cs" />
     <Compile Include="Assets\Scripts\Level(1)\TextEffect.cs" />
     <Compile Include="Assets\Scripts\Make Cookie\CakeIcing.cs" />
@@ -80,6 +79,7 @@
     <Compile Include="Assets\Scripts\Make Cookie\MakeCookie_LevelManager.cs" />
     <Compile Include="Assets\Scripts\Make Cookie\SweetsSpawnerfiller.cs" />
     <Compile Include="Assets\Scripts\SFXManager.cs" />
+    <Compile Include="Assets\Scripts\SyrupPoints.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

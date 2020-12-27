@@ -6,12 +6,17 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - DraggableObject
     - FillerCollisionPoint
+    - Meter
+    - Pancake
     - PancakeLevelManager
     - SFXManager
+    - Sweet
     - Sweeter
     - TextEffect
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
+    Unity.2D.Sprite.Editor.dll:
+    - UnityEditor.U2D.Sprites.SpriteEditorWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.TestRunner.dll:
@@ -69,37 +74,43 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11286}
+      Script: {instanceID: 11290}
     - Class: 114
-      Script: {instanceID: 11470}
+      Script: {instanceID: 11486}
     - Class: 114
-      Script: {instanceID: 11512}
+      Script: {instanceID: 11530}
     - Class: 114
-      Script: {instanceID: 11882}
+      Script: {instanceID: 11788}
     - Class: 114
-      Script: {instanceID: 11888}
+      Script: {instanceID: 11924}
     - Class: 114
-      Script: {instanceID: 11932}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 12162}
+      Script: {instanceID: 11976}
     - Class: 114
-      Script: {instanceID: 12256}
+      Script: {instanceID: 12220}
     - Class: 114
-      Script: {instanceID: 12264}
+      Script: {instanceID: 12322}
     - Class: 114
-      Script: {instanceID: 12286}
+      Script: {instanceID: 12330}
     - Class: 114
-      Script: {instanceID: 12382}
+      Script: {instanceID: 12352}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12450}
     - Class: 114
-      Script: {instanceID: 13278}
+      Script: {instanceID: 12840}
     - Class: 114
-      Script: {instanceID: 13296}
+      Script: {instanceID: 12916}
     - Class: 114
-      Script: {instanceID: 19782}
+      Script: {instanceID: 13006}
     - Class: 114
-      Script: {instanceID: 35110}
+      Script: {instanceID: 13014}
+    - Class: 114
+      Script: {instanceID: 13398}
+    - Class: 114
+      Script: {instanceID: 13418}
+    - Class: 114
+      Script: {instanceID: 53168}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -127,6 +138,12 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
+      Hash: e41918c9e32b7840fccfa7ee81e3f81e
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: LogoCinematic
+  - hash:
+      serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -151,16 +168,22 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 23e057c52755f181bd26e13e2e6f1bcd
-    assemblyName: Assembly-CSharp.dll
+      Hash: 40aeefc42dfa427357f3518925654d60
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
-    className: DonutSweet
+    className: GeneralBasics2d
   - hash:
       serializedVersion: 2
       Hash: d9f312ceb0ce2174841824e9dbb936a7
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: ItemHolder
+  - hash:
+      serializedVersion: 2
+      Hash: 928ca8678155de4eb92215a4cdef11a1
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: DentedPixel.LTExamples
+    className: TestingUnitTests
   - hash:
       serializedVersion: 2
       Hash: f0fc3103122c9be1966a9a42c67cd2f1
@@ -179,6 +202,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: f13c460e52d02ffe01df7fab616110e3
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathBezier2d
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -223,6 +252,12 @@ ScriptsOnlyBuild:
     className: Scrollbar
   - hash:
       serializedVersion: 2
+      Hash: f13c460e52d02ffe01df7fab616110e3
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathSpline2d
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -265,6 +300,12 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralCameraShake
+  - hash:
+      serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -295,6 +336,12 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: b6894215a42cb0ce46cd3c2a651ac089
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralSimpleUI
+  - hash:
+      serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -313,16 +360,28 @@ ScriptsOnlyBuild:
     className: RectMask2D
   - hash:
       serializedVersion: 2
+      Hash: e9932200d83498a2e6c029112d69de59
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralEasingTypes
+  - hash:
+      serializedVersion: 2
       Hash: 1103fb0758976355cdf9b7d5ce9cb7e0
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 69a832dabfd9870776e255561fa77fd8
+      Hash: cfb8e4d741196b6f1c1cc466b037937c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: DonutSyrup
+    className: Pancake
+  - hash:
+      serializedVersion: 2
+      Hash: 1f3a471cd6e711022858ae1a632a0af5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: Following
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -337,10 +396,22 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
+      Hash: 318eceb934b462316071551ba0414124
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathSplineEndless
+  - hash:
+      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
+  - hash:
+      serializedVersion: 2
+      Hash: 5df8f04f27f1365841ef759a37abb452
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralBasic
   - hash:
       serializedVersion: 2
       Hash: a5ec0b17c93e27888a6d4cec7544a2e3
@@ -349,13 +420,7 @@ ScriptsOnlyBuild:
     className: LevelGenerator
   - hash:
       serializedVersion: 2
-      Hash: fe5630faa2200d7efffe4c4f78560516
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: JellyMesh
-  - hash:
-      serializedVersion: 2
-      Hash: a3850c3362c87c6a669956de1a0e4edb
+      Hash: 563cd4ac214bcf50367a0f77b3091e8b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PancakeLevelManager
@@ -365,6 +430,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: Es.InkPainter
     className: InkCanvas
+  - hash:
+      serializedVersion: 2
+      Hash: 64539b9106486719878df4581e1ae0ad
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralAdvancedTechniques
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -377,6 +448,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 99f0f78788218459985f9b0975e79146
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralSequencer
   - hash:
       serializedVersion: 2
       Hash: d2fe2dce77cdcb13edc4b019b313b2f0
@@ -415,10 +492,10 @@ ScriptsOnlyBuild:
     className: CollisionReflectionPainter
   - hash:
       serializedVersion: 2
-      Hash: 392ffb5e9eb2951818e2d37d8d75c78a
-    assemblyName: Assembly-CSharp.dll
+      Hash: ae5c2f074db42129b5ef9e8bac8b1590
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
-    className: SweetHolder
+    className: PathSplinePerformance
   - hash:
       serializedVersion: 2
       Hash: 46817e3999cfc263e95ef9ff79ae6f90
@@ -475,10 +552,16 @@ ScriptsOnlyBuild:
     className: ColorTrigger
   - hash:
       serializedVersion: 2
-      Hash: f136c56bad0ab739b0b127fc01af1583
-    assemblyName: Assembly-CSharp.dll
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
-    className: Donut
+    className: LeanTween
+  - hash:
+      serializedVersion: 2
+      Hash: ef5bbd1133544028b676c462676b0965
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: TestingPunch
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -547,10 +630,22 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: b3ff64ca2e6c99b7b1bcfb31e95b2ce5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathSplineTrack
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: eb2a9f75918f2ec46c2bd527aca290ca
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: TestingZLegacy
   - hash:
       serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
@@ -563,6 +658,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalReceiver
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: TestingRigidbodyCS
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -589,12 +690,6 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SweetItem
-  - hash:
-      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -605,6 +700,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: Stars
+  - hash:
+      serializedVersion: 2
+      Hash: a0d1bcc68004704308edb26e4d0f97b5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: DentedPixel.LTExamples
+    className: PathBezier
   - hash:
       serializedVersion: 2
       Hash: 1eda5c554abcc109d2a4010235fdc218
@@ -631,10 +732,22 @@ ScriptsOnlyBuild:
     className: SweetsSpawnerfiller
   - hash:
       serializedVersion: 2
-      Hash: d656715477ddc4a6ae61c5b0b6e8e935
+      Hash: 30fe01f7655c85800f940e262818bbe8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: LiquidPaint
+    className: SFXManager
+  - hash:
+      serializedVersion: 2
+      Hash: eb2a9f75918f2ec46c2bd527aca290ca
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: TestingZLegacyExt
+  - hash:
+      serializedVersion: 2
+      Hash: fea1abfd1dd11db231ac661dcdaf009b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Meter
   - hash:
       serializedVersion: 2
       Hash: 6939772cb3ce775a8e8d99f332534491
@@ -685,22 +798,16 @@ ScriptsOnlyBuild:
     className: CakeIcing
   - hash:
       serializedVersion: 2
-      Hash: 6f39bdaa3c910c356342a28e81d1d9d4
+      Hash: 5f1df514a711a3df73b521363c4e6a2f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Donutes_LevelManager
+    className: TextEffect
   - hash:
       serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
-  - hash:
-      serializedVersion: 2
-      Hash: 0acf3d4ca847410b94225b9b74a4e009
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SyrupItem
   - hash:
       serializedVersion: 2
       Hash: afc5b93a7b192de2dcb3832fe35a5c7e
@@ -713,6 +820,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: UIManagerCakeMaster
+  - hash:
+      serializedVersion: 2
+      Hash: 2599423750f16a5434e1782be2feeee1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Flip
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -751,10 +864,22 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
+      Hash: a0d1bcc68004704308edb26e4d0f97b5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: PathSplines
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 505d135987a40b183e97f89c9c82d9e6
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralUISpace
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -805,6 +930,12 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: GeneralEventsListeners
+  - hash:
+      serializedVersion: 2
       Hash: aa88ae22474df55295327e4ee99e5a24
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -829,6 +960,12 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: 6a6b62ad42f0c97f3b8565ebc273ad24
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: OldGUIExamplesCS
+  - hash:
+      serializedVersion: 2
       Hash: 65d22c8d04a15fc03a5f3e5d513e4945
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
@@ -847,167 +984,11 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 5f1df514a711a3df73b521363c4e6a2f
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: TextEffect
-  - hash:
-      serializedVersion: 2
-      Hash: e41918c9e32b7840fccfa7ee81e3f81e
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: LogoCinematic
-  - hash:
-      serializedVersion: 2
-      Hash: 40aeefc42dfa427357f3518925654d60
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralBasics2d
-  - hash:
-      serializedVersion: 2
-      Hash: 928ca8678155de4eb92215a4cdef11a1
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: DentedPixel.LTExamples
-    className: TestingUnitTests
-  - hash:
-      serializedVersion: 2
-      Hash: f13c460e52d02ffe01df7fab616110e3
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathBezier2d
-  - hash:
-      serializedVersion: 2
-      Hash: f13c460e52d02ffe01df7fab616110e3
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathSpline2d
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralCameraShake
-  - hash:
-      serializedVersion: 2
-      Hash: b6894215a42cb0ce46cd3c2a651ac089
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralSimpleUI
-  - hash:
-      serializedVersion: 2
-      Hash: e9932200d83498a2e6c029112d69de59
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralEasingTypes
-  - hash:
-      serializedVersion: 2
-      Hash: 1f3a471cd6e711022858ae1a632a0af5
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: Following
-  - hash:
-      serializedVersion: 2
-      Hash: 318eceb934b462316071551ba0414124
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathSplineEndless
-  - hash:
-      serializedVersion: 2
-      Hash: 5df8f04f27f1365841ef759a37abb452
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralBasic
-  - hash:
-      serializedVersion: 2
-      Hash: 64539b9106486719878df4581e1ae0ad
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralAdvancedTechniques
-  - hash:
-      serializedVersion: 2
-      Hash: 99f0f78788218459985f9b0975e79146
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralSequencer
-  - hash:
-      serializedVersion: 2
-      Hash: ae5c2f074db42129b5ef9e8bac8b1590
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathSplinePerformance
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: LeanTween
-  - hash:
-      serializedVersion: 2
-      Hash: ef5bbd1133544028b676c462676b0965
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: TestingPunch
-  - hash:
-      serializedVersion: 2
-      Hash: b3ff64ca2e6c99b7b1bcfb31e95b2ce5
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathSplineTrack
-  - hash:
-      serializedVersion: 2
-      Hash: eb2a9f75918f2ec46c2bd527aca290ca
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: TestingZLegacy
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: TestingRigidbodyCS
-  - hash:
-      serializedVersion: 2
-      Hash: a0d1bcc68004704308edb26e4d0f97b5
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: DentedPixel.LTExamples
-    className: PathBezier
-  - hash:
-      serializedVersion: 2
-      Hash: eb2a9f75918f2ec46c2bd527aca290ca
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: TestingZLegacyExt
-  - hash:
-      serializedVersion: 2
-      Hash: a0d1bcc68004704308edb26e4d0f97b5
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: PathSplines
-  - hash:
-      serializedVersion: 2
-      Hash: 505d135987a40b183e97f89c9c82d9e6
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralUISpace
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GeneralEventsListeners
-  - hash:
-      serializedVersion: 2
-      Hash: 6a6b62ad42f0c97f3b8565ebc273ad24
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: OldGUIExamplesCS
-  - hash:
-      serializedVersion: 2
-      Hash: 30fe01f7655c85800f940e262818bbe8
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SFXManager
+    className: Sweet
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level_2.unity
-  playerPath: C:/Users/DELL/Desktop/DailyRoutineLevelOne.apk
+  playerPath: C:/Users/DELL/Desktop/DailyRoutineLevelOne222.apk
