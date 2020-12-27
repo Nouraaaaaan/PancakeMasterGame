@@ -23,6 +23,9 @@ public class PancakeLevelManager : MonoBehaviour
 	public Material PancakeMaterial;
 	private Color color;
 
+	[Header("Flipping Attributes")]
+	public Meter Meter;
+
 	[Header("Sweeting Attributes")]
 	public Sweeter Sweeter;
 

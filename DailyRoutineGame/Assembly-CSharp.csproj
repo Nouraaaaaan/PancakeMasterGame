@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Level(1)\DraggableObject.cs" />
     <Compile Include="Assets\Scripts\Level(1)\FillerCollisionPoint.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Flip.cs" />
+    <Compile Include="Assets\Scripts\Level(1)\Meter.cs" />
     <Compile Include="Assets\Scripts\Level(1)\PancakeLevelManager.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Sweeter.cs" />
     <Compile Include="Assets\Scripts\Level(1)\TextEffect.cs" />
