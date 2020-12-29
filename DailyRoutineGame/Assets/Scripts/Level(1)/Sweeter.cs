@@ -6,55 +6,70 @@ using DG.Tweening;
 public class Sweeter : MonoBehaviour
 {
     [Header("Sweets Spawning Attributes")]
-    public GameObject SweetsPrefab;
+    public GameObject[] SweetsPrefabs;
     public Transform[] SpawnPoints;
     public GameObject Holder;
-    int randomPoint;
+    int randomPrefab;
+    int NumberOfSpawnedSweets = 0;
+    int MaxSpawnedSweets = 40;
 
     [Header("Sweeter Animation Attributes")]
     public Transform SweeterInitialPos;
     public Transform SweeterNewPos;
 
-    [Header("Sweeter Clicking Attributes")]
-    public bool CanClick = true;
-    public  int MaxClicks;
-    private int NumberOfClicks = 0;
-    
 
-    private void OnMouseOver()
+    private bool CanInstantiate;
+    private float counter = 0.1f;
+
+    private bool Finished = false;
+
+
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && CanClick && (NumberOfClicks <= MaxClicks))
+        counter -= Time.deltaTime;
+
+        if (counter <= 0)
         {
-            //Debug.Log("Click on sweeter !");
-            NumberOfClicks++;
-            ShakeSweetCan();
-            InstantiateSweet();
+            counter = 0.1f;
+
+            if (CanInstantiate)
+            {
+                InstantiateSweet();
+            }
         }
-        else if ((NumberOfClicks > MaxClicks) && CanClick)
+    }
+
+    private void OnMouseDrag()
+    {
+        if (Finished == false)
         {
-            CanClick = false;
-            PancakeLevelManager.Instance.FinishSweetingStage();
+            CanInstantiate = true;
         }
+    }
+
+    private void OnMouseUp()
+    {
+        CanInstantiate = false;
     }
 
     private void InstantiateSweet()
     {
-        randomPoint = Random.Range(0, SpawnPoints.Length);
-        var sweet = Instantiate(SweetsPrefab, SpawnPoints[randomPoint].position, Quaternion.identity);
-        sweet.transform.parent = Holder.transform;
-    }
+        //Debug.Log("Instantiate Sweets !");   
 
-    private void ShakeSweetCan()
-    {
-        CanClick = false;
-        transform.DOMove(SweeterNewPos.position, 0.2f).OnComplete(ReturnSweetCanToInitialPosition);
-        SFXManager.Instance.PlaySoundEffect(0);
-    }
+        foreach (var spawnPoint in SpawnPoints)
+        {
+            randomPrefab = Random.Range(0, SweetsPrefabs.Length);
+            var sweet = Instantiate(SweetsPrefabs[randomPrefab], spawnPoint.position, Quaternion.identity);
+            sweet.transform.parent = Holder.transform;
+        }
 
-    private void ReturnSweetCanToInitialPosition()
-    {
-        CanClick = true;
-        transform.DOMove(SweeterInitialPos.position, 0.2f);
+        NumberOfSpawnedSweets++;
+        if (NumberOfSpawnedSweets >= MaxSpawnedSweets)
+        {
+            Finished = true;
+            CanInstantiate = false;
+            PancakeLevelManager.Instance.FinishSweetingStage();
+        }
     }
 
 }

@@ -12,6 +12,7 @@ ScriptsOnlyBuild:
     - SFXManager
     - Sweet
     - Sweeter
+    - SyrupPoints
     - TextEffect
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
@@ -32,7 +33,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/Level_2.unity:
+    Assets/Scenes/Level_1.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -96,9 +97,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12352}
     - Class: 114
-      Script: {instanceID: 12450}
+      Script: {instanceID: 12396}
     - Class: 114
-      Script: {instanceID: 12840}
+      Script: {instanceID: 12452}
+    - Class: 114
+      Script: {instanceID: 12842}
     - Class: 114
       Script: {instanceID: 12916}
     - Class: 114
@@ -106,11 +109,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13398}
+      Script: {instanceID: 13396}
     - Class: 114
-      Script: {instanceID: 13418}
+      Script: {instanceID: 13416}
     - Class: 114
-      Script: {instanceID: 53168}
+      Script: {instanceID: 13446}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -420,7 +423,7 @@ ScriptsOnlyBuild:
     className: LevelGenerator
   - hash:
       serializedVersion: 2
-      Hash: 563cd4ac214bcf50367a0f77b3091e8b
+      Hash: e5051edbba8d8e6d26713cfac2eb9394
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PancakeLevelManager
@@ -604,6 +607,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
+  - hash:
+      serializedVersion: 2
+      Hash: 43d9c42917251fdbf10061fa3cf1ee7a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SyrupPoints
   - hash:
       serializedVersion: 2
       Hash: 51eb8b0cfbd0f58cbc64cac202c75b03
@@ -942,7 +951,7 @@ ScriptsOnlyBuild:
     className: Toggle
   - hash:
       serializedVersion: 2
-      Hash: c25990b6c5ee8d80eb73618cbea5768f
+      Hash: 103ee12d3eafe3c1cb7b5be522b1ebec
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Sweeter
@@ -958,6 +967,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Slider
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Sweet
   - hash:
       serializedVersion: 2
       Hash: 6a6b62ad42f0c97f3b8565ebc273ad24
@@ -982,13 +997,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Sweet
   platform: 13
   scenePathNames:
-  - Assets/Scenes/Level_2.unity
-  playerPath: C:/Users/DELL/Desktop/DailyRoutineLevelOne222.apk
+  - Assets/Scenes/Level_1.unity
+  playerPath: C:/Users/DELL/Desktop/DailyRoutine_Pancakes.apk

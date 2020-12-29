@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class PancakeLevelManager : MonoBehaviour
 {
-	enum State
+	public enum State
 	{
 		FillingState,
 		CookingState,
@@ -14,7 +14,7 @@ public class PancakeLevelManager : MonoBehaviour
 		SyrupState,
 		SweetingState
 	}
-	private State currentState;
+	public State currentState;
 
 	[Header("Filling Attributes")]
 	public GameObject Filler;
@@ -129,6 +129,7 @@ public class PancakeLevelManager : MonoBehaviour
 				if (IsArrowInsideGreenArea)
 				{
 					ClickAtrightTime();
+					currentState = State.SyrupState;
 
 				}
 				else
@@ -194,9 +195,7 @@ public class PancakeLevelManager : MonoBehaviour
 		currentState = State.CookingState;
 		Filler.gameObject.SetActive(false);
 		FillerCollisionPoints.gameObject.SetActive(false);
-
 		CookingCanvas.SetActive(true);
-		Pancake.gameObject.SetActive(true);
 	}
 
 	public void ClickCookButton()
@@ -237,12 +236,20 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		Meter.StopArrow();
 		Pancake.Flip();
+		PanAnimation();
 	}
 
 	public void ClickAtWrongTime()
 	{
 		//Meter.StopArrow();
 		BadEmojis[Random.Range(0, BadEmojis.Length - 1)].Play();
+	}
+
+	private void PanAnimation()
+	{
+		Pan.transform.DOMoveY(Pan.transform.position.y + 0.1f, 0.5f);
+
+		Pan.transform.DOMoveY(Pan.transform.position.y - 0.08f, 0.5f).SetDelay(0.5f);
 	}
 	#endregion
 
@@ -251,7 +258,7 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		NumberofSyrupPoints++;
 
-		if (NumberofSyrupPoints >= 4)
+		if (NumberofSyrupPoints >= 5)
 		{
 			StartCoroutine(FinishSyrupState());
 		}
@@ -266,7 +273,7 @@ public class PancakeLevelManager : MonoBehaviour
 		Syrup.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f);
 		Syrup.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1f);
 
 		MoveSweeter();
 	}
@@ -277,6 +284,7 @@ public class PancakeLevelManager : MonoBehaviour
     public void StartSweetingState()
 	{
 		//Debug.Log("Sweeting Stage has Started !");
+
 		//currentState = State.SweetingState;
 		Pancake.FreezePancake();
 		//SweeterSatge.SetActive(true);
@@ -288,24 +296,35 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator MoveToPlate()
 	{
-		Camera.transform.DOMove(CameraNewPos.position , 2f);
-		yield return new WaitForSeconds(1f);
-
+		//1.Move Camera.
+		Camera.transform.DOMove(CameraNewPos.position , 1f);
+		//2.Move Pan.
 		Pancake.transform.parent = Pan.transform;
-		Pan.transform.DOMove(PanNewPos.position, 2f);
+		Pan.transform.DOMove(PanNewPos.position, 1f);
 		yield return new WaitForSeconds(1f);
 
-		Pan.transform.DORotate(new Vector3(40f, 0f, 0f), 2f);
-		yield return new WaitForSeconds(1f);
+		//3.Rotate Pan.
+		Pan.transform.DORotate(new Vector3(40f, 0f, 0f), 1f);
+		yield return new WaitForSeconds(0.5f);
 
-		Pancake.gameObject.transform.DOMove(PancakeNewPos.position, 1f);
-		Pancake.gameObject.transform.DOLocalRotate(new Vector3(-48.963f, 0.001f, 180f), 1f);
-		yield return new WaitForSeconds(1f);
+		//4.Move Pancake to pan.
+		Pancake.gameObject.transform.DOMove(PancakeNewPos.position, 0.5f);
+		Pancake.gameObject.transform.DOLocalRotate(new Vector3(-48.963f, 0.001f, 180f), 0.5f);
+		yield return new WaitForSeconds(0.65f);
+
 
 		Pancake.transform.parent = null;
 		Pan.SetActive(false);
+		StartCoroutine(MoveCamera());
+	}
 
-		//MoveSweeter();
+	private IEnumerator MoveCamera()
+    {
+		Camera.transform.DOMove(new Vector3(32.58f, 1.84f, 1.81f), 0.5f);
+		Camera.transform.DORotate(new Vector3(40.43f, 180f, 0f), 0.5f);
+
+		yield return new WaitForSeconds(1f);
+
 		MoveSyrup();
 	}
 
@@ -328,10 +347,16 @@ public class PancakeLevelManager : MonoBehaviour
 	public void FinishSweetingStage()
 	{
 		//Debug.Log("Sweeting Stage has Finished !");
+		ReturnSweeter();
 
-		//SweeterSatge.SetActive(false);
 		SFXManager.Instance.StopSoundEffect();
 		TextEffect.PlayEffect();
+	}
+
+	public void ReturnSweeter()
+	{
+		Sweeter.transform.DOLocalRotate(new Vector3(0f, 0f, 134.041f), 1f);
+		Sweeter.transform.DOMove(SweeterInitialPos.position, 1f);
 	}
 
     #endregion
