@@ -90,6 +90,8 @@ public class PancakeLevelManager : MonoBehaviour
     private void Start()
     {
 		currentState = State.FillingState;
+		StartCoroutine(FillingstateCameraMovement());
+			
 
 		color = PancakeMaterial.color;
 		PancakeMaterial.color = new Color(color.r, color.g, color.b, 0f);
@@ -187,6 +189,14 @@ public class PancakeLevelManager : MonoBehaviour
 		StartCookingState();
 	}
 
+	private IEnumerator FillingstateCameraMovement()
+	{
+		Camera.transform.DORotate(new Vector3(28.108f, 180f, 0f), 0.5f);
+		Camera.transform.DOMoveZ(2.09f, 0.5f);
+
+		yield return new WaitForSeconds(1f);
+	}
+
 	#endregion
 
 	#region Cooking state
@@ -205,7 +215,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	}
 
-	IEnumerator Cook()
+	private IEnumerator Cook()
 	{
 		Smoke.SetActive(true);
 
@@ -219,6 +229,16 @@ public class PancakeLevelManager : MonoBehaviour
 		Smoke.SetActive(false);
 		PaintingQuad.SetActive(false);
 		StartFlippingState();
+
+		StartCoroutine(ReturnCameraToInitialPos());
+	}
+
+	private IEnumerator ReturnCameraToInitialPos()
+	{
+		Camera.transform.DORotate(new Vector3(5.408f, 180f, 0f), 0.5f);
+		Camera.transform.DOMoveZ(3.414223f, 0.5f);
+
+		yield return new WaitForSeconds(1f);
 	}
 
 	#endregion
