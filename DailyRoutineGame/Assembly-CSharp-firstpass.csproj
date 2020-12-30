@@ -64,25 +64,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Helpers\ConditionalHideAttribute.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Helpers\Singleton.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Helpers\UISettings.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\Cake.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\ColorTrigger.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\GameManagerCakeMaster.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\IcingCakeMaster.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\LevelGenerator.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\Rotating.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Scripts\Stars.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Shop\CakeData.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Shop\ItemHolder.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Shop\Shop.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\Sound\SoundManager.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\UI\Scripts\ColorChooser.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\UI\Scripts\Gameplay.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\Game Data\UI\Scripts\UIManagerCakeMaster.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\ServicesManager\Scripts\AdsData.cs" />
-    <Compile Include="Assets\Plugins\Cake Master\ServicesManager\Scripts\ServicesManager.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />

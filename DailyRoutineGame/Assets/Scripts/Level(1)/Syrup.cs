@@ -70,8 +70,15 @@ public class Syrup : MonoBehaviour
 
     public void ReturnSyrupToInitialPosition()
     {
+        StopPouringSyrup();
+
         SyrupObject.transform.DOMove(SyrupInitialPos.position, 1f);
-        SyrupObject.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f);
+        SyrupObject.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f).OnComplete(FinishSyrupState);
+    }
+
+    private void FinishSyrupState()
+    {
+        PancakeLevelManager.Instance.FinishSyrupState();
     }
 
     public void FreezeSyrupRigidBody()

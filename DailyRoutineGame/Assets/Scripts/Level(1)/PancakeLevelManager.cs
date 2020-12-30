@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Es.InkPainter;
 using DG.Tweening;
 
@@ -45,15 +46,18 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject Arrow;
 	public bool IsArrowInsideGreenArea;
 	public Material BurntMaterial;
+	private bool RightFlip;
 	//private Material material;
-	
+
 	[Header("Sweeting Attributes")]
+	public GameObject SweetsStage;
 	public Transform PancakeNewPos;
 	public Transform PancakeInitialPos;
 	public Sweeter Sweeter;
 	public bool CanAddSweets;
 
 	[Header("Syrup Attributes")]
+	public GameObject SyrupStage;
 	public Syrup[] Syrups;
 	public Syrup CurrentSyrup;
 	public bool CanAddSyrup;
@@ -66,12 +70,21 @@ public class PancakeLevelManager : MonoBehaviour
 
 	[Header("UI")]
 	public GameObject CookingCanvas;
+	public GameObject ResultCanvas;
 
 	[Header("VFX")]
 	public ParticleSystem[] GoodEmojis;
 	public ParticleSystem[] BadEmojis;
 	public TextEffect TextEffect;
 	public GameObject Smoke;
+
+	[Header("Evaluation Attributes")]
+	public Sprite BadEvaluationSprite;
+	public Sprite GoodEvaluationSprite;
+
+	public Image FlippingStateImage;
+	public Image SyrupStateImage;
+	public Image SweetsStateImage;
 
 	#region Singelton Region
 	public static PancakeLevelManager Instance;
@@ -260,6 +273,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void ClickAtrightTime()
 	{
+		RightFlip = true;
 		Meter.StopArrow();
 		Pancake.Flip();
 		PanAnimation();
@@ -268,8 +282,14 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void ClickAtWrongTime()
 	{
+		RightFlip = false;
 		ChangePancakeMaterial();
 		BadEmojis[Random.Range(0, BadEmojis.Length - 1)].Play();
+
+		//Meter.StopArrow();
+		//Pancake.Flip();
+		//PanAnimation();
+
 		Smoke.SetActive(false);
 	}
 
@@ -293,28 +313,21 @@ public class PancakeLevelManager : MonoBehaviour
 
 		if (NumberofSyrupPoints >= 5)
 		{
-			StartCoroutine(FinishSyrupState());
+			CurrentSyrup.ReturnSyrupToInitialPosition();
 		}
 	}
 
-	private IEnumerator FinishSyrupState()
+	public void FinishSyrupState()
 	{
-		//Debug.Log("Finish Syrup State !");
-
 		currentState = State.SweetingState;
-
-		CurrentSyrup.StopPouringSyrup();
-		CurrentSyrup.ReturnSyrupToInitialPosition();
-		CurrentSyrup.FreezeSyrupRigidBody();
-
-		yield return new WaitForSeconds(1f);
-
+		SyrupStage.SetActive(false);
+		SweetsStage.SetActive(true);
 	}
-    #endregion
 
-    #region Sweeting State
+	#endregion
 
-    public void StartSweetingState()
+	#region Sweeting State
+	public void StartSweetingState()
 	{
 		//Debug.Log("Sweeting Stage has Started !");
 
@@ -368,6 +381,12 @@ public class PancakeLevelManager : MonoBehaviour
 
 		SFXManager.Instance.StopSoundEffect();
 		TextEffect.PlayEffect();
+
+		//SyrupStage.SetActive(true);
+		//SweetsStage.SetActive(false);
+
+		CheckResult();
+		ShowResultCanvas();
 	}
 
 	#endregion
@@ -376,16 +395,36 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		if (!OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
 		{
-			Debug.Log("Failed");
+			SyrupStateImage.sprite = BadEvaluationSprite;
 		}
-		else if(!OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder))
+        else
         {
-			Debug.Log("Failed");
+			SyrupStateImage.sprite = GoodEvaluationSprite;
+		}
+
+		if(!OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder))
+        {
+			SweetsStateImage.sprite = BadEvaluationSprite;
 		}
 		else
         {
-			Debug.Log("Succeded !");
+			SweetsStateImage.sprite = GoodEvaluationSprite;
 		}
+
+		if (RightFlip)
+		{
+			FlippingStateImage.sprite = GoodEvaluationSprite;
+		}
+        else
+        {
+			FlippingStateImage.sprite = BadEvaluationSprite;
+		}
+	}
+
+	public void ShowResultCanvas()
+    {
+		ResultCanvas.SetActive(true);
+
 	}
 
 }
