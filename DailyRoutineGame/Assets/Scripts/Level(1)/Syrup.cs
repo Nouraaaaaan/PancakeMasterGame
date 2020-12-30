@@ -19,6 +19,7 @@ public class Syrup : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSyrup))
         {
             MoveSyrup();
+            PancakeLevelManager.Instance.SyrupOrder = "withSyrup";
             PancakeLevelManager.Instance.CanAddSyrup = false;
         }
     }

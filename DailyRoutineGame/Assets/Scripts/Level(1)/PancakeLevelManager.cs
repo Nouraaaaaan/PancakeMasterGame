@@ -62,6 +62,11 @@ public class PancakeLevelManager : MonoBehaviour
 	public bool CanAddSyrup;
 	private int NumberofSyrupPoints;
 
+	[Header("Order Attributes")]
+	public OrderManager OrderManager;
+	public string SyrupOrder;
+	public string SweetsOrder;
+
 	[Header("UI")]
 	public GameObject CookingCanvas;
 
@@ -380,6 +385,22 @@ public class PancakeLevelManager : MonoBehaviour
 		Sweeter.transform.DOMove(SweeterInitialPos.position, 1f);
 	}
 
-    #endregion
+	#endregion
+
+	public void CheckResult()
+	{
+		if (!OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
+		{
+			Debug.Log("Failed");
+		}
+		else if(!OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder))
+        {
+			Debug.Log("Failed");
+		}
+		else
+        {
+			Debug.Log("Succeded !");
+		}
+	}
 
 }

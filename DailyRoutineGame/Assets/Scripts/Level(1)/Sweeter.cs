@@ -44,6 +44,7 @@ public class Sweeter : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSweets))
         {
             PancakeLevelManager.Instance.MoveSweeter();
+            PancakeLevelManager.Instance.SweetsOrder = "withSweets";
             PancakeLevelManager.Instance.CanAddSweets = false;
         }
     }
