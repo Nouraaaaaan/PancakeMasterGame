@@ -58,14 +58,9 @@ public class PancakeLevelManager : MonoBehaviour
 	public bool CanAddSweets;
 
 	[Header("Syrup Attributes")]
-	public GameObject Syrup;
-	public ParticleSystem SyrupVFX;
-	public Transform SyrupInitialPos;
-	public Transform SyrupFinalPos;
-	public GameObject PouringPoint;
-	public GameObject SyrupPaintingQuad;
-	public int NumberofSyrupPoints;
+	public Syrup[] Syrups;
 	public bool CanAddSyrup;
+	private int NumberofSyrupPoints;
 
 	[Header("UI")]
 	public GameObject CookingCanvas;
@@ -152,12 +147,12 @@ public class PancakeLevelManager : MonoBehaviour
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
-				SyrupVFX.Play();
+				Syrups[0].PouringSyrup();
 			}
 
 			else if (Input.GetMouseButton(0))
 			{
-				if (Physics.Raycast(PouringPoint.transform.position, -Vector3.up, out hit, 50, PaintLayer))
+				if (Physics.Raycast(Syrups[0].PouringPoint.transform.position, -Vector3.up, out hit, 50, PaintLayer))
 				{
 					var paintObject = hit.transform.GetComponent<InkCanvas>();
 
@@ -169,7 +164,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 			else if (Input.GetMouseButtonUp(0))
 			{
-				SyrupVFX.Stop();
+				Syrups[0].StopPouringSyrup();
 			}
 		}
 
@@ -302,16 +297,16 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator FinishSyrupState()
 	{
+		Debug.Log("Finish Syrup State !");
+
 		currentState = State.SweetingState;
 
-		SyrupVFX.Stop();
-		Syrup.transform.DOMove(SyrupInitialPos.position, 1f);
-		Syrup.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f);
-		Syrup.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+		Syrups[0].StopPouringSyrup();
+		Syrups[0].ReturnSyrupToInitialPosition();
+		Syrups[0].FreezeSyrupRigidBody();
 
 		yield return new WaitForSeconds(1f);
 
-		//MoveSweeter();
 	}
     #endregion
 
@@ -362,16 +357,6 @@ public class PancakeLevelManager : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 
 		//MoveSyrup();
-	}
-
-	public void MoveSyrup()
-	{
-		currentState = State.SyrupState;
-
-		Syrup.transform.DOMove(SyrupFinalPos.position, 1f);
-		Syrup.transform.DOLocalRotate(new Vector3(0f, 0f, -51.728f), 1f);
-
-		SyrupPaintingQuad.SetActive(true);
 	}
 
 	public void MoveSweeter()
