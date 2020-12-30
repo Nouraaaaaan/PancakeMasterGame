@@ -39,6 +39,15 @@ public class Sweeter : MonoBehaviour
         }
     }
 
+    private void OnMouseDown()
+    {
+        if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSweets))
+        {
+            PancakeLevelManager.Instance.MoveSweeter();
+            PancakeLevelManager.Instance.CanAddSweets = false;
+        }
+    }
+
     private void OnMouseDrag()
     {
         if (Finished == false)

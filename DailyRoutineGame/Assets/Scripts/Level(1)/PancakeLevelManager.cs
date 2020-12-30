@@ -55,6 +55,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject Sweeter;
 	public Transform SweeterInitialPos;
 	public Transform SweeterFinalPos;
+	public bool CanAddSweets;
 
 	[Header("Syrup Attributes")]
 	public GameObject Syrup;
@@ -64,6 +65,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject PouringPoint;
 	public GameObject SyrupPaintingQuad;
 	public int NumberofSyrupPoints;
+	public bool CanAddSyrup;
 
 	[Header("UI")]
 	public GameObject CookingCanvas;
@@ -87,13 +89,14 @@ public class PancakeLevelManager : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 	}
-    #endregion
+	#endregion
 
-    private void Start()
-    {
+	#region Callbacks Region
+	private void Start()
+	{
 		currentState = State.FillingState;
 		StartCoroutine(FillingstateCameraMovement());
-			
+
 
 		color = PancakeMaterial.color;
 		PancakeMaterial.color = new Color(color.r, color.g, color.b, 0f);
@@ -101,7 +104,7 @@ public class PancakeLevelManager : MonoBehaviour
 		//material = Pancake.GetComponent<Renderer>().material;
 	}
 
-    private void Update()
+	private void Update()
 	{
 		if (currentState == State.FillingState)
 		{
@@ -128,8 +131,8 @@ public class PancakeLevelManager : MonoBehaviour
 			}
 		}
 
-        else if (currentState == State.FlippingState)
-        {
+		else if (currentState == State.FlippingState)
+		{
 			if (Input.GetMouseButtonDown(0))
 			{
 				if (IsArrowInsideGreenArea)
@@ -143,7 +146,7 @@ public class PancakeLevelManager : MonoBehaviour
 					ClickAtWrongTime();
 				}
 			}
-        }
+		}
 
 		else if (currentState == State.SyrupState)
 		{
@@ -171,6 +174,8 @@ public class PancakeLevelManager : MonoBehaviour
 		}
 
 	}
+
+	#endregion
 
 	#region Filling State
 	public void UpdateNumberOfFilledPoints()
@@ -306,7 +311,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		MoveSweeter();
+		//MoveSweeter();
 	}
     #endregion
 
@@ -356,10 +361,10 @@ public class PancakeLevelManager : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		MoveSyrup();
+		//MoveSyrup();
 	}
 
-	private void MoveSyrup()
+	public void MoveSyrup()
 	{
 		currentState = State.SyrupState;
 
@@ -369,7 +374,7 @@ public class PancakeLevelManager : MonoBehaviour
 		SyrupPaintingQuad.SetActive(true);
 	}
 
-	private void MoveSweeter()
+	public void MoveSweeter()
     {
 		Sweeter.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f);
 		Sweeter.transform.DOMove(SweeterFinalPos.position, 1f);
