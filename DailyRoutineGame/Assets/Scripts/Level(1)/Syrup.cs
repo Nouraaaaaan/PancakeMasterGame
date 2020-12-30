@@ -6,6 +6,14 @@ using DG.Tweening;
 
 public class Syrup : MonoBehaviour
 {
+    public enum SyrupType
+    {
+        withChocolateSyrup,
+        withStrawberrySyrup,
+        noSyrup
+    }
+    public SyrupType syrupType;
+
     [Header("Syrup Attributes")]
     public GameObject SyrupObject;
     public Transform SyrupInitialPos;
@@ -28,7 +36,7 @@ public class Syrup : MonoBehaviour
         {
             MoveSyrup();
             PancakeLevelManager.Instance.CurrentSyrup = this;
-            PancakeLevelManager.Instance.SyrupOrder = "withSyrup";
+            PancakeLevelManager.Instance.SyrupOrder = syrupType.ToString();
             PancakeLevelManager.Instance.CanAddSyrup = false;
         }
     }

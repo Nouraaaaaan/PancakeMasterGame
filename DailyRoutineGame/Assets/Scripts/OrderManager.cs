@@ -9,7 +9,8 @@ public class OrderManager : MonoBehaviour
     public Text SyrupText;
     public enum SyrupOrder
     {
-        withSyrup,
+        withChocolateSyrup,
+        withStrawberrySyrup,
         noSyrup
     }
     public SyrupOrder CustomerSyrupOrder;
@@ -38,7 +39,7 @@ public class OrderManager : MonoBehaviour
 
     private void GenerateRandomSyrupOrder()
     {
-        CustomerSyrupOrder = (SyrupOrder)Random.Range(0, 1);
+        CustomerSyrupOrder = (SyrupOrder)Random.Range(0, 2);
 
         SyrupText.text = CustomerSyrupOrder.ToString();
     }
