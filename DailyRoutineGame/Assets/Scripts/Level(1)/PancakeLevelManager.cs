@@ -42,7 +42,9 @@ public class PancakeLevelManager : MonoBehaviour
 	public Meter Meter;
 	public GameObject Arrow;
 	public bool IsArrowInsideGreenArea;
-
+	public Material BurntMaterial;
+	//private Material material;
+	
 	[Header("Sweeting Attributes")]
 	public Camera Camera;
 	public Transform CameraNewPos;
@@ -95,6 +97,8 @@ public class PancakeLevelManager : MonoBehaviour
 
 		color = PancakeMaterial.color;
 		PancakeMaterial.color = new Color(color.r, color.g, color.b, 0f);
+
+		//material = Pancake.GetComponent<Renderer>().material;
 	}
 
     private void Update()
@@ -221,12 +225,12 @@ public class PancakeLevelManager : MonoBehaviour
 
 		while (PancakeMaterial.color.a < 1f)
 		{
-			PancakeMaterial.color = new Color(color.r, color.g, color.b, PancakeMaterial.color.a + 0.008f);
+			PancakeMaterial.color = new Color(color.r, color.g, color.b, PancakeMaterial.color.a + 0.04f);
 			yield return new WaitForEndOfFrame();
 		}
 
 		yield return null;
-		Smoke.SetActive(false);
+		//Smoke.SetActive(false);
 		PaintingQuad.SetActive(false);
 		StartFlippingState();
 
@@ -257,12 +261,14 @@ public class PancakeLevelManager : MonoBehaviour
 		Meter.StopArrow();
 		Pancake.Flip();
 		PanAnimation();
+		Smoke.SetActive(false);
 	}
 
 	public void ClickAtWrongTime()
 	{
-		//Meter.StopArrow();
+		ChangePancakeMaterial();
 		BadEmojis[Random.Range(0, BadEmojis.Length - 1)].Play();
+		Smoke.SetActive(false);
 	}
 
 	private void PanAnimation()
@@ -270,6 +276,11 @@ public class PancakeLevelManager : MonoBehaviour
 		Pan.transform.DOMoveY(Pan.transform.position.y + 0.1f, 0.5f);
 
 		Pan.transform.DOMoveY(Pan.transform.position.y - 0.08f, 0.5f).SetDelay(0.5f);
+	}
+
+	private void ChangePancakeMaterial()
+	{
+		Pancake.GetComponent<Renderer>().material = BurntMaterial;
 	}
 	#endregion
 
