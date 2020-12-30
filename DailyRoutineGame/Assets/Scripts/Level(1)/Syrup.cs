@@ -11,11 +11,12 @@ public class Syrup : MonoBehaviour
     public Transform SyrupInitialPos;
     public Transform SyrupFinalPos;
 
+    [Header("Syrup Pouring Attributes")]
     public bool CanPourSyrup;
     public ParticleSystem SyrupVFX; 
     public GameObject PouringPoint;
 
-
+    [Header("Syrup Painting Attributes")]
     public GameObject SyrupPaintingQuad;
     [SerializeField]
     public Brush Syrupbrush;
@@ -36,8 +37,8 @@ public class Syrup : MonoBehaviour
     {
         PancakeLevelManager.Instance.currentState = PancakeLevelManager.State.SyrupState;
 
-        SyrupObject.transform.DOMove(SyrupFinalPos.position, 1f);
-        SyrupObject.transform.DOLocalRotate(new Vector3(0f, 0f, -51.728f), 1f).OnComplete(EnableSyrupPouring);
+        SyrupObject.transform.DOMove(SyrupFinalPos.position, 0.5f);
+        SyrupObject.transform.DOLocalRotate(new Vector3(0f, 0f, -51.728f), 0.5f).OnComplete(EnableSyrupPouring);
         SyrupPaintingQuad.SetActive(true);
     }
 

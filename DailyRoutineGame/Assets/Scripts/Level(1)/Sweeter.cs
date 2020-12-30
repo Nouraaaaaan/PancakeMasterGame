@@ -15,14 +15,14 @@ public class Sweeter : MonoBehaviour
 
     [Header("Sweeter Animation Attributes")]
     public Transform SweeterInitialPos;
-    public Transform SweeterNewPos;
+    public Transform SweeterFinalPos;
 
 
     private bool CanInstantiate;
     private float counter = 0.1f;
 
     private bool Finished = false;
-
+    private bool arrived = false;
 
     private void Update()
     {
@@ -43,7 +43,7 @@ public class Sweeter : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSweets))
         {
-            PancakeLevelManager.Instance.MoveSweeter();
+            MoveSweeter();
             PancakeLevelManager.Instance.SweetsOrder = "withSweets";
             PancakeLevelManager.Instance.CanAddSweets = false;
         }
@@ -51,10 +51,10 @@ public class Sweeter : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (Finished == false)
+        if ((!Finished) && (arrived))
         {
             CanInstantiate = true;
-        }
+        }   
     }
 
     private void OnMouseUp()
@@ -80,6 +80,23 @@ public class Sweeter : MonoBehaviour
             CanInstantiate = false;
             PancakeLevelManager.Instance.FinishSweetingStage();
         }
+    }
+
+    public void MoveSweeter()
+    {
+        transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f);
+        transform.DOMove(SweeterFinalPos.position, 1f).OnComplete(SweeterAnimationFinished);
+    }
+
+    public void ReturnSweeter()
+    {
+        transform.DOLocalRotate(new Vector3(0f, 0f, 134.041f), 1f);
+        transform.DOMove(SweeterInitialPos.position, 1f);
+    }
+
+    private void SweeterAnimationFinished()
+    {
+        arrived = true;
     }
 
 }

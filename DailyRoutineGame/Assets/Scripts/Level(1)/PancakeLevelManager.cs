@@ -50,9 +50,7 @@ public class PancakeLevelManager : MonoBehaviour
 	[Header("Sweeting Attributes")]
 	public Transform PancakeNewPos;
 	public Transform PancakeInitialPos;
-	public GameObject Sweeter;
-	public Transform SweeterInitialPos;
-	public Transform SweeterFinalPos;
+	public Sweeter Sweeter;
 	public bool CanAddSweets;
 
 	[Header("Syrup Attributes")]
@@ -363,25 +361,13 @@ public class PancakeLevelManager : MonoBehaviour
 		//MoveSyrup();
 	}
 
-	public void MoveSweeter()
-    {
-		Sweeter.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f);
-		Sweeter.transform.DOMove(SweeterFinalPos.position, 1f);
-	}
-
 	public void FinishSweetingStage()
 	{
 		//Debug.Log("Sweeting Stage has Finished !");
-		ReturnSweeter();
+		Sweeter.ReturnSweeter();
 
 		SFXManager.Instance.StopSoundEffect();
 		TextEffect.PlayEffect();
-	}
-
-	public void ReturnSweeter()
-	{
-		Sweeter.transform.DOLocalRotate(new Vector3(0f, 0f, 134.041f), 1f);
-		Sweeter.transform.DOMove(SweeterInitialPos.position, 1f);
 	}
 
 	#endregion

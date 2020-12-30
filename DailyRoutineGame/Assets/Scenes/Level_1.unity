@@ -696,9 +696,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SyrupObject: {fileID: 97028435}
-  SyrupVFX: {fileID: 1029193121}
   SyrupInitialPos: {fileID: 1794588434}
   SyrupFinalPos: {fileID: 2051794721}
+  CanPourSyrup: 0
+  SyrupVFX: {fileID: 1029193121}
   PouringPoint: {fileID: 865255232}
   SyrupPaintingQuad: {fileID: 442126132}
   Syrupbrush:
@@ -998,9 +999,7 @@ MonoBehaviour:
   BurntMaterial: {fileID: 2100000, guid: dac78b6d402497a43a9fc6556d3a621b, type: 2}
   PancakeNewPos: {fileID: 628126477}
   PancakeInitialPos: {fileID: 1105405336}
-  Sweeter: {fileID: 1038576476}
-  SweeterInitialPos: {fileID: 1254842501}
-  SweeterFinalPos: {fileID: 136993247}
+  Sweeter: {fileID: 1038576479}
   CanAddSweets: 1
   Syrups:
   - {fileID: 97028442}
@@ -3051,9 +3050,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SyrupObject: {fileID: 0}
-  SyrupVFX: {fileID: 0}
   SyrupInitialPos: {fileID: 0}
   SyrupFinalPos: {fileID: 0}
+  CanPourSyrup: 0
+  SyrupVFX: {fileID: 0}
   PouringPoint: {fileID: 0}
   SyrupPaintingQuad: {fileID: 0}
   Syrupbrush:
@@ -4717,8 +4717,8 @@ MonoBehaviour:
   - {fileID: 1024859240}
   - {fileID: 812027697}
   Holder: {fileID: 876004083}
-  SweeterInitialPos: {fileID: 136993247}
-  SweeterNewPos: {fileID: 0}
+  SweeterInitialPos: {fileID: 1254842501}
+  SweeterFinalPos: {fileID: 136993247}
 --- !u!114 &1038576480
 MonoBehaviour:
   m_ObjectHideFlags: 0
