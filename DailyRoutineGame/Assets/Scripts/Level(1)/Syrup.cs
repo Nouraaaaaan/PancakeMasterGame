@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Es.InkPainter;
 using DG.Tweening;
 
 public class Syrup : MonoBehaviour
@@ -12,13 +13,16 @@ public class Syrup : MonoBehaviour
     public Transform SyrupFinalPos;
     public GameObject PouringPoint;
     public GameObject SyrupPaintingQuad;
-    
+    [SerializeField]
+    public Brush Syrupbrush;
+
 
     private void OnMouseDown()
     {
         if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSyrup))
         {
             MoveSyrup();
+            PancakeLevelManager.Instance.CurrentSyrup = this;
             PancakeLevelManager.Instance.SyrupOrder = "withSyrup";
             PancakeLevelManager.Instance.CanAddSyrup = false;
         }

@@ -16,22 +16,22 @@ public class PancakeLevelManager : MonoBehaviour
 	}
 	public State currentState;
 
+	[Header("Camera Attributes")]
+	public Camera Camera;
+	public Transform CameraNewPos;
+
 	[Header("Filling Attributes")]
 	public GameObject Filler;
 	public GameObject FillerCollisionPoints;
 	public ParticleSystem FillingParticle;
 	public int NumberOfPointsToFill;
 	int NumberOfFilledPoints;
-	
-	[Header("Painting Attributes")]
 	[SerializeField]
 	private Brush brush;
 	[SerializeField]
 	LayerMask PaintLayer;
 	RaycastHit hit;
 	public GameObject PaintingQuad;
-	[SerializeField]
-	private Brush brush2;
 
 	[Header("Cooking Attributes")]
 	public Pancake Pancake;
@@ -39,6 +39,8 @@ public class PancakeLevelManager : MonoBehaviour
 	private Color color;
 
 	[Header("Flipping Attributes")]
+	public GameObject Pan;
+	public Transform PanNewPos;
 	public Meter Meter;
 	public GameObject Arrow;
 	public bool IsArrowInsideGreenArea;
@@ -46,10 +48,6 @@ public class PancakeLevelManager : MonoBehaviour
 	//private Material material;
 	
 	[Header("Sweeting Attributes")]
-	public Camera Camera;
-	public Transform CameraNewPos;
-	public GameObject Pan;
-	public Transform PanNewPos;
 	public Transform PancakeNewPos;
 	public Transform PancakeInitialPos;
 	public GameObject Sweeter;
@@ -59,6 +57,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	[Header("Syrup Attributes")]
 	public Syrup[] Syrups;
+	public Syrup CurrentSyrup;
 	public bool CanAddSyrup;
 	private int NumberofSyrupPoints;
 
@@ -148,28 +147,28 @@ public class PancakeLevelManager : MonoBehaviour
 			}
 		}
 
-		else if (currentState == State.SyrupState)
+		else if ((currentState == State.SyrupState) && (CurrentSyrup != null))
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
-				Syrups[0].PouringSyrup();
+				CurrentSyrup.PouringSyrup();
 			}
 
 			else if (Input.GetMouseButton(0))
 			{
-				if (Physics.Raycast(Syrups[0].PouringPoint.transform.position, -Vector3.up, out hit, 50, PaintLayer))
+				if (Physics.Raycast(CurrentSyrup.PouringPoint.transform.position, -Vector3.up, out hit, 50, PaintLayer))
 				{
 					var paintObject = hit.transform.GetComponent<InkCanvas>();
 
 					if (paintObject != null)
-						paintObject.Paint(brush2, hit);
+						paintObject.Paint(CurrentSyrup.Syrupbrush, hit);
 
 				}
 			}
 
 			else if (Input.GetMouseButtonUp(0))
 			{
-				Syrups[0].StopPouringSyrup();
+				CurrentSyrup.StopPouringSyrup();
 			}
 		}
 
@@ -302,13 +301,13 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator FinishSyrupState()
 	{
-		Debug.Log("Finish Syrup State !");
+		//Debug.Log("Finish Syrup State !");
 
 		currentState = State.SweetingState;
 
-		Syrups[0].StopPouringSyrup();
-		Syrups[0].ReturnSyrupToInitialPosition();
-		Syrups[0].FreezeSyrupRigidBody();
+		CurrentSyrup.StopPouringSyrup();
+		CurrentSyrup.ReturnSyrupToInitialPosition();
+		CurrentSyrup.FreezeSyrupRigidBody();
 
 		yield return new WaitForSeconds(1f);
 
