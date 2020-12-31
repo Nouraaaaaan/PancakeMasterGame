@@ -33,6 +33,7 @@ public class PancakeLevelManager : MonoBehaviour
 	LayerMask PaintLayer;
 	RaycastHit hit;
 	public GameObject PaintingQuad;
+	private GameObject paintingQuad;
 
 	[Header("Cooking Attributes")]
 	public Pancake Pancake;
@@ -85,11 +86,6 @@ public class PancakeLevelManager : MonoBehaviour
 	public Image SyrupStateImage;
 	public Image SweetsStateImage;
 
-	[Header("Evaluation Attributes")]
-	public GameObject SyrupMesh;
-	public Material FillingMaterial;
-	public Material SyrupMaterial;
-
 	#region Singelton Region
 	public static PancakeLevelManager Instance;
 	private void Awake()
@@ -109,6 +105,7 @@ public class PancakeLevelManager : MonoBehaviour
 	private void Start()
 	{
 		currentState = State.FillingState;
+		CreatePaintingQuad();
 		StartCoroutine(FillingstateCameraMovement());
 
 
@@ -218,6 +215,18 @@ public class PancakeLevelManager : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 	}
 
+	private void CreatePaintingQuad()
+	{
+		paintingQuad = Instantiate(PaintingQuad);
+	}
+
+	private void DestroyPaintingQuad()
+	{
+		if (paintingQuad != null)
+		{
+			Destroy(paintingQuad);
+		}
+	}
 	#endregion
 
 	#region Cooking state
@@ -248,7 +257,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		yield return null;
 		//Smoke.SetActive(false);
-		PaintingQuad.SetActive(false);
+		paintingQuad.SetActive(false);
 		StartFlippingState();
 
 		StartCoroutine(ReturnCameraToInitialPos());
@@ -433,11 +442,9 @@ public class PancakeLevelManager : MonoBehaviour
 
     public void Reset()
     {
-		SyrupMesh.GetComponent<Renderer>().material = new Material(SyrupMaterial);
-		PaintingQuad.GetComponent<Renderer>().material = new Material(FillingMaterial);
-
+		DestroyPaintingQuad();
+		CurrentSyrup.DestroySyrupMesh();
 		Sweeter.ClearChildren();
-
 	}
 
 }

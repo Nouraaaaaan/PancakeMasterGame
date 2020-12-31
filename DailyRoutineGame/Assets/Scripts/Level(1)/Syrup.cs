@@ -25,7 +25,8 @@ public class Syrup : MonoBehaviour
     public GameObject PouringPoint;
 
     [Header("Syrup Painting Attributes")]
-    public GameObject SyrupPaintingQuad;
+    public GameObject SyrupMesh;
+    private GameObject mesh;
     [SerializeField]
     public Brush Syrupbrush;
 
@@ -47,7 +48,9 @@ public class Syrup : MonoBehaviour
 
         SyrupObject.transform.DOMove(SyrupFinalPos.position, 0.5f);
         SyrupObject.transform.DOLocalRotate(new Vector3(0f, 0f, -51.728f), 0.5f).OnComplete(EnableSyrupPouring);
-        SyrupPaintingQuad.SetActive(true);
+
+        //SyrupPaintingQuad.SetActive(true);
+        CreateSyrupMesh();
     }
 
     private void EnableSyrupPouring()
@@ -84,6 +87,19 @@ public class Syrup : MonoBehaviour
     public void FreezeSyrupRigidBody()
     {
         SyrupObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    private void CreateSyrupMesh()
+    {
+        mesh = Instantiate(SyrupMesh);
+    }
+
+    public void DestroySyrupMesh()
+    {
+        if (mesh != null)
+        {
+            Destroy(mesh);
+        }
     }
 
 }

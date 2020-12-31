@@ -74,7 +74,7 @@ public class Sweeter : MonoBehaviour
         }
 
         NumberOfSpawnedSweets++;
-        Debug.Log(NumberOfSpawnedSweets);
+        //Debug.Log(NumberOfSpawnedSweets);
 
         if (NumberOfSpawnedSweets >= MaxSpawnedSweets)
         {
