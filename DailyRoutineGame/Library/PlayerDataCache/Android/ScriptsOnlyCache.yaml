@@ -4,14 +4,17 @@ ScriptsOnlyBuild:
     - Es.InkPainter.Effective.HeightFluid
     - Es.InkPainter.InkCanvas
     Assembly-CSharp.dll:
+    - CustomersManager
     - DraggableObject
     - FillerCollisionPoint
     - Meter
+    - OrderManager
     - Pancake
     - PancakeLevelManager
     - SFXManager
     - Sweet
     - Sweeter
+    - Syrup
     - SyrupPoints
     - TextEffect
     DOTween.dll:
@@ -30,6 +33,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
@@ -75,50 +79,60 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11290}
+      Script: {instanceID: 11420}
     - Class: 114
-      Script: {instanceID: 11486}
+      Script: {instanceID: 11620}
     - Class: 114
-      Script: {instanceID: 11530}
+      Script: {instanceID: 11666}
     - Class: 114
-      Script: {instanceID: 11788}
+      Script: {instanceID: 11938}
     - Class: 114
-      Script: {instanceID: 11924}
+      Script: {instanceID: 12078}
     - Class: 114
-      Script: {instanceID: 11930}
+      Script: {instanceID: 12084}
     - Class: 114
-      Script: {instanceID: 11976}
+      Script: {instanceID: 12128}
     - Class: 114
-      Script: {instanceID: 12220}
+      Script: {instanceID: 12370}
     - Class: 114
-      Script: {instanceID: 12322}
+      Script: {instanceID: 12472}
     - Class: 114
-      Script: {instanceID: 12330}
+      Script: {instanceID: 12480}
     - Class: 114
-      Script: {instanceID: 12352}
+      Script: {instanceID: 12502}
     - Class: 114
-      Script: {instanceID: 12396}
+      Script: {instanceID: 12546}
     - Class: 114
-      Script: {instanceID: 12452}
+      Script: {instanceID: 12600}
     - Class: 114
-      Script: {instanceID: 12842}
+      Script: {instanceID: 12850}
     - Class: 114
-      Script: {instanceID: 12916}
+      Script: {instanceID: 12950}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 13010}
     - Class: 114
-      Script: {instanceID: 13014}
+      Script: {instanceID: 13032}
     - Class: 114
-      Script: {instanceID: 13396}
+      Script: {instanceID: 13086}
     - Class: 114
-      Script: {instanceID: 13416}
+      Script: {instanceID: 13186}
     - Class: 114
-      Script: {instanceID: 13446}
+      Script: {instanceID: 13192}
+    - Class: 114
+      Script: {instanceID: 13586}
+    - Class: 114
+      Script: {instanceID: 13608}
+    - Class: 114
+      Script: {instanceID: 13610}
+    - Class: 114
+      Script: {instanceID: 13640}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 135
+      Script: {instanceID: 0}
+    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -171,16 +185,22 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 21be25811ed80c852a29100601d1a8b8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: TiltShift
+  - hash:
+      serializedVersion: 2
       Hash: 40aeefc42dfa427357f3518925654d60
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: GeneralBasics2d
   - hash:
       serializedVersion: 2
-      Hash: d9f312ceb0ce2174841824e9dbb936a7
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: ItemHolder
+      Hash: 172cfdd977ca8a6f32932932c2f0d2ee
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ImageEffectBase
   - hash:
       serializedVersion: 2
       Hash: 928ca8678155de4eb92215a4cdef11a1
@@ -189,16 +209,10 @@ ScriptsOnlyBuild:
     className: TestingUnitTests
   - hash:
       serializedVersion: 2
-      Hash: f0fc3103122c9be1966a9a42c67cd2f1
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: Shop
-  - hash:
-      serializedVersion: 2
-      Hash: 2b0b4fc22ed8fd6ff66c59a8b6dab694
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: IcingCakeMaster
+      Hash: c150d9404e6b53770dd5f5e91004bccd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: BlurOptimized
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -225,16 +239,34 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
+      Hash: ac330d336bdc602480a96d517ce35de0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: GlobalFog
+  - hash:
+      serializedVersion: 2
       Hash: 8717b1fb37a68f8f806cf0bbe9cd6507
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: Es.InkPainter.Sample
     className: ClipPainter
   - hash:
       serializedVersion: 2
+      Hash: a5e44188ccd983bb228b74d4b7419ecf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ContrastStretch
+  - hash:
+      serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: b2119094b0083707a0b6ff356d4a1f66
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: VignetteAndChromaticAberration
   - hash:
       serializedVersion: 2
       Hash: d9916d59990d9ee8d98cc27b65e86898
@@ -279,6 +311,12 @@ ScriptsOnlyBuild:
     className: TextureRecovery
   - hash:
       serializedVersion: 2
+      Hash: f0adccffaa460cb5c8914229276bfa0d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ColorCorrectionCurves
+  - hash:
+      serializedVersion: 2
       Hash: 89f9a1b4c64db9559e39f4a2e3bfaadd
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -321,16 +359,22 @@ ScriptsOnlyBuild:
     className: SignalAsset
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: AdsData
+      Hash: a4f53786c5e89397b7d34957535b29a9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: NoiseAndScratches
   - hash:
       serializedVersion: 2
       Hash: 0dbc3be398b4869a5c8d0d8481ee402c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: LayoutElement
+  - hash:
+      serializedVersion: 2
+      Hash: 47f7902f8963babdce608bf76d778b9c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Antialiasing
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -351,6 +395,12 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
+      Hash: b6abddfe81ce7709fd679f1ea0433cf7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: BloomAndFlares
+  - hash:
+      serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -361,6 +411,18 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RectMask2D
+  - hash:
+      serializedVersion: 2
+      Hash: 8792e8356998aff9da84718837517b33
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Blur
+  - hash:
+      serializedVersion: 2
+      Hash: af78f221a76b31179241c75f785d3894
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: MotionBlur
   - hash:
       serializedVersion: 2
       Hash: e9932200d83498a2e6c029112d69de59
@@ -387,6 +449,12 @@ ScriptsOnlyBuild:
     className: Following
   - hash:
       serializedVersion: 2
+      Hash: 755aa9308df9cb5ec0a491ba4f5f09a5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Bloom
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -397,6 +465,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Mask
+  - hash:
+      serializedVersion: 2
+      Hash: 230f7b5038f49d457dbcc3c455c71d9a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ScreenSpaceAmbientObscurance
   - hash:
       serializedVersion: 2
       Hash: 318eceb934b462316071551ba0414124
@@ -417,13 +491,7 @@ ScriptsOnlyBuild:
     className: GeneralBasic
   - hash:
       serializedVersion: 2
-      Hash: a5ec0b17c93e27888a6d4cec7544a2e3
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: LevelGenerator
-  - hash:
-      serializedVersion: 2
-      Hash: 304a4fece0cf2d5e62a1629ee837b69d
+      Hash: 7c961c1c2e6ab8ef204ce8ebd45e5911
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PancakeLevelManager
@@ -445,6 +513,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: EventSystem
+  - hash:
+      serializedVersion: 2
+      Hash: 122d7ffab68b4eedc72a1fce03e63c2f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: BloomOptimized
   - hash:
       serializedVersion: 2
       Hash: 0fb27be807aa299702f28ad0bcad1f46
@@ -483,12 +557,6 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 6a88b44f63faeb3dd32fbe8c4b150f35
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: Cake
-  - hash:
-      serializedVersion: 2
       Hash: a387467b001eedd3ba4ceab3628e2fa6
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: Es.InkPainter.Sample
@@ -501,22 +569,10 @@ ScriptsOnlyBuild:
     className: PathSplinePerformance
   - hash:
       serializedVersion: 2
-      Hash: 46817e3999cfc263e95ef9ff79ae6f90
+      Hash: 3a3324b73792dde0ff97dae69b3a3dfb
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MakeCookie_LevelManager
-  - hash:
-      serializedVersion: 2
-      Hash: 695ba05a16b7a71a1a96e33d94555937
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: GameManagerCakeMaster
-  - hash:
-      serializedVersion: 2
-      Hash: e974c2d8e480a7fe4c08602bc301db81
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: ServicesManager
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: SunShafts
   - hash:
       serializedVersion: 2
       Hash: b5fc3843e35dd6d09a719cb0d10ff4a5
@@ -549,12 +605,6 @@ ScriptsOnlyBuild:
     className: ReflectPainter
   - hash:
       serializedVersion: 2
-      Hash: 34c1777104a26837934d89acad7cf5d9
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: ColorTrigger
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
@@ -565,6 +615,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: TestingPunch
+  - hash:
+      serializedVersion: 2
+      Hash: 86cfcd24b9fc59be9240f6811ea3b2b2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ScreenOverlay
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -597,28 +653,22 @@ ScriptsOnlyBuild:
     className: DOTweenSettings
   - hash:
       serializedVersion: 2
-      Hash: 181f36a0bfa2526e9e8f4da43a0f3e26
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CookiePaint
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
+      Hash: 9cc3904a86f5a119184da7351cdb4e65
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: DepthOfField
+  - hash:
+      serializedVersion: 2
       Hash: 43d9c42917251fdbf10061fa3cf1ee7a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SyrupPoints
-  - hash:
-      serializedVersion: 2
-      Hash: 51eb8b0cfbd0f58cbc64cac202c75b03
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: SoundManager
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -643,6 +693,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: PathSplineTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: PostEffectsHelper
+  - hash:
+      serializedVersion: 2
+      Hash: 1a9e52e2ff472238deaebe06595ba637
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ScreenSpaceAmbientOcclusion
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -681,6 +743,12 @@ ScriptsOnlyBuild:
     className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: d7f470660e8e5bf322a5c170b752eff8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: CreaseShading
+  - hash:
+      serializedVersion: 2
       Hash: 344a8c2e106a0a4e098e91a52e0af063
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -705,10 +773,10 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 021502c8a476dfc77a4f651dc7fb9c70
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: Stars
+      Hash: 28d790d202beb300ec2ffc6265160c26
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ContrastEnhance
   - hash:
       serializedVersion: 2
       Hash: a0d1bcc68004704308edb26e4d0f97b5
@@ -717,28 +785,22 @@ ScriptsOnlyBuild:
     className: PathBezier
   - hash:
       serializedVersion: 2
-      Hash: 1eda5c554abcc109d2a4010235fdc218
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: CakeData
-  - hash:
-      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 13ec5af2df5e631c7078586c7b3cb9b8
+      Hash: 071153ccfd14f26adecaf9e1c503e5d8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: CookieTemplateHolder
+    className: CustomersManager
   - hash:
       serializedVersion: 2
-      Hash: 7350441c2b2d329ab567d6a2259d3ce9
+      Hash: 96539fd6feebcbc9da75ce005fd446a9
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SweetsSpawnerfiller
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: NoiseAndGrain
   - hash:
       serializedVersion: 2
       Hash: 30fe01f7655c85800f940e262818bbe8
@@ -751,6 +813,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: TestingZLegacyExt
+  - hash:
+      serializedVersion: 2
+      Hash: 5656738c00e889fef2ecae88020ad470
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Syrup
   - hash:
       serializedVersion: 2
       Hash: fea1abfd1dd11db231ac661dcdaf009b
@@ -777,10 +845,34 @@ ScriptsOnlyBuild:
     className: DOTweenVisualManager
   - hash:
       serializedVersion: 2
-      Hash: ca910f344cf61e78b3f04492ad1faa3e
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: ColorChooser
+      Hash: a8c33406fd5a44e89bd47fea3b45028f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ColorCorrectionRamp
+  - hash:
+      serializedVersion: 2
+      Hash: f080a86a4a939dd08c0cc4f4f05e1e4e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Grayscale
+  - hash:
+      serializedVersion: 2
+      Hash: 172cfdd977ca8a6f32932932c2f0d2ee
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: SepiaTone
+  - hash:
+      serializedVersion: 2
+      Hash: 3bd301965190e77c3822602bd15d95bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Twirl
+  - hash:
+      serializedVersion: 2
+      Hash: 3bd301965190e77c3822602bd15d95bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Vortex
   - hash:
       serializedVersion: 2
       Hash: c2946c321e847f4b35693087ec8771a0
@@ -801,40 +893,22 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 0456a16606d4abe489ce56ca105efae4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CakeIcing
-  - hash:
-      serializedVersion: 2
       Hash: 5f1df514a711a3df73b521363c4e6a2f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TextEffect
   - hash:
       serializedVersion: 2
+      Hash: c5bbb5c4b020d95f6395b3448c0eddcc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: CameraMotionBlur
+  - hash:
+      serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
-  - hash:
-      serializedVersion: 2
-      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: Rotating
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: UIManagerCakeMaster
-  - hash:
-      serializedVersion: 2
-      Hash: 2599423750f16a5434e1782be2feeee1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Flip
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -855,6 +929,18 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
+      Hash: 34665528cf8da97e082a230c8afb96c6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: DepthOfFieldDeprecated
+  - hash:
+      serializedVersion: 2
+      Hash: c8533c9804499b27f7c31b277d275f91
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Fisheye
+  - hash:
+      serializedVersion: 2
       Hash: 8cd1cbba27f3cb1717254f668e9e0d5a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -865,6 +951,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ColorGradient
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: PostEffectsBase
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -897,10 +989,10 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 53bee437058dbda3cbdaef85b97f8eda
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: UISettings
+      Hash: 8ccce45a027cfbb02441998345f2c121
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: EdgeDetection
   - hash:
       serializedVersion: 2
       Hash: a63fc1a3b035e5a0b5839cd7f7b3086e
@@ -913,6 +1005,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMesh
+  - hash:
+      serializedVersion: 2
+      Hash: 10d40c4c007ed0fe1a397ef11ee530fa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: ColorCorrectionLookup
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -945,16 +1043,28 @@ ScriptsOnlyBuild:
     className: GeneralEventsListeners
   - hash:
       serializedVersion: 2
+      Hash: 83dffc789cd416ac4ef1fc44f3423e35
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityStandardAssets.ImageEffects
+    className: Tonemapping
+  - hash:
+      serializedVersion: 2
       Hash: aa88ae22474df55295327e4ee99e5a24
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Toggle
   - hash:
       serializedVersion: 2
-      Hash: 103ee12d3eafe3c1cb7b5be522b1ebec
+      Hash: c06ceff2c32c5463bfbea89df43cadb9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Sweeter
+  - hash:
+      serializedVersion: 2
+      Hash: a450774841b86405a3bf626c08a93ded
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OrderManager
   - hash:
       serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
@@ -981,12 +1091,6 @@ ScriptsOnlyBuild:
     className: OldGUIExamplesCS
   - hash:
       serializedVersion: 2
-      Hash: 65d22c8d04a15fc03a5f3e5d513e4945
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: 
-    className: Gameplay
-  - hash:
-      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1000,4 +1104,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level_1.unity
-  playerPath: C:/Users/DELL/Desktop/DailyRoutine_Pancakes.apk
+  playerPath: C:/Users/DELL/Desktop/Pancakes_OrdersLogic.apk

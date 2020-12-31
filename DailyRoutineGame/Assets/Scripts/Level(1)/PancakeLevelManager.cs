@@ -47,7 +47,6 @@ public class PancakeLevelManager : MonoBehaviour
 	public bool IsArrowInsideGreenArea;
 	public Material BurntMaterial;
 	private bool RightFlip;
-	//private Material material;
 
 	[Header("Sweeting Attributes")]
 	public GameObject SweetsStage;
@@ -71,6 +70,7 @@ public class PancakeLevelManager : MonoBehaviour
 	[Header("UI")]
 	public GameObject CookingCanvas;
 	public GameObject ResultCanvas;
+	public GameObject OrderCanvas;
 
 	[Header("VFX")]
 	public ParticleSystem[] GoodEmojis;
@@ -81,10 +81,14 @@ public class PancakeLevelManager : MonoBehaviour
 	[Header("Evaluation Attributes")]
 	public Sprite BadEvaluationSprite;
 	public Sprite GoodEvaluationSprite;
-
 	public Image FlippingStateImage;
 	public Image SyrupStateImage;
 	public Image SweetsStateImage;
+
+	[Header("Evaluation Attributes")]
+	public GameObject SyrupMesh;
+	public Material FillingMaterial;
+	public Material SyrupMaterial;
 
 	#region Singelton Region
 	public static PancakeLevelManager Instance;
@@ -110,8 +114,6 @@ public class PancakeLevelManager : MonoBehaviour
 
 		color = PancakeMaterial.color;
 		PancakeMaterial.color = new Color(color.r, color.g, color.b, 0f);
-
-		//material = Pancake.GetComponent<Renderer>().material;
 	}
 
 	private void Update()
@@ -269,6 +271,8 @@ public class PancakeLevelManager : MonoBehaviour
 		Meter.gameObject.SetActive(true);
 		Arrow.SetActive(true);
 		Meter.MoveArrow();
+
+		OrderCanvas.SetActive(false);
 	}
 
 	public void ClickAtrightTime()
@@ -424,6 +428,15 @@ public class PancakeLevelManager : MonoBehaviour
 	public void ShowResultCanvas()
     {
 		ResultCanvas.SetActive(true);
+
+	}
+
+    public void Reset()
+    {
+		SyrupMesh.GetComponent<Renderer>().material = new Material(SyrupMaterial);
+		PaintingQuad.GetComponent<Renderer>().material = new Material(FillingMaterial);
+
+		Sweeter.ClearChildren();
 
 	}
 

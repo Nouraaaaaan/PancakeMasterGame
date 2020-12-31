@@ -74,6 +74,8 @@ public class Sweeter : MonoBehaviour
         }
 
         NumberOfSpawnedSweets++;
+        Debug.Log(NumberOfSpawnedSweets);
+
         if (NumberOfSpawnedSweets >= MaxSpawnedSweets)
         {
             Finished = true;
@@ -97,6 +99,28 @@ public class Sweeter : MonoBehaviour
     private void SweeterAnimationFinished()
     {
         arrived = true;
+    }
+
+    public void ClearChildren()
+    {
+        //Array to hold all child obj
+        GameObject[] allChildren = new GameObject[Holder.transform.childCount];
+
+        int i = 0;
+
+        //Find all child obj and store to that array
+        foreach (Transform child in Holder.transform)
+        {
+            allChildren[i] = child.gameObject;
+            i += 1;
+        }
+
+        //Now destroy them
+        foreach (GameObject child in allChildren)
+        {
+            DestroyImmediate(child.gameObject);
+        }
+
     }
 
 }
