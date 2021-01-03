@@ -27,4 +27,9 @@ public class Pancake : MonoBehaviour
     {
         PancakeRB.constraints = RigidbodyConstraints.FreezeAll;
     }
+
+    public void FreePancakeConstrains()
+    {
+        PancakeRB.constraints = RigidbodyConstraints.None;
+    }
 }

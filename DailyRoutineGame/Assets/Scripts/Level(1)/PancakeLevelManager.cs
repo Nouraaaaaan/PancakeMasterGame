@@ -23,7 +23,8 @@ public class PancakeLevelManager : MonoBehaviour
 
 	[Header("Filling Attributes")]
 	public GameObject Filler;
-	public GameObject FillerCollisionPoints;
+	public GameObject FillerCollisionPointsHolder;
+	public FillerCollisionPoint[] FillerCollisionPoints;
 	public ParticleSystem FillingParticle;
 	public int NumberOfPointsToFill;
 	int NumberOfFilledPoints;
@@ -36,6 +37,7 @@ public class PancakeLevelManager : MonoBehaviour
 	private GameObject paintingQuad;
 
 	[Header("Cooking Attributes")]
+	public GameObject PancakeModel;
 	public Pancake Pancake;
 	public Material PancakeMaterial;
 	private Color color;
@@ -109,12 +111,6 @@ public class PancakeLevelManager : MonoBehaviour
 	private void Start()
 	{
 		OrderManager.GenerateRandomOrder();
-
-		currentState = State.FillingState;
-		CreatePaintingQuad();
-
-		//StartCoroutine(FillingstateCameraMovement());
-
 
 		color = PancakeMaterial.color;
 		PancakeMaterial.color = new Color(color.r, color.g, color.b, 0f);
@@ -194,13 +190,48 @@ public class PancakeLevelManager : MonoBehaviour
 	#endregion
 
 	#region Filling State
+	private void StartFillingState()
+	{
+		currentState = State.FillingState;
+
+		//1.Set Pan.
+		Pan.SetActive(true);
+		Pan.transform.localPosition = new Vector3(3.788265f, -0.3218973f, -0.2844839f);
+		Pan.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+
+		//2.Set Filler.
+		Filler.SetActive(true);
+
+		//3.Set Points.
+		NumberOfFilledPoints = 0;
+		FillerCollisionPointsHolder.SetActive(true);
+        foreach (var point in FillerCollisionPoints)
+        {
+			point.IsCollidedWithFiller = false;
+		}
+
+		//4.Create Painting Quad.
+		CreatePaintingQuad();
+
+		//4.Move Camera.
+		StartCoroutine(FillingstateCameraMovement());
+	}
+
+	private IEnumerator FillingstateCameraMovement()
+	{
+		Camera.transform.DORotate(new Vector3(28.108f, 180f, 0f), 0.5f);
+		Camera.transform.DOMoveZ(2.09f, 0.5f);
+
+		yield return new WaitForSeconds(1f);
+	}
+
 	public void UpdateNumberOfFilledPoints()
 	{
 		NumberOfFilledPoints++;
 
 		if (NumberOfFilledPoints == NumberOfPointsToFill)
 		{
-			//Debug.Log("Filling Stage has finished !");
+			Debug.Log("Filling Stage has finished !");
 			StartCoroutine(FinishFillingState());
 		}
 	}
@@ -212,19 +243,6 @@ public class PancakeLevelManager : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 
 		StartCookingState();
-	}
-
-	private void StartFillingState()
-    {
-		StartCoroutine(FillingstateCameraMovement());
-    }
-
-	private IEnumerator FillingstateCameraMovement()
-	{
-		Camera.transform.DORotate(new Vector3(28.108f, 180f, 0f), 0.5f);
-		Camera.transform.DOMoveZ(2.09f, 0.5f);
-
-		yield return new WaitForSeconds(1f);
 	}
 
 	private void CreatePaintingQuad()
@@ -245,9 +263,26 @@ public class PancakeLevelManager : MonoBehaviour
 	private void StartCookingState()
 	{
 		currentState = State.CookingState;
+
 		Filler.gameObject.SetActive(false);
-		FillerCollisionPoints.gameObject.SetActive(false);
+		FillerCollisionPointsHolder.gameObject.SetActive(false);
+
+		SetPancake();
 		CookingCanvas.SetActive(true);
+	}
+
+	private void SetPancake()
+	{
+		//set transform
+		PancakeModel.transform.position = new Vector3(35.05699f, -0.4554057f, -0.13f);
+		PancakeModel.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
+		//set rb constrains
+		Pancake.FreePancakeConstrains();
+
+		//set material
+		PancakeMaterial.color = new Color(color.r, color.g, color.b, 0f);
+
 	}
 
 	public void ClickCookButton()
@@ -268,8 +303,7 @@ public class PancakeLevelManager : MonoBehaviour
 		}
 
 		yield return null;
-		//Smoke.SetActive(false);
-		paintingQuad.SetActive(false);
+		DestroyPaintingQuad();
 		StartFlippingState();
 
 		StartCoroutine(ReturnCameraToInitialPos());
@@ -292,8 +326,6 @@ public class PancakeLevelManager : MonoBehaviour
 		Meter.gameObject.SetActive(true);
 		Arrow.SetActive(true);
 		Meter.MoveArrow();
-
-		OrderCanvas.SetActive(false);
 	}
 
 	public void ClickAtrightTime()
@@ -329,10 +361,16 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		Pancake.GetComponent<Renderer>().material = BurntMaterial;
 	}
-	#endregion
+    #endregion
 
-	#region Syrup State
-	public void UpdateNumberOfSyrupPoints()
+    #region Syrup State
+
+    public void EnableSyrupState()
+    {
+		SyrupStage.SetActive(true);
+	}
+
+    public void UpdateNumberOfSyrupPoints()
 	{
 		NumberofSyrupPoints++;
 
@@ -345,6 +383,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public void FinishSyrupState()
 	{
 		currentState = State.SweetingState;
+
 		SyrupStage.SetActive(false);
 		SweetsStage.SetActive(true);
 	}
@@ -356,9 +395,7 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		//Debug.Log("Sweeting Stage has Started !");
 
-		//currentState = State.SweetingState;
 		Pancake.FreezePancake();
-		//SweeterSatge.SetActive(true);
 		StartCoroutine(MoveToPlate());
 
 		Meter.gameObject.SetActive(false);
@@ -367,6 +404,8 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator MoveToPlate()
 	{
+		EnableSyrupState();
+
 		//1.Move Camera.
 		Camera.transform.DOMove(CameraNewPos.position , 1f);
 		//2.Move Pan.
@@ -395,8 +434,6 @@ public class PancakeLevelManager : MonoBehaviour
 		Camera.transform.DORotate(new Vector3(40.43f, 180f, 0f), 0.5f);
 
 		yield return new WaitForSeconds(1f);
-
-		//MoveSyrup();
 	}
 
 	public void FinishSweetingStage()
@@ -408,7 +445,7 @@ public class PancakeLevelManager : MonoBehaviour
 		TextEffect.PlayEffect();
 
 		//SyrupStage.SetActive(true);
-		//SweetsStage.SetActive(false);
+		SweetsStage.SetActive(false);
 
 		CheckResult();
 		ShowResultCanvas();
@@ -455,7 +492,6 @@ public class PancakeLevelManager : MonoBehaviour
 
     public void Reset()
     {
-		DestroyPaintingQuad();
 		CurrentSyrup.DestroySyrupMesh();
 		Sweeter.ClearChildren();
 	}
@@ -480,6 +516,9 @@ public class PancakeLevelManager : MonoBehaviour
 		//1.Move Camera.
 		Camera.transform.DOMove(new Vector3(0.7f, 1.160993f, 3.414223f), 0.25f).OnComplete(NextCustomer);
 		Camera.transform.DORotate(new Vector3(5.408f, 180f, 0f), 0.25f);
+
+		//2.Reset
+		Reset();
 	}
 
 	private void NextCustomer()

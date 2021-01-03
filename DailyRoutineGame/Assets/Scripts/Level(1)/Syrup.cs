@@ -45,11 +45,10 @@ public class Syrup : MonoBehaviour
     public void MoveSyrup()
     {
         PancakeLevelManager.Instance.currentState = PancakeLevelManager.State.SyrupState;
-
+        
         SyrupObject.transform.DOMove(SyrupFinalPos.position, 0.5f);
         SyrupObject.transform.DOLocalRotate(new Vector3(0f, 0f, -51.728f), 0.5f).OnComplete(EnableSyrupPouring);
 
-        //SyrupPaintingQuad.SetActive(true);
         CreateSyrupMesh();
     }
 

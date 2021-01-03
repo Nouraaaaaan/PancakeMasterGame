@@ -1004,7 +1004,13 @@ MonoBehaviour:
   Camera: {fileID: 1724714413}
   CameraNewPos: {fileID: 18494016}
   Filler: {fileID: 40422599}
-  FillerCollisionPoints: {fileID: 167714238}
+  FillerCollisionPointsHolder: {fileID: 167714238}
+  FillerCollisionPoints:
+  - {fileID: 1680082131}
+  - {fileID: 2141700383}
+  - {fileID: 2033970804}
+  - {fileID: 1156307150}
+  - {fileID: 1412638543}
   FillingParticle: {fileID: 1700533743}
   NumberOfPointsToFill: 5
   brush:
@@ -1026,6 +1032,7 @@ MonoBehaviour:
     m_Bits: 256
   PaintingQuad: {fileID: 1080500893969919347, guid: c1e94e521e8b634449bd8e1d9ad00eb7,
     type: 3}
+  PancakeModel: {fileID: 1726970765}
   Pancake: {fileID: 1726970766}
   PancakeMaterial: {fileID: 2100000, guid: 4a37ecccf93f0d14fa5682dbc2e1cb76, type: 2}
   Pan: {fileID: 275325202}
@@ -1838,7 +1845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &274918806
 Transform:
   m_ObjectHideFlags: 0
@@ -7331,7 +7338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1407529534}
   m_Layer: 0
-  m_Name: CustomersScene
+  m_Name: --CustomersScene--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
