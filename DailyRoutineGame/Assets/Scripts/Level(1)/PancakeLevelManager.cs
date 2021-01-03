@@ -25,17 +25,12 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject Filler;
 	public GameObject FillerCollisionPointsHolder;
 	public FillerCollisionPoint[] FillerCollisionPoints;
-	public ParticleSystem FillingParticle;
 	public int NumberOfPointsToFill;
 	int NumberOfFilledPoints;
-	[SerializeField]
-	private Brush brush;
-	[SerializeField]
-	LayerMask PaintLayer;
-	RaycastHit hit;
 	public GameObject PaintingQuad;
 	private GameObject paintingQuad;
 
+	
 	[Header("Cooking Attributes")]
 	public GameObject PancakeModel;
 	public Pancake Pancake;
@@ -64,6 +59,9 @@ public class PancakeLevelManager : MonoBehaviour
 	public bool CanAddSyrup;
 	private int NumberofSyrupPoints;
 	public SyrupPoints[] SyrupCollisionPoints;
+	[SerializeField]
+	LayerMask PaintLayer;
+	RaycastHit hit;
 
 	[Header("Order Attributes")]
 	public OrderManager OrderManager;
@@ -118,32 +116,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (currentState == State.FillingState)
-		{
-			if (Input.GetMouseButtonDown(0))
-			{
-				FillingParticle.Play();
-			}
-
-			else if (Input.GetMouseButton(0))
-			{
-				if (Physics.Raycast(Filler.transform.position, -Vector3.up, out hit, 50, PaintLayer))
-				{
-					var paintObject = hit.transform.GetComponent<InkCanvas>();
-
-					if (paintObject != null)
-						paintObject.Paint(brush, hit);
-
-				}
-			}
-
-			else if (Input.GetMouseButtonUp(0))
-			{
-				FillingParticle.Stop();
-			}
-		}
-
-		else if (currentState == State.FlippingState)
+		if (currentState == State.FlippingState)
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
@@ -184,7 +157,6 @@ public class PancakeLevelManager : MonoBehaviour
 				CurrentSyrup.StopPouringSyrup();
 			}
 		}
-
 	}
 
 	#endregion
@@ -502,7 +474,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator NextCustomerCorotinue()
 	{
-		yield return new WaitForSeconds(6f);
+		yield return new WaitForSeconds(2f);
 			 
 		CustomersManager.NextCustomer();
 

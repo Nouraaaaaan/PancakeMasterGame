@@ -491,7 +491,7 @@ ScriptsOnlyBuild:
     className: GeneralBasic
   - hash:
       serializedVersion: 2
-      Hash: 2ff19e2ec6a18ea64c93a194e612444f
+      Hash: 49ba3c940f63c2914837fc54beefc10c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PancakeLevelManager
@@ -1055,7 +1055,7 @@ ScriptsOnlyBuild:
     className: Toggle
   - hash:
       serializedVersion: 2
-      Hash: c06ceff2c32c5463bfbea89df43cadb9
+      Hash: 11b2abbbfcbdf57fac00470ea2c198c6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Sweeter
@@ -1104,4 +1104,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level_1.unity
-  playerPath: C:/Users/DELL/Desktop/TestGameFlow.apk
+  playerPath: C:/Users/DELL/Desktop/FinalizeGameFlow.apk

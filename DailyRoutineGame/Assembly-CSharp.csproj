@@ -104,6 +104,7 @@
     <Compile Include="Assets\Models\Dinner table\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\Scripts\Level(1)\CustomersManager.cs" />
     <Compile Include="Assets\Scripts\Level(1)\DraggableObject.cs" />
+    <Compile Include="Assets\Scripts\Level(1)\Filler.cs" />
     <Compile Include="Assets\Scripts\Level(1)\FillerCollisionPoint.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Meter.cs" />
     <Compile Include="Assets\Scripts\Level(1)\OrderManager.cs" />
