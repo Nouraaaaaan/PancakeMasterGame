@@ -10,7 +10,7 @@ public class Sweeter : MonoBehaviour
     public Transform[] SpawnPoints;
     public GameObject Holder;
     int randomPrefab;
-    int NumberOfSpawnedSweets = 0;
+    public int NumberOfSpawnedSweets = 0;
     int MaxSpawnedSweets = 40;
 
     [Header("Sweeter Animation Attributes")]
@@ -18,11 +18,11 @@ public class Sweeter : MonoBehaviour
     public Transform SweeterFinalPos;
 
 
-    private bool CanInstantiate;
+    public bool CanInstantiate;
     private float counter = 0.1f;
 
-    private bool Finished = false;
-    private bool arrived = false;
+    public bool Finished = false;
+    public bool arrived = false;
 
     private void Update()
     {

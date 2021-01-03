@@ -396,7 +396,7 @@ public class PancakeLevelManager : MonoBehaviour
 	#region Sweeting State
 	public void StartSweetingState()
 	{
-		//Debug.Log("Sweeting Stage has Started !");
+		Debug.Log("Sweeting Stage has Started !");
 
 		Pancake.FreezePancake();
 		StartCoroutine(MoveToPlate());
@@ -443,12 +443,19 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		//Debug.Log("Sweeting Stage has Finished !");
 		Sweeter.ReturnSweeter();
+		//Sweeter.CanInstantiate = true;
+		Sweeter.NumberOfSpawnedSweets = 0;
+		Sweeter.Finished = false;
+		Sweeter.arrived = false;
+
+
 
 		SFXManager.Instance.StopSoundEffect();
 		TextEffect.PlayEffect();
 
 		//SyrupStage.SetActive(true);
 		SweetsStage.SetActive(false);
+		CanAddSweets = true;
 
 		CheckResult();
 		ShowResultCanvas();
