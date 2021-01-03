@@ -72,6 +72,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject CookingCanvas;
 	public GameObject ResultCanvas;
 	public GameObject OrderCanvas;
+	public GameObject OrderButton;
 
 	[Header("VFX")]
 	public ParticleSystem[] GoodEmojis;
@@ -85,6 +86,9 @@ public class PancakeLevelManager : MonoBehaviour
 	public Image FlippingStateImage;
 	public Image SyrupStateImage;
 	public Image SweetsStateImage;
+
+	[Header("Customers Attributes")]
+	public CustomersManager CustomersManager;
 
 	#region Singelton Region
 	public static PancakeLevelManager Instance;
@@ -104,9 +108,12 @@ public class PancakeLevelManager : MonoBehaviour
 	#region Callbacks Region
 	private void Start()
 	{
+		OrderManager.GenerateRandomOrder();
+
 		currentState = State.FillingState;
 		CreatePaintingQuad();
-		StartCoroutine(FillingstateCameraMovement());
+
+		//StartCoroutine(FillingstateCameraMovement());
 
 
 		color = PancakeMaterial.color;
@@ -206,6 +213,11 @@ public class PancakeLevelManager : MonoBehaviour
 
 		StartCookingState();
 	}
+
+	private void StartFillingState()
+    {
+		StartCoroutine(FillingstateCameraMovement());
+    }
 
 	private IEnumerator FillingstateCameraMovement()
 	{
@@ -400,6 +412,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		CheckResult();
 		ShowResultCanvas();
+		ReturnToCustomer();
 	}
 
 	#endregion
@@ -446,5 +459,52 @@ public class PancakeLevelManager : MonoBehaviour
 		CurrentSyrup.DestroySyrupMesh();
 		Sweeter.ClearChildren();
 	}
+
+    #region Transition Region
+
+	public void Onclick_CookBtn()
+    {
+		//1.Move to kitchen.
+		Camera.transform.DOMoveX(35f, 0.25f).OnComplete(StartFillingState);
+
+		//2.Disable btn.
+		OrderButton.SetActive(false);
+
+		//3.Disable order.
+		OrderCanvas.SetActive(false);
+
+	}
+
+	private void ReturnToCustomer()
+	{
+		//1.Move Camera.
+		Camera.transform.DOMove(new Vector3(0.7f, 1.160993f, 3.414223f), 0.25f).OnComplete(NextCustomer);
+		Camera.transform.DORotate(new Vector3(5.408f, 180f, 0f), 0.25f);
+	}
+
+	private void NextCustomer()
+	{
+		//2.Move Customer.
+		StartCoroutine(NextCustomerCorotinue());
+	}
+
+	private IEnumerator NextCustomerCorotinue()
+	{
+		yield return new WaitForSeconds(6f);
+			 
+		CustomersManager.NextCustomer();
+
+		//Disable result canvas.
+		ResultCanvas.SetActive(false);
+
+		//enable let's cook button.
+		OrderButton.SetActive(true);
+
+		//enable orderCanvas and generate random order.
+		OrderCanvas.SetActive(true);
+		OrderManager.GenerateRandomOrder();
+	}
+
+	#endregion
 
 }

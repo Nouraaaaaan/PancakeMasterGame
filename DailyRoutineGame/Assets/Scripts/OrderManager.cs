@@ -28,7 +28,7 @@ public class OrderManager : MonoBehaviour
 
     private void Start()
     {
-        GenerateRandomOrder();
+        //GenerateRandomOrder();
     }
 
     public void GenerateRandomOrder()
