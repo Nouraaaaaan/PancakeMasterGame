@@ -1047,10 +1047,14 @@ MonoBehaviour:
   Sweeter: {fileID: 1038576479}
   CanAddSweets: 1
   SyrupStage: {fileID: 274918805}
-  Syrups:
-  - {fileID: 97028442}
   CurrentSyrup: {fileID: 0}
   CanAddSyrup: 1
+  SyrupCollisionPoints:
+  - {fileID: 2115607656}
+  - {fileID: 1695878218}
+  - {fileID: 1966007548}
+  - {fileID: 70962954}
+  - {fileID: 731239527}
   OrderManager: {fileID: 158010732}
   SyrupOrder: 
   SweetsOrder: 

@@ -60,10 +60,10 @@ public class PancakeLevelManager : MonoBehaviour
 
 	[Header("Syrup Attributes")]
 	public GameObject SyrupStage;
-	public Syrup[] Syrups;
 	public Syrup CurrentSyrup;
 	public bool CanAddSyrup;
 	private int NumberofSyrupPoints;
+	public SyrupPoints[] SyrupCollisionPoints;
 
 	[Header("Order Attributes")]
 	public OrderManager OrderManager;
@@ -385,6 +385,9 @@ public class PancakeLevelManager : MonoBehaviour
 		currentState = State.SweetingState;
 
 		SyrupStage.SetActive(false);
+		NumberofSyrupPoints = 0;
+		ResetSyrupCollisionPoints();
+
 		SweetsStage.SetActive(true);
 	}
 
@@ -452,6 +455,14 @@ public class PancakeLevelManager : MonoBehaviour
 		ReturnToCustomer();
 	}
 
+	public void ResetSyrupCollisionPoints()
+	{
+        foreach (var point in SyrupCollisionPoints)
+        {
+			point.IsCollidedWithFiller = false;
+		}
+	}
+
 	#endregion
 
 	public void CheckResult()
@@ -493,6 +504,8 @@ public class PancakeLevelManager : MonoBehaviour
     public void Reset()
     {
 		CurrentSyrup.DestroySyrupMesh();
+		CanAddSyrup = true;
+
 		Sweeter.ClearChildren();
 	}
 
