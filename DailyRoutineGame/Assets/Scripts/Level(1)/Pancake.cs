@@ -20,7 +20,7 @@ public class Pancake : MonoBehaviour
         gameObject.transform.DORotate(new Vector3(0f, 0f, 180f), 0.5f);
 
         yield return new WaitForSeconds(1f);
-        PancakeLevelManager.Instance.StartSweetingState();
+        PancakeLevelManager.Instance.FinishFlippingState();
     }
 
     public void FreezePancake()

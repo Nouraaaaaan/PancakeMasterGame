@@ -102,10 +102,11 @@
     <Compile Include="Assets\Models\Dinner table\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
     <Compile Include="Assets\Models\Dinner table\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\Models\Dinner table\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
-    <Compile Include="Assets\Scripts\CustomersManager.cs" />
+    <Compile Include="Assets\Scripts\Level(1)\CustomersManager.cs" />
     <Compile Include="Assets\Scripts\Level(1)\DraggableObject.cs" />
     <Compile Include="Assets\Scripts\Level(1)\FillerCollisionPoint.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Meter.cs" />
+    <Compile Include="Assets\Scripts\Level(1)\OrderManager.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Pancake.cs" />
     <Compile Include="Assets\Scripts\Level(1)\PancakeLevelManager.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Sweet.cs" />
@@ -113,7 +114,6 @@
     <Compile Include="Assets\Scripts\Level(1)\Syrup.cs" />
     <Compile Include="Assets\Scripts\Level(1)\SyrupPoints.cs" />
     <Compile Include="Assets\Scripts\Level(1)\TextEffect.cs" />
-    <Compile Include="Assets\Scripts\OrderManager.cs" />
     <Compile Include="Assets\Scripts\SFXManager.cs" />
     <None Include="Assets\Models\Dinner table\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
     <None Include="Assets\Models\Dinner table\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
