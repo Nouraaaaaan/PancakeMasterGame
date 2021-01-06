@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - CustomersManager
     - DraggableObject
+    - Filler
     - FillerCollisionPoint
     - Meter
     - OrderManager
@@ -23,6 +24,14 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Sprites.SpriteEditorWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -32,6 +41,7 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
@@ -85,6 +95,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11666}
     - Class: 114
+      Script: {instanceID: 11770}
+    - Class: 114
       Script: {instanceID: 11938}
     - Class: 114
       Script: {instanceID: 12078}
@@ -105,27 +117,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12600}
     - Class: 114
-      Script: {instanceID: 12850}
+      Script: {instanceID: 12714}
     - Class: 114
-      Script: {instanceID: 12950}
+      Script: {instanceID: 12852}
     - Class: 114
-      Script: {instanceID: 13010}
+      Script: {instanceID: 12952}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 13012}
     - Class: 114
-      Script: {instanceID: 13086}
+      Script: {instanceID: 13034}
     - Class: 114
-      Script: {instanceID: 13186}
+      Script: {instanceID: 13088}
     - Class: 114
-      Script: {instanceID: 13192}
+      Script: {instanceID: 13188}
     - Class: 114
-      Script: {instanceID: 13586}
+      Script: {instanceID: 13194}
     - Class: 114
-      Script: {instanceID: 13608}
+      Script: {instanceID: 13588}
     - Class: 114
       Script: {instanceID: 13610}
     - Class: 114
-      Script: {instanceID: 13640}
+      Script: {instanceID: 13612}
+    - Class: 114
+      Script: {instanceID: 13642}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -491,7 +505,7 @@ ScriptsOnlyBuild:
     className: GeneralBasic
   - hash:
       serializedVersion: 2
-      Hash: 49ba3c940f63c2914837fc54beefc10c
+      Hash: 161a9efca44ea97582a4f00d4feda4c0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PancakeLevelManager
@@ -705,6 +719,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets.ImageEffects
     className: ScreenSpaceAmbientOcclusion
+  - hash:
+      serializedVersion: 2
+      Hash: e3d45c0f4fe26bfd9be5bdee560fe3f6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Filler
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -1104,4 +1124,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level_1.unity
-  playerPath: C:/Users/DELL/Desktop/FinalizeGameFlow.apk
+  playerPath: C:/Users/DELL/Desktop/PanCakeGame.apk

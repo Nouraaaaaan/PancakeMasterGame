@@ -9,6 +9,7 @@ TagManager:
   - Arrow
   - Pancake
   - Syrup
+  - VipCustomer
   layers:
   - Default
   - TransparentFX

@@ -22,6 +22,7 @@ public class CustomersManager : MonoBehaviour
     {
         Customers[0].transform.DOMove(ExitPos.position, 3f).OnComplete(MoveCustomers);
         Customers[0].transform.LookAt(ExitPos);
+
         //CustomerAnimators[0].SetBool("walk", true);
         Customers[0].GetComponent<Animator>().SetBool("walk", true);
     }
@@ -56,6 +57,8 @@ public class CustomersManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         SetCustomersIdle();
+
+        //CheckVipCustomer();
     }
 
     private void SetCustomersIdle()
@@ -64,6 +67,20 @@ public class CustomersManager : MonoBehaviour
         {
             customer.SetBool("walk", false);
         }       
+    }
+
+    public bool CheckVipCustomer()
+    {
+        if (Customers[0].gameObject.tag.Equals("VipCustomer"))
+        {
+            //Debug.Log(" Here's a VIP customer ! ");
+            return true;
+        }
+        else
+        {
+            //Debug.Log(Customers[0].gameObject.tag);
+            return false;
+        }
     }
 
 }

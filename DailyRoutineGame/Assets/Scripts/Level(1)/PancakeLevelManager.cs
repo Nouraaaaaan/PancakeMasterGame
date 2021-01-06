@@ -72,7 +72,11 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject CookingCanvas;
 	public GameObject ResultCanvas;
 	public GameObject OrderCanvas;
-	public GameObject OrderButton;
+	//public GameObject OrderButton;
+	public GameObject NormalCustomerCanvas;
+	public GameObject VipCustomerCanvas;
+	private int CoinsValue = 0;
+	public Text Coinstext;
 
 	[Header("VFX")]
 	public ParticleSystem[] GoodEmojis;
@@ -443,7 +447,8 @@ public class PancakeLevelManager : MonoBehaviour
 		Camera.transform.DOMoveX(35f, 0.25f).OnComplete(StartFillingState);
 
 		//2.Disable btn.
-		OrderButton.SetActive(false);
+		//OrderButton.SetActive(false);
+		DisableCustomerCanvas();
 
 		//3.Disable order.
 		OrderCanvas.SetActive(false);
@@ -474,7 +479,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator NextCustomerCorotinue()
 	{
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1f);
 			 
 		CustomersManager.NextCustomer();
 
@@ -482,7 +487,8 @@ public class PancakeLevelManager : MonoBehaviour
 		ResultCanvas.SetActive(false);
 
 		//enable let's cook button.
-		OrderButton.SetActive(true);
+		//OrderButton.SetActive(true);
+		EnableCustomerCanvas();
 
 		//enable orderCanvas and generate random order.
 		OrderCanvas.SetActive(true);
@@ -525,6 +531,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public void ShowResultCanvas()
 	{
 		ResultCanvas.SetActive(true);
+		UpdateCoinsNumber();
 
 	}
 
@@ -536,6 +543,39 @@ public class PancakeLevelManager : MonoBehaviour
 		CanAddSyrup = true;
 
 		Sweeter.ClearChildren();
+	}
+
+	public void EnableCustomerCanvas()
+	{
+        if (CustomersManager.CheckVipCustomer())
+        {
+			VipCustomerCanvas.SetActive(true);
+        }
+		else
+        {
+			NormalCustomerCanvas.SetActive(true);
+        }
+	}
+
+	public void DisableCustomerCanvas()
+	{
+	    VipCustomerCanvas.SetActive(false);
+
+	    NormalCustomerCanvas.SetActive(false);	
+	}
+
+	public void OnClick_NoThanksButtons()
+	{
+		CustomersManager.NextCustomer();
+		DisableCustomerCanvas();
+		EnableCustomerCanvas();
+	}
+
+	private void UpdateCoinsNumber()
+    {
+		CoinsValue += 50;
+		Coinstext.text = CoinsValue.ToString();
+
 	}
 
 }

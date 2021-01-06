@@ -58,7 +58,7 @@ public class Filler : MonoBehaviour
 
 	private void DragFiller()
 	{
-		Debug.Log("Dragging");
+		//Debug.Log("Dragging");
 
 		Vector3 delta = Input.mousePosition - lastMousePos;
 		Vector3 pos = transform.position;
