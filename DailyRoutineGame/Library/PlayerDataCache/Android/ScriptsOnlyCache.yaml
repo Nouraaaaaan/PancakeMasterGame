@@ -27,10 +27,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -505,7 +503,7 @@ ScriptsOnlyBuild:
     className: GeneralBasic
   - hash:
       serializedVersion: 2
-      Hash: 161a9efca44ea97582a4f00d4feda4c0
+      Hash: c344f2aa07c6f3156374583c2030886b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PancakeLevelManager
@@ -1075,7 +1073,7 @@ ScriptsOnlyBuild:
     className: Toggle
   - hash:
       serializedVersion: 2
-      Hash: 11b2abbbfcbdf57fac00470ea2c198c6
+      Hash: 9ca0a7ec99a0483e1af078b656c949d1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Sweeter

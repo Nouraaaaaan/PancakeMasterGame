@@ -11,7 +11,7 @@ public class OrderManager : MonoBehaviour
     {
         withChocolateSyrup,
         withStrawberrySyrup,
-        noSyrup
+        withMapleSyrup
     }
     public SyrupOrder CustomerSyrupOrder;
     
@@ -20,8 +20,11 @@ public class OrderManager : MonoBehaviour
     public Text SweetsText;
     public enum SweetsOrder
     {
-        withSweets,
-        noSweets
+        withStrawberry,
+        withChocolate,
+        withBlueBerries,
+        withSprinkles
+
     }
     public SweetsOrder CustomerSweetsOrder;
     
@@ -46,7 +49,7 @@ public class OrderManager : MonoBehaviour
 
     private void GenerateRandomSweetsOrder()
     {
-        CustomerSweetsOrder = (SweetsOrder)Random.Range(0, 1);
+        CustomerSweetsOrder = (SweetsOrder)Random.Range(0, 3);
 
         SweetsText.text = CustomerSweetsOrder.ToString();
     }

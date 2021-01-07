@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class Sweeter : MonoBehaviour
 {
+    public string OrderType;
+
     [Header("Sweets Spawning Attributes")]
     public GameObject[] SweetsPrefabs;
     public Transform[] SpawnPoints;
@@ -16,6 +18,8 @@ public class Sweeter : MonoBehaviour
     [Header("Sweeter Animation Attributes")]
     public Transform SweeterInitialPos;
     public Transform SweeterFinalPos;
+    public Vector3 FinalRotationValue;
+    public float TransitionSpeed;
 
 
     public bool CanInstantiate;
@@ -44,7 +48,8 @@ public class Sweeter : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSweets))
         {
             MoveSweeter();
-            PancakeLevelManager.Instance.SweetsOrder = "withSweets";
+            PancakeLevelManager.Instance.CurrentSweeter = this;
+            PancakeLevelManager.Instance.SweetsOrder = OrderType;
             PancakeLevelManager.Instance.CanAddSweets = false;
         }
     }
@@ -86,14 +91,16 @@ public class Sweeter : MonoBehaviour
 
     public void MoveSweeter()
     {
-        transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f);
-        transform.DOMove(SweeterFinalPos.position, 1f).OnComplete(SweeterAnimationFinished);
+        transform.DOLocalRotate(FinalRotationValue, 1f);
+        transform.DOMove(SweeterFinalPos.position, TransitionSpeed).OnComplete(SweeterAnimationFinished);
     }
 
     public void ReturnSweeter()
     {
-        transform.DOLocalRotate(new Vector3(0f, 0f, 134.041f), 1f);
-        transform.DOMove(SweeterInitialPos.position, 1f);
+        //transform.DOLocalRotate(new Vector3(0f, 0f, 134.041f), 1f);
+        //Debug.Log(SweeterInitialPos.transform.rotation.eulerAngles.z);
+        transform.DOLocalRotate(new Vector3(0f, 0f, SweeterInitialPos.transform.rotation.eulerAngles.z), 1f);
+        transform.DOMove(SweeterInitialPos.position, 1f).OnComplete(DisableSweetingStage);
     }
 
     private void SweeterAnimationFinished()
@@ -122,5 +129,12 @@ public class Sweeter : MonoBehaviour
         }
 
     }
+
+    private void DisableSweetingStage()
+    {
+        PancakeLevelManager.Instance.DiableSweetingStage();
+    }
+
+
 
 }

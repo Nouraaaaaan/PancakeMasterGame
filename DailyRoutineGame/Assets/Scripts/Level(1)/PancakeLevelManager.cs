@@ -50,7 +50,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject SweetsStage;
 	public Transform PancakeNewPos;
 	public Transform PancakeInitialPos;
-	public Sweeter Sweeter;
+	public Sweeter CurrentSweeter;
 	public bool CanAddSweets;
 
 	[Header("Syrup Attributes")]
@@ -394,7 +394,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		if (NumberofSyrupPoints >= 5)
 		{
-			CurrentSyrup.ReturnSyrupToInitialPosition();
+			StartCoroutine(ReturnSyrupToInitialPosition());
 		}
 	}
 
@@ -417,24 +417,36 @@ public class PancakeLevelManager : MonoBehaviour
 		SweetsStage.SetActive(true);
 	}
 
+	private IEnumerator ReturnSyrupToInitialPosition()
+	{
+		yield return new WaitForSeconds(6f);
+
+		CurrentSyrup.ReturnSyrupToInitialPosition();
+	}
+
 
 	#endregion
 
 	#region Sweeting State
-	
+
 	public void FinishSweetingStage()
 	{
 		TextEffect.PlayEffect();
 
-		Sweeter.ReturnSweeter();
-		Sweeter.NumberOfSpawnedSweets = 0;
-		Sweeter.Finished = false;
-		Sweeter.arrived = false;
-		SweetsStage.SetActive(false);
+		CurrentSweeter.ReturnSweeter();
+		CurrentSweeter.NumberOfSpawnedSweets = 0;
+		CurrentSweeter.Finished = false;
+		CurrentSweeter.arrived = false;
+		//SweetsStage.SetActive(false);
 		CanAddSweets = true;
 
 		
 		StartCoroutine(ReturnToCustomer());
+	}
+
+	public void DiableSweetingStage()
+	{
+		SweetsStage.SetActive(false);
 	}
 
 	#endregion
@@ -542,7 +554,7 @@ public class PancakeLevelManager : MonoBehaviour
 		CurrentSyrup.DestroySyrupMesh();
 		CanAddSyrup = true;
 
-		Sweeter.ClearChildren();
+		CurrentSweeter.ClearChildren();
 	}
 
 	public void EnableCustomerCanvas()
