@@ -555,6 +555,8 @@ public class PancakeLevelManager : MonoBehaviour
 		CanAddSyrup = true;
 
 		CurrentSweeter.ClearChildren();
+
+		Pancake.GetComponent<Renderer>().material = PancakeMaterial;
 	}
 
 	public void EnableCustomerCanvas()
