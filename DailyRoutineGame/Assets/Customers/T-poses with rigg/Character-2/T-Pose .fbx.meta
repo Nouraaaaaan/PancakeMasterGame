@@ -6,7 +6,17 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: colors
+    second: {fileID: 2100000, guid: f8310e44cc7646f4dbc09a58cf01939c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: diana_white
+    second: {fileID: 2100000, guid: ab87b4c0b11c40348a9af06410c7d016, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
