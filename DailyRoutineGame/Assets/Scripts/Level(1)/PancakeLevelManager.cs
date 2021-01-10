@@ -58,7 +58,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject SyrupStage;
 	public Syrup CurrentSyrup;
 	public bool CanAddSyrup;
-	private int NumberofSyrupPoints;
+	//private int NumberofSyrupPoints;
 	public SyrupPoints[] SyrupCollisionPoints;
 	[SerializeField]
 	LayerMask PaintLayer;
@@ -427,14 +427,9 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void FinishSyrupState()
 	{
-		//StartCoroutine(FinishObiFluid());
-		
 		currentState = State.SweetingState;
 
 		SyrupStage.SetActive(false);
-		NumberofSyrupPoints = 0;
-		
-
 		SweetsStage.SetActive(true);
 	}
 

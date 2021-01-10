@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OrderManager : MonoBehaviour
 {
     [Header("Syrup Order Attributes")]
-    public Text SyrupText;
+    public Image SyrupImage;
     public enum SyrupOrder
     {
         withChocolateSyrup,
@@ -14,10 +14,11 @@ public class OrderManager : MonoBehaviour
         withMapleSyrup
     }
     public SyrupOrder CustomerSyrupOrder;
-    
+    public Sprite[] SyrupsImages;
+
 
     [Header("Sweets Order Attributes")]
-    public Text SweetsText;
+    public Image SweetImage;
     public enum SweetsOrder
     {
         withStrawberry,
@@ -27,6 +28,7 @@ public class OrderManager : MonoBehaviour
 
     }
     public SweetsOrder CustomerSweetsOrder;
+    public Sprite[] SweetsImages;
     
 
     private void Start()
@@ -42,15 +44,29 @@ public class OrderManager : MonoBehaviour
 
     private void GenerateRandomSyrupOrder()
     {
-        CustomerSyrupOrder = (SyrupOrder)Random.Range(0, 2);
+        int randomSyrupIndex = Random.Range(0, 3);
 
-        SyrupText.text = CustomerSyrupOrder.ToString();
+        CustomerSyrupOrder = (SyrupOrder)randomSyrupIndex;
+
+        SetSyrupImage(randomSyrupIndex);
+    }
+
+    private void SetSyrupImage(int index)
+    {
+        SyrupImage.sprite = SyrupsImages[index];
     }
 
     private void GenerateRandomSweetsOrder()
     {
-        CustomerSweetsOrder = (SweetsOrder)Random.Range(0, 3);
+        int sweetSyrupIndex = Random.Range(0, 4);
 
-        SweetsText.text = CustomerSweetsOrder.ToString();
+        CustomerSweetsOrder = (SweetsOrder)sweetSyrupIndex;
+
+        SetSweetImage(sweetSyrupIndex);
+    }
+
+    private void SetSweetImage(int index)
+    {
+        SweetImage.sprite = SweetsImages[index];
     }
 }
