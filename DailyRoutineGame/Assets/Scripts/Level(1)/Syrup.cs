@@ -14,6 +14,8 @@ public class Syrup : MonoBehaviour
     }
     public SyrupType syrupType;
 
+    public Color SyrupColor;
+
     [Header("Syrup Attributes")]
     public GameObject SyrupObject;
     public Transform SyrupInitialPos;
@@ -39,6 +41,7 @@ public class Syrup : MonoBehaviour
             PancakeLevelManager.Instance.CurrentSyrup = this;
             PancakeLevelManager.Instance.SyrupOrder = syrupType.ToString();
             PancakeLevelManager.Instance.CanAddSyrup = false;
+            PancakeLevelManager.Instance.SetSyrupColor(SyrupColor);
         }
     }
 

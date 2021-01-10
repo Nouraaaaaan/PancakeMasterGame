@@ -97,6 +97,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	[Header("ObiFluid Attributes")]
 	public ObiFluidRenderer ObiFluidRenderer;
+	public ObiParticleRenderer ObiParticleRenderer;
 	public ObiEmitter ObiEmitter;
 
 	#region Singelton Region
@@ -389,6 +390,11 @@ public class PancakeLevelManager : MonoBehaviour
 	}
 
 	#region Syrup State
+
+	public void SetSyrupColor(Color color)
+	{
+		ObiParticleRenderer.particleColor = color;
+	}
 
 	public void StartSyrupState()
     {

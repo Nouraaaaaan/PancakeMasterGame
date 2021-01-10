@@ -998,6 +998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syrupType: 0
+  SyrupColor: {r: 0, g: 0, b: 0, a: 0}
   SyrupObject: {fileID: 97028435}
   SyrupInitialPos: {fileID: 1794588434}
   SyrupFinalPos: {fileID: 2051794721}
@@ -1509,6 +1510,7 @@ MonoBehaviour:
   SweetsStateImage: {fileID: 1398712838}
   CustomersManager: {fileID: 2129408330}
   ObiFluidRenderer: {fileID: 1724714415}
+  ObiParticleRenderer: {fileID: 937391767}
   ObiEmitter: {fileID: 937391766}
 --- !u!114 &158010731
 MonoBehaviour:
@@ -5093,6 +5095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syrupType: 1
+  SyrupColor: {r: 0, g: 0, b: 0, a: 0}
   SyrupObject: {fileID: 630081409}
   SyrupInitialPos: {fileID: 220678869}
   SyrupFinalPos: {fileID: 339428812}
@@ -6716,6 +6719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syrupType: 1
+  SyrupColor: {r: 1, g: 0, b: 0, a: 1}
   SyrupObject: {fileID: 847448265}
   SyrupInitialPos: {fileID: 146708411}
   SyrupFinalPos: {fileID: 1406057819}
@@ -9673,6 +9677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syrupType: 0
+  SyrupColor: {r: 0.5943396, g: 0.34264863, b: 0.31118724, a: 1}
   SyrupObject: {fileID: 989508499}
   SyrupInitialPos: {fileID: 31957993}
   SyrupFinalPos: {fileID: 1623153370}
@@ -11454,6 +11459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syrupType: 2
+  SyrupColor: {r: 1, g: 0.9843137, b: 0.40392157, a: 0}
   SyrupObject: {fileID: 1318031287}
   SyrupInitialPos: {fileID: 916593729}
   SyrupFinalPos: {fileID: 776695160}
@@ -11775,6 +11781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syrupType: 0
+  SyrupColor: {r: 1, g: 0.3534872, b: 0, a: 1}
   SyrupObject: {fileID: 1372909960}
   SyrupInitialPos: {fileID: 156924436}
   SyrupFinalPos: {fileID: 1873178284}
