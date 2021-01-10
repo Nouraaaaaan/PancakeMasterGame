@@ -50,13 +50,13 @@ public class Syrup : MonoBehaviour
         SyrupObject.transform.DOLocalRotate(new Vector3(0f, 0f, -51.728f), 0.5f).OnComplete(EnableSyrupPouring);
 
         //PancakeLevelManager.Instance.ResetSyrupCollisionPoints();
-
-        CreateSyrupMesh();
+        //CreateSyrupMesh();
     }
 
     private void EnableSyrupPouring()
     {
         CanPourSyrup = true;
+        PancakeLevelManager.Instance.StartObiFluid();
     }
 
     public void PouringSyrup()
@@ -75,6 +75,7 @@ public class Syrup : MonoBehaviour
     public void ReturnSyrupToInitialPosition()
     {
         StopPouringSyrup();
+        PancakeLevelManager.Instance.FinishObi();
 
         SyrupObject.transform.DOMove(SyrupInitialPos.position, 1f);
         SyrupObject.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f).OnComplete(FinishSyrupState);
@@ -102,7 +103,4 @@ public class Syrup : MonoBehaviour
             Destroy(mesh);
         }
     }
-
-    
-
 }

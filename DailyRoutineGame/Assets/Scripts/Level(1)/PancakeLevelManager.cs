@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Es.InkPainter;
 using DG.Tweening;
+using Obi;
 
 public class PancakeLevelManager : MonoBehaviour
 {
@@ -94,6 +95,10 @@ public class PancakeLevelManager : MonoBehaviour
 	[Header("Customers Attributes")]
 	public CustomersManager CustomersManager;
 
+	[Header("ObiFluid Attributes")]
+	public ObiFluidRenderer ObiFluidRenderer;
+	public ObiEmitter ObiEmitter;
+
 	#region Singelton Region
 	public static PancakeLevelManager Instance;
 	private void Awake()
@@ -137,6 +142,7 @@ public class PancakeLevelManager : MonoBehaviour
 			}
 		}
 
+		/*
 		else if ((currentState == State.SyrupState) && (CurrentSyrup != null))
 		{
 			if (Input.GetMouseButtonDown(0))
@@ -161,6 +167,7 @@ public class PancakeLevelManager : MonoBehaviour
 				CurrentSyrup.StopPouringSyrup();
 			}
 		}
+		*/
 	}
 
 	#endregion
@@ -388,6 +395,30 @@ public class PancakeLevelManager : MonoBehaviour
 		SyrupStage.SetActive(true);
 	}
 
+	public void StartObiFluid()
+	{
+		ObiEmitter.gameObject.SetActive(true);
+		ObiEmitter.speed = 1.5f;
+
+		ObiFluidRenderer.enabled = true;
+		
+		ObiEmitter.enabled = true;
+	}
+
+	public void FinishObi()
+	{
+		StartCoroutine(FinishObiFluid());
+	}
+
+	public IEnumerator FinishObiFluid()
+	{
+		ObiEmitter.speed = 0f;
+
+		yield return new WaitForSeconds(0.1f);
+
+		ObiEmitter.enabled = false;
+	}
+
     public void UpdateNumberOfSyrupPoints()
 	{
 		NumberofSyrupPoints++;
@@ -408,6 +439,8 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void FinishSyrupState()
 	{
+		//StartCoroutine(FinishObiFluid());
+		
 		currentState = State.SweetingState;
 
 		SyrupStage.SetActive(false);
@@ -419,11 +452,10 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator ReturnSyrupToInitialPosition()
 	{
-		yield return new WaitForSeconds(6f);
+		yield return new WaitForSeconds(4f);
 
 		CurrentSyrup.ReturnSyrupToInitialPosition();
 	}
-
 
 	#endregion
 
@@ -551,12 +583,14 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void Reset()
 	{
-		CurrentSyrup.DestroySyrupMesh();
+		//CurrentSyrup.DestroySyrupMesh();
 		CanAddSyrup = true;
-
 		CurrentSweeter.ClearChildren();
-
 		Pancake.GetComponent<Renderer>().material = PancakeMaterial;
+
+		ObiFluidRenderer.enabled = false;
+		ObiEmitter.gameObject.SetActive(false);
+
 	}
 
 	public void EnableCustomerCanvas()
