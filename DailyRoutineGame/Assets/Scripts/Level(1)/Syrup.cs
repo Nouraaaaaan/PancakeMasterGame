@@ -57,6 +57,8 @@ public class Syrup : MonoBehaviour
     {
         CanPourSyrup = true;
         PancakeLevelManager.Instance.StartObiFluid();
+
+        StartCoroutine(ReturnSyrupCoroutine());
     }
 
     public void PouringSyrup()
@@ -79,6 +81,12 @@ public class Syrup : MonoBehaviour
 
         SyrupObject.transform.DOMove(SyrupInitialPos.position, 1f);
         SyrupObject.transform.DOLocalRotate(new Vector3(0f, 0f, 0f), 1f).OnComplete(FinishSyrupState);
+    }
+
+    private IEnumerator ReturnSyrupCoroutine()
+    {
+        yield return new WaitForSeconds(4f);
+        ReturnSyrupToInitialPosition();
     }
 
     private void FinishSyrupState()

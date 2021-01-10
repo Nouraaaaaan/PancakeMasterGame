@@ -419,24 +419,6 @@ public class PancakeLevelManager : MonoBehaviour
 		ObiEmitter.enabled = false;
 	}
 
-    public void UpdateNumberOfSyrupPoints()
-	{
-		NumberofSyrupPoints++;
-
-		if (NumberofSyrupPoints >= 5)
-		{
-			StartCoroutine(ReturnSyrupToInitialPosition());
-		}
-	}
-
-	public void ResetSyrupCollisionPoints()
-	{
-		foreach (var point in SyrupCollisionPoints)
-		{
-			point.IsCollidedWithFiller = false;
-		}
-	}
-
 	public void FinishSyrupState()
 	{
 		//StartCoroutine(FinishObiFluid());
@@ -445,16 +427,9 @@ public class PancakeLevelManager : MonoBehaviour
 
 		SyrupStage.SetActive(false);
 		NumberofSyrupPoints = 0;
-		ResetSyrupCollisionPoints();
+		
 
 		SweetsStage.SetActive(true);
-	}
-
-	private IEnumerator ReturnSyrupToInitialPosition()
-	{
-		yield return new WaitForSeconds(4f);
-
-		CurrentSyrup.ReturnSyrupToInitialPosition();
 	}
 
 	#endregion

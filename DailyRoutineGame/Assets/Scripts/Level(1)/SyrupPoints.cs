@@ -11,7 +11,7 @@ public class SyrupPoints : MonoBehaviour
         if (collision.gameObject.CompareTag("Syrup") && (!this.IsCollidedWithFiller))
         {
             this.IsCollidedWithFiller = true;
-            PancakeLevelManager.Instance.UpdateNumberOfSyrupPoints();
+            //PancakeLevelManager.Instance.UpdateNumberOfSyrupPoints();
         }
 
     }
