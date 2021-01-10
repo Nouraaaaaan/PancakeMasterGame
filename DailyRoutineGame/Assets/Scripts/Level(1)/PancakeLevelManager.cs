@@ -414,7 +414,7 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		ObiEmitter.speed = 0f;
 
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(1f);
 
 		ObiEmitter.enabled = false;
 	}
