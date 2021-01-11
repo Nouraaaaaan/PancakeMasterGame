@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AdsManager.cs" />
     <Compile Include="Assets\DraggableSyrup.cs" />
     <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorCOMTransform.cs" />
     <Compile Include="Assets\Obi\Samples\Common\SampleResources\Scripts\ActorSpawner.cs" />
@@ -710,6 +711,14 @@
     <ProjectReference Include="Obi.Editor.csproj">
       <Project>{DE1FCC5E-8D88-BC9D-43B4-62D4CAFC5A3B}</Project>
       <Name>Obi.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="GoogleMobileAds.csproj">
+      <Project>{FCDD0E69-6C2B-86DA-2514-8C39A078A653}</Project>
+      <Name>GoogleMobileAds</Name>
+    </ProjectReference>
+    <ProjectReference Include="GoogleMobileAds.Editor.csproj">
+      <Project>{5365E9C2-0676-695F-8619-86D10C1B9662}</Project>
+      <Name>GoogleMobileAds.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

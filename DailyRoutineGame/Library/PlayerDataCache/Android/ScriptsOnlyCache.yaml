@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - Es.InkPainter.Effective.HeightFluid
     - Es.InkPainter.InkCanvas
     Assembly-CSharp.dll:
+    - AdsManager
     - CustomersManager
     - DraggableObject
     - DraggableSyrup
@@ -20,6 +21,10 @@ ScriptsOnlyBuild:
     - TextEffect
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
+    GoogleMobileAds.Editor.dll:
+    - GoogleMobileAds.Editor.GoogleMobileAdsSettings
+    GoogleMobileAds.dll:
+    - GoogleMobileAds.Common.MobileAdsEventExecutor
     Obi.dll:
     - Obi.ObiCollider
     - Obi.ObiCollisionMaterial
@@ -101,79 +106,83 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 810}
     - Class: 114
-      Script: {instanceID: 11496}
+      Script: {instanceID: 11498}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11610}
+      Script: {instanceID: 11612}
     - Class: 114
-      Script: {instanceID: 11686}
+      Script: {instanceID: 11688}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 11784}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 11970}
+      Script: {instanceID: 11972}
     - Class: 114
-      Script: {instanceID: 12174}
+      Script: {instanceID: 12176}
     - Class: 114
-      Script: {instanceID: 12342}
+      Script: {instanceID: 12344}
     - Class: 114
-      Script: {instanceID: 12352}
+      Script: {instanceID: 12354}
     - Class: 114
-      Script: {instanceID: 12422}
+      Script: {instanceID: 12424}
     - Class: 114
-      Script: {instanceID: 12594}
+      Script: {instanceID: 12596}
     - Class: 114
-      Script: {instanceID: 12680}
+      Script: {instanceID: 12682}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12758}
     - Class: 114
-      Script: {instanceID: 12900}
+      Script: {instanceID: 12902}
     - Class: 114
-      Script: {instanceID: 12908}
+      Script: {instanceID: 12910}
     - Class: 114
-      Script: {instanceID: 12936}
+      Script: {instanceID: 12938}
     - Class: 114
-      Script: {instanceID: 12984}
+      Script: {instanceID: 12986}
     - Class: 114
-      Script: {instanceID: 13026}
+      Script: {instanceID: 13028}
     - Class: 114
-      Script: {instanceID: 13080}
+      Script: {instanceID: 13082}
     - Class: 114
-      Script: {instanceID: 13242}
+      Script: {instanceID: 13244}
     - Class: 114
-      Script: {instanceID: 13432}
+      Script: {instanceID: 13434}
     - Class: 114
-      Script: {instanceID: 13566}
+      Script: {instanceID: 13568}
     - Class: 114
-      Script: {instanceID: 13642}
+      Script: {instanceID: 13644}
     - Class: 114
-      Script: {instanceID: 13646}
+      Script: {instanceID: 13648}
     - Class: 114
-      Script: {instanceID: 13676}
+      Script: {instanceID: 13678}
     - Class: 114
-      Script: {instanceID: 13724}
+      Script: {instanceID: 13726}
     - Class: 114
-      Script: {instanceID: 13738}
+      Script: {instanceID: 13740}
     - Class: 114
-      Script: {instanceID: 13754}
+      Script: {instanceID: 13756}
     - Class: 114
-      Script: {instanceID: 13856}
+      Script: {instanceID: 13858}
     - Class: 114
-      Script: {instanceID: 13866}
+      Script: {instanceID: 13868}
     - Class: 114
-      Script: {instanceID: 13920}
+      Script: {instanceID: 13922}
     - Class: 114
-      Script: {instanceID: 14120}
+      Script: {instanceID: 14122}
     - Class: 114
-      Script: {instanceID: 14396}
-    - Class: 114
-      Script: {instanceID: 14418}
+      Script: {instanceID: 14398}
     - Class: 114
       Script: {instanceID: 14420}
     - Class: 114
-      Script: {instanceID: 14454}
+      Script: {instanceID: 14422}
+    - Class: 114
+      Script: {instanceID: 14456}
+    - Class: 114
+      Script: {instanceID: 18616}
+    - Class: 114
+      Script: {instanceID: 24290}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1383,7 +1392,25 @@ ScriptsOnlyBuild:
     assemblyName: Obi.dll
     namespaceName: Obi
     className: ParticleAdvector
+  - hash:
+      serializedVersion: 2
+      Hash: 6fb512c6733e02f441372611e6f94f11
+    assemblyName: GoogleMobileAds.Editor.dll
+    namespaceName: GoogleMobileAds.Editor
+    className: GoogleMobileAdsSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: GoogleMobileAds.dll
+    namespaceName: GoogleMobileAds.Common
+    className: MobileAdsEventExecutor
+  - hash:
+      serializedVersion: 2
+      Hash: 54d107ea7148887c15f55ce569e0318c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AdsManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level_3.unity
-  playerPath: C:/Users/DELL/Desktop/Update.apk
+  playerPath: C:/Users/DELL/Desktop/YaKareem.apk
