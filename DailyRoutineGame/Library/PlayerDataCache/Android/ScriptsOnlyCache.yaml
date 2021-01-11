@@ -17,7 +17,6 @@ ScriptsOnlyBuild:
     - Sweet
     - Sweeter
     - Syrup
-    - SyrupPoints
     - TextEffect
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
@@ -137,8 +136,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12936}
     - Class: 114
       Script: {instanceID: 12984}
-    - Class: 114
-      Script: {instanceID: 13004}
     - Class: 114
       Script: {instanceID: 13026}
     - Class: 114
@@ -578,7 +575,7 @@ ScriptsOnlyBuild:
     className: ObiParticleCounter
   - hash:
       serializedVersion: 2
-      Hash: 55b288dbd7053e183f3fed6affe6857b
+      Hash: b5f20f6f71c7036d72597210a4c6bcdc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PancakeLevelManager
@@ -1082,7 +1079,7 @@ ScriptsOnlyBuild:
     className: TestingZLegacyExt
   - hash:
       serializedVersion: 2
-      Hash: 960ead0752cbf9577c2a27af1fa1e791
+      Hash: 3b8267cd26de5120d8149cf95af5129f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Syrup
@@ -1340,7 +1337,7 @@ ScriptsOnlyBuild:
     className: Sweeter
   - hash:
       serializedVersion: 2
-      Hash: a450774841b86405a3bf626c08a93ded
+      Hash: 50d7f8920c37fd526c1ab772890b784d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OrderManager
@@ -1389,4 +1386,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level_3.unity
-  playerPath: C:/Users/DELL/Desktop/TryNewObiFluid.apk
+  playerPath: C:/Users/DELL/Desktop/Update.apk
