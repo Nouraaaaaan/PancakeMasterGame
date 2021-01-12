@@ -19,8 +19,6 @@ public class AdsManager : MonoBehaviour
     private RewardType rewardType;
     private bool noAds = false; // used with purchaser when user buy no ads
 
-    
-
     #region AD_IDs
 
 #if UNITY_ANDROID   // test ids
@@ -173,7 +171,6 @@ public class AdsManager : MonoBehaviour
     }
 
 
-
     public void ShowRewardedVideo(RewardType type)
     {
         if (rewardVideo.IsLoaded())
@@ -259,43 +256,32 @@ public class AdsManager : MonoBehaviour
 
     public void HandleRewardedAdClosed(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardedAdClosed event received");//Resume Audio
+        MonoBehaviour.print("HandleRewardedAdClosed event received"); //Resume Audio
         RequestRewardedVideo();
-        // Purchaser.rounds += 8;
         AudioListener.volume = 1;
         Time.timeScale = 1;
+
         switch (rewardType)
         {
-            case RewardType.keys:
-                //ChestManager.Instance.OnClick_AdsButton();
-                //GameManager.instance.OnChestKeysRewardCallBack();
-                break;
-            case RewardType.loseLevel:
-                {
-                    Debug.Log("OnClickSkipButton");
-                    //UIManager.Instance.OnClickSkipButton();
-                    //GameSceneManager.Instance.LoadNextScene();
-                }
-                break;
-            case RewardType.goldChest:
-                //ChestManager.Instance.HitChest();
-                break;
-            case RewardType.live:
-                //UIManager.instance.AddLive();
-                break;
-            case RewardType.doublecoins:
-                {
-                    Debug.Log("OnClick_GreenButton");
-                    //int coinsNumber = GameData.Instance.LoadCoinsNumber();
-                    //GameData.Instance.SaveCoinsNumber(coinsNumber + 60);
-                    //GameData.Instance.UpdateLevelNum();
-                    //GameSceneManager.Instance.LoadNextScene();
-                }
-                break;
-            case RewardType.doubleWheelCoin:
-                //MinigamesDemo.FortuneWheel.Instance.OnClickDoubleButton();
-                break;
             default:
+                break;
+
+            case RewardType.SpecialSyrup:
+                {
+                    if (PancakeLevelManager.Instance.CurrentSyrup != null)
+                    {
+                        PancakeLevelManager.Instance.CurrentSyrup.MoveSyrup();
+                    }
+                }
+                break;
+
+            case RewardType.SpecialTopping:           
+                {
+                    if (PancakeLevelManager.Instance.CurrentSweeter != null)
+                    {
+                        PancakeLevelManager.Instance.CurrentSweeter.MoveSweeter();
+                    }
+                }
                 break;
         }
     }
@@ -309,10 +295,9 @@ public class AdsManager : MonoBehaviour
 
     }
 
-
     #endregion
     public enum RewardType
     {
-        keys, loseLevel, goldChest, live, doublecoins, doubleWheelCoin
+        SpecialSyrup, SpecialTopping
     }
 }

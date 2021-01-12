@@ -32,16 +32,27 @@ public class Syrup : MonoBehaviour
     [SerializeField]
     public Brush Syrupbrush;
 
+    [Header("Special Attributes")]
+    public bool IsSpecialSyrup;
+
 
     private void OnMouseDown()
     {
         if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSyrup))
-        {
-            MoveSyrup();
+        {      
             PancakeLevelManager.Instance.CurrentSyrup = this;
             PancakeLevelManager.Instance.SyrupOrder = syrupType.ToString();
             PancakeLevelManager.Instance.CanAddSyrup = false;
             PancakeLevelManager.Instance.SetSyrupColor(SyrupColor);
+
+            if (IsSpecialSyrup)
+            {
+                AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.SpecialSyrup);
+            }
+            else
+            {
+                MoveSyrup();
+            }
         }
     }
 

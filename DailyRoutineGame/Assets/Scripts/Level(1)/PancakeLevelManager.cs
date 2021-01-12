@@ -480,9 +480,9 @@ public class PancakeLevelManager : MonoBehaviour
 		yield return new WaitForSeconds(2f);
 
 		//1.Move Camera.
-		Camera.transform.DOMove(new Vector3(0.7f, 1.160993f, 3.414223f), 0.25f).OnComplete(NextCustomer);
-		Camera.transform.DORotate(new Vector3(5.408f, 180f, 0f), 0.25f);
-
+		Camera.transform.DOMove(new Vector3(0.5f, 1.030993f, 1.684223f), 0.25f).OnComplete(NextCustomer);
+		Camera.transform.DORotate(new Vector3(31f, 180f, 0.07f), 0.25f);
+		
 		//2.Reset
 		Reset();
 

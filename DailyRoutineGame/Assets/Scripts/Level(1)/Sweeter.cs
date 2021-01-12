@@ -21,6 +21,9 @@ public class Sweeter : MonoBehaviour
     public Vector3 FinalRotationValue;
     public float TransitionSpeed;
 
+    [Header("Special Sweeter Attributes")]
+    public bool IsSpecialSweeter;
+
 
     public bool CanInstantiate;
     private float counter = 0.1f;
@@ -46,11 +49,19 @@ public class Sweeter : MonoBehaviour
     private void OnMouseDown()
     {
         if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSweets))
-        {
-            MoveSweeter();
+        {        
             PancakeLevelManager.Instance.CurrentSweeter = this;
             PancakeLevelManager.Instance.SweetsOrder = OrderType;
             PancakeLevelManager.Instance.CanAddSweets = false;
+
+            if (IsSpecialSweeter)
+            {
+                AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.SpecialTopping);
+            }
+            else
+            {
+                MoveSweeter();
+            }
         }
     }
 
@@ -134,7 +145,5 @@ public class Sweeter : MonoBehaviour
     {
         PancakeLevelManager.Instance.DiableSweetingStage();
     }
-
-
 
 }
