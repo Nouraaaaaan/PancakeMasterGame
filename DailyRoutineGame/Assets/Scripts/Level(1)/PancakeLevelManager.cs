@@ -461,16 +461,26 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void Onclick_CookBtn()
     {
+		if (CustomersManager.CheckVipCustomer())
+		{
+			AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.VipCustomer);
+		}
+		else
+		{
+			MoveToKitchen();
+		}
+	}
+
+	public void MoveToKitchen()
+	{
 		//1.Move to kitchen.
 		Camera.transform.DOMoveX(35f, 0.25f).OnComplete(StartFillingState);
 
 		//2.Disable btn.
-		//OrderButton.SetActive(false);
 		DisableCustomerCanvas();
 
 		//3.Disable order.
 		OrderCanvas.SetActive(false);
-
 	}
 
 	private IEnumerator ReturnToCustomer()

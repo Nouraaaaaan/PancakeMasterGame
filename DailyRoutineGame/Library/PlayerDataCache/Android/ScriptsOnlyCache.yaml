@@ -584,7 +584,7 @@ ScriptsOnlyBuild:
     className: ObiParticleCounter
   - hash:
       serializedVersion: 2
-      Hash: b5f20f6f71c7036d72597210a4c6bcdc
+      Hash: 59163e2f49c71b8496e4a50b560ff19e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PancakeLevelManager
@@ -1413,4 +1413,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Level_3.unity
-  playerPath: C:/Users/DELL/Desktop/TestSpecialSyrup.apk
+  playerPath: C:/Users/DELL/Desktop/TestVIPAds.apk

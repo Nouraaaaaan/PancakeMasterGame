@@ -283,6 +283,10 @@ public class AdsManager : MonoBehaviour
                     }
                 }
                 break;
+
+            case RewardType.VipCustomer:
+                PancakeLevelManager.Instance.MoveToKitchen();
+                break;
         }
     }
 
@@ -298,6 +302,6 @@ public class AdsManager : MonoBehaviour
     #endregion
     public enum RewardType
     {
-        SpecialSyrup, SpecialTopping
+        SpecialSyrup, SpecialTopping, VipCustomer
     }
 }
