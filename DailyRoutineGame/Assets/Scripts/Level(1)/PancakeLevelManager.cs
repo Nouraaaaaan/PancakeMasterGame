@@ -401,6 +401,8 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void StartObiFluid()
 	{
+		ObiEmitter.transform.position = CurrentSyrup.PouringPoint.transform.position;
+
 		ObiEmitter.gameObject.SetActive(true);
 		ObiEmitter.speed = 1.5f;
 
