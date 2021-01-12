@@ -58,12 +58,10 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject SyrupStage;
 	public Syrup CurrentSyrup;
 	public bool CanAddSyrup;
-	//private int NumberofSyrupPoints;
 	public SyrupPoints[] SyrupCollisionPoints;
 	[SerializeField]
 	LayerMask PaintLayer;
-	RaycastHit hit;
-
+	
 	[Header("Order Attributes")]
 	public OrderManager OrderManager;
 	public string SyrupOrder;
@@ -73,7 +71,6 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject CookingCanvas;
 	public GameObject ResultCanvas;
 	public GameObject OrderCanvas;
-	//public GameObject OrderButton;
 	public GameObject NormalCustomerCanvas;
 	public GameObject VipCustomerCanvas;
 	private int CoinsValue = 0;
@@ -94,6 +91,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	[Header("Customers Attributes")]
 	public CustomersManager CustomersManager;
+	public GameObject PreparedOrder;
 
 	[Header("ObiFluid Attributes")]
 	public ObiFluidRenderer ObiFluidRenderer;
@@ -479,8 +477,11 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(2f);
 
+		//Show Prepared Order.
+		PreparedOrder.SetActive(true);
+
 		//1.Move Camera.
-		Camera.transform.DOMove(new Vector3(0.5f, 1.030993f, 1.684223f), 0.25f).OnComplete(NextCustomer);
+		Camera.transform.DOMove(new Vector3(0.8f, 1.030993f, 1.684223f), 0.25f).OnComplete(NextCustomer);
 		Camera.transform.DORotate(new Vector3(31f, 180f, 0.07f), 0.25f);
 		
 		//2.Reset
@@ -505,6 +506,9 @@ public class PancakeLevelManager : MonoBehaviour
 
 		//Disable result canvas.
 		ResultCanvas.SetActive(false);
+
+		//Disable Prepared Order.
+		PreparedOrder.SetActive(false);
 
 		//enable let's cook button.
 		//OrderButton.SetActive(true);
