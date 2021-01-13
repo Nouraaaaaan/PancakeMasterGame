@@ -90,8 +90,14 @@ public class PancakeLevelManager : MonoBehaviour
 	public Sprite HeartEyesEvaluationSprite;
 
 	public Image FlippingStateImage;
+
 	public Image SyrupStateImage;
+	public Image SyrupImage;
+	public Image OrderSyrupImage;
+
 	public Image SweetsStateImage;
+	public Image SweetsImage;
+	public Image OrderSweetsImage;
 
 	[Header("Customers Attributes")]
 	public CustomersManager CustomersManager;
@@ -480,15 +486,21 @@ public class PancakeLevelManager : MonoBehaviour
 		PreparedOrder.SetActive(true);
 
 		//1.Move Camera.
-		Camera.transform.DOMove(new Vector3(0.8f, 1.030993f, 1.684223f), 0.25f).OnComplete(NextCustomer);
+		Camera.transform.DOMove(new Vector3(0.8f, 1.030993f, 1.684223f), 0.25f);
 		Camera.transform.DORotate(new Vector3(31f, 180f, 0.07f), 0.25f);
 		
 		//2.Reset
 		Reset();
 
+
 		//3.
 		CheckResult();
 		ShowResultCanvas();
+
+		yield return new WaitForSeconds(3f);
+
+		//4.Next Customer.
+		NextCustomer();
 	}
 
 	private void NextCustomer()
@@ -570,6 +582,9 @@ public class PancakeLevelManager : MonoBehaviour
 			Debug.Log("Wrong Flip !!!");
 			FlippingStateImage.sprite = AngryEvaluationSprite;
 		}
+
+		//
+		SetEmojiBackgroundImages();
 	}
 
 	public void ShowResultCanvas()
@@ -578,6 +593,12 @@ public class PancakeLevelManager : MonoBehaviour
 		UpdateCoinsNumber();
 
 	}
+
+	private void SetEmojiBackgroundImages()
+	{
+		OrderSyrupImage.sprite = SyrupImage.sprite;
+		OrderSweetsImage.sprite = SweetsImage.sprite;
+    }
 
 	#endregion
 

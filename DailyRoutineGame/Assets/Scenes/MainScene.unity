@@ -1583,7 +1583,11 @@ MonoBehaviour:
     type: 3}
   FlippingStateImage: {fileID: 383889977}
   SyrupStateImage: {fileID: 1774762327}
+  SyrupImage: {fileID: 511023933}
+  OrderSyrupImage: {fileID: 187889654}
   SweetsStateImage: {fileID: 1398712838}
+  SweetsImage: {fileID: 1355076856}
+  OrderSweetsImage: {fileID: 447650462}
   CustomersManager: {fileID: 2129408330}
   PreparedOrder: {fileID: 964384833}
   ObiFluidRenderer: {fileID: 1724714415}
@@ -1829,7 +1833,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 190, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &187889654
 MonoBehaviour:
@@ -2698,8 +2702,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -8, y: 11}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &335498994
 MonoBehaviour:
@@ -2720,9 +2724,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e87aee944153c374cbc5bf37d7587460, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3404,7 +3408,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 190, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &447650462
 MonoBehaviour:
