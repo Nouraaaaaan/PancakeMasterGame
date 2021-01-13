@@ -83,7 +83,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject Smoke;
 
 	[Header("Evaluation Attributes")]
-	public Sprite BadEvaluationSprite;
+	public Sprite SadEvaluationSprite;
 	public Sprite GoodEvaluationSprite;
 	public Image FlippingStateImage;
 	public Image SyrupStateImage;
@@ -539,7 +539,7 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		if (!OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
 		{
-			SyrupStateImage.sprite = BadEvaluationSprite;
+			SyrupStateImage.sprite = SadEvaluationSprite;
 		}
 		else
 		{
@@ -548,7 +548,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		if (!OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder))
 		{
-			SweetsStateImage.sprite = BadEvaluationSprite;
+			SweetsStateImage.sprite = SadEvaluationSprite;
 		}
 		else
 		{
@@ -561,7 +561,7 @@ public class PancakeLevelManager : MonoBehaviour
 		}
 		else
 		{
-			FlippingStateImage.sprite = BadEvaluationSprite;
+			FlippingStateImage.sprite = SadEvaluationSprite;
 		}
 	}
 

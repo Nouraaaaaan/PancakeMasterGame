@@ -1572,7 +1572,7 @@ MonoBehaviour:
   - {fileID: 582765508}
   TextEffect: {fileID: 1282303483}
   Smoke: {fileID: 1090779011}
-  BadEvaluationSprite: {fileID: 21300000, guid: ff4b5a570c743fe4e82b959353b2a6a6,
+  SadEvaluationSprite: {fileID: 21300000, guid: a5b35994acaafe4479aa979b64f70339,
     type: 3}
   GoodEvaluationSprite: {fileID: 21300000, guid: 69f0d718874b8744999f6ef55aad3eb9,
     type: 3}
