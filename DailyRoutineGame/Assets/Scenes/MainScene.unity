@@ -862,7 +862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86366886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.863, y: -0.406, z: -0.839}
+  m_LocalPosition: {x: 32.313, y: -0.406, z: -0.839}
   m_LocalScale: {x: 0.15402143, y: 0.15402143, z: 0.15402143}
   m_Children: []
   m_Father: {fileID: 274918806}
@@ -1578,6 +1578,8 @@ MonoBehaviour:
   AngryEvaluationSprite: {fileID: 21300000, guid: ff4b5a570c743fe4e82b959353b2a6a6,
     type: 3}
   GoodEvaluationSprite: {fileID: 21300000, guid: 69f0d718874b8744999f6ef55aad3eb9,
+    type: 3}
+  HeartEyesEvaluationSprite: {fileID: 21300000, guid: 7719dd9dca8e587419dbb10cc0a6b601,
     type: 3}
   FlippingStateImage: {fileID: 383889977}
   SyrupStateImage: {fileID: 1774762327}
@@ -2380,7 +2382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &274918806
 Transform:
   m_ObjectHideFlags: 0
@@ -11315,7 +11317,7 @@ MonoBehaviour:
     colorBlendType: 1
     normalBlendType: 4
     heightBlendType: 5
-  IsSpecialSyrup: 0
+  IsSpecialSyrup: 1
   IsHotSauce: 0
 --- !u!54 &1318031293
 Rigidbody:

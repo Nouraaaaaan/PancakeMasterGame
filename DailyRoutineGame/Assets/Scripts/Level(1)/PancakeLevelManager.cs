@@ -85,7 +85,10 @@ public class PancakeLevelManager : MonoBehaviour
 	[Header("Evaluation Attributes")]
 	public Sprite SadEvaluationSprite;
 	public Sprite AngryEvaluationSprite;
+
 	public Sprite GoodEvaluationSprite;
+	public Sprite HeartEyesEvaluationSprite;
+
 	public Image FlippingStateImage;
 	public Image SyrupStateImage;
 	public Image SweetsStateImage;
@@ -521,7 +524,12 @@ public class PancakeLevelManager : MonoBehaviour
 	public void CheckResult()
 	{
 		//Syrup Evaluation.
-		if (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
+		if(CurrentSyrup != null && CurrentSyrup.IsSpecialSyrup)
+        {
+			Debug.Log("Special Syrup");
+			SyrupStateImage.sprite = HeartEyesEvaluationSprite;
+		}
+		else if (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
 		{
 			Debug.Log("Right Syrup");
 			SyrupStateImage.sprite = GoodEvaluationSprite;
@@ -537,9 +545,13 @@ public class PancakeLevelManager : MonoBehaviour
 			SyrupStateImage.sprite = SadEvaluationSprite;
 		}
 
-		
+
 		//Toppings Evaluation.
-		if (!OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder))
+		if (CurrentSweeter != null && CurrentSweeter.IsSpecialSweeter)
+		{
+			SweetsStateImage.sprite = HeartEyesEvaluationSprite;
+		}
+		else if (!OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder))
 		{
 			SweetsStateImage.sprite = SadEvaluationSprite;
 		}
