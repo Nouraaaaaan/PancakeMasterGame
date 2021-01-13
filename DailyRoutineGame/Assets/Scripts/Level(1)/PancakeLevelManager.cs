@@ -222,13 +222,10 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		//Play Random Emojii.
 		GoodEmojis[Random.Range(0, GoodEmojis.Length - 1)].Play();
+
 		yield return new WaitForSeconds(1f);
 
-		//deactivate Filling Attributes.
-		Filler.gameObject.SetActive(false);
-		FillerCollisionPointsHolder.gameObject.SetActive(false);
-
-		StartCookingState();
+		CookingCanvas.SetActive(true);
 	}
 
 	private void CreatePaintingQuad()
@@ -251,7 +248,6 @@ public class PancakeLevelManager : MonoBehaviour
 		currentState = State.CookingState;
 
 		SetPancake();
-		CookingCanvas.SetActive(true);
 	}
 
 	private void SetPancake()
@@ -270,9 +266,14 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void ClickCookButton()
 	{
+		//deactivate Filling Attributes.
+		Filler.gameObject.SetActive(false);
+		FillerCollisionPointsHolder.gameObject.SetActive(false);
+
+		StartCookingState();
+
 		StartCoroutine(Cook());
 		CookingCanvas.SetActive(false);
-
 	}
 
 	private IEnumerator Cook()
