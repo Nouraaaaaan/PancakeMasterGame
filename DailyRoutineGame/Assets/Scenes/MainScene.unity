@@ -21319,6 +21319,21 @@ PrefabInstance:
       propertyPath: CollisionModule.enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1998164141170908671, guid: 39b8989982144a142a3108181e0c91f3,
+        type: 3}
+      propertyPath: CollisionModule.radiusScale
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998164141170908671, guid: 39b8989982144a142a3108181e0c91f3,
+        type: 3}
+      propertyPath: CollisionModule.maxCollisionShapes
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998164141170908671, guid: 39b8989982144a142a3108181e0c91f3,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 2355719768456014686, guid: 39b8989982144a142a3108181e0c91f3,
         type: 3}
       propertyPath: m_Name
@@ -21332,17 +21347,17 @@ PrefabInstance:
     - target: {fileID: 7690431356084246916, guid: 39b8989982144a142a3108181e0c91f3,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7690431356084246916, guid: 39b8989982144a142a3108181e0c91f3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7690431356084246916, guid: 39b8989982144a142a3108181e0c91f3,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7690431356084246916, guid: 39b8989982144a142a3108181e0c91f3,
         type: 3}
