@@ -91,6 +91,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public Sprite HeartEyesEvaluationSprite;
 
 	public Image FlippingStateImage;
+	public Image OrderFlippingImage;
 
 	public Image SyrupStateImage;
 	public Image SyrupImage;
@@ -509,7 +510,7 @@ public class PancakeLevelManager : MonoBehaviour
 		CheckResult();
 		ShowResultCanvas();
 
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(3f);
 
 		//5.Enable Collect Canvas.
 		EnableCollectCanvas();
@@ -617,7 +618,7 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		ResultCanvas.SetActive(true);
 		UpdateCoinsNumber();
-
+		StartCoroutine(PopupEvaluationIcons());
 	}
 
 	private void SetEmojiBackgroundImages()
@@ -625,6 +626,26 @@ public class PancakeLevelManager : MonoBehaviour
 		OrderSyrupImage.sprite = SyrupImage.sprite;
 		OrderSweetsImage.sprite = SweetsImage.sprite;
     }
+
+	private IEnumerator PopupEvaluationIcons()
+	{
+		yield return new WaitForSeconds(1f);
+
+		//1.Stage One
+		FlippingStateImage.gameObject.SetActive(true);
+		OrderFlippingImage.gameObject.SetActive(true);
+		yield return new WaitForSeconds(1f);
+
+		//2.Stage Two
+		SyrupStateImage.gameObject.SetActive(true);
+		OrderSyrupImage.gameObject.SetActive(true);
+		yield return new WaitForSeconds(1f);
+
+		//3.Stage Three
+		SweetsStateImage.gameObject.SetActive(true);
+		OrderSweetsImage.gameObject.SetActive(true);
+		yield return new WaitForSeconds(1f);
+	}
 
 	#endregion
 
@@ -689,6 +710,7 @@ public class PancakeLevelManager : MonoBehaviour
 		DisableCollectCanvas();
 		NextCustomer();
 	}
+
 	#endregion
 
 	private void PrepareCustomerOrder()
