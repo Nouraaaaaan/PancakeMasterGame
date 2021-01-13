@@ -71,6 +71,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject CookingCanvas;
 	public GameObject ResultCanvas;
 	public GameObject OrderCanvas;
+	public GameObject CollectCanvas;
 	public GameObject NormalCustomerCanvas;
 	public GameObject VipCustomerCanvas;
 	private int CoinsValue = 0;
@@ -482,25 +483,24 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(2f);
 
-		//Show Prepared Order.
-		PreparedOrder.SetActive(true);
-
 		//1.Move Camera.
 		Camera.transform.DOMove(new Vector3(0.8f, 1.030993f, 1.684223f), 0.25f);
 		Camera.transform.DORotate(new Vector3(31f, 180f, 0.07f), 0.25f);
-		
-		//2.Reset
+
+		//2.Show Prepared Order.
+		PreparedOrder.SetActive(true);
+
+		//3.Reset
 		Reset();
 
-
-		//3.
+		//4.Result
 		CheckResult();
 		ShowResultCanvas();
 
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(2f);
 
-		//4.Next Customer.
-		NextCustomer();
+		//5.Enable Collect Canvas.
+		EnableCollectCanvas();
 	}
 
 	private void NextCustomer()
@@ -536,8 +536,21 @@ public class PancakeLevelManager : MonoBehaviour
 	public void CheckResult()
 	{
 		//Syrup Evaluation.
-		if(CurrentSyrup != null && CurrentSyrup.IsSpecialSyrup)
-        {
+		EvaluateSyrupStage();
+
+		//Toppings Evaluation.
+		EvaluateToppingStage();
+
+		//Flipping Evaluation.
+		EvaluateFlippingStage();
+
+		SetEmojiBackgroundImages();
+	}
+
+	private void EvaluateSyrupStage()
+	{
+		if (CurrentSyrup != null && CurrentSyrup.IsSpecialSyrup)
+		{
 			Debug.Log("Special Syrup");
 			SyrupStateImage.sprite = HeartEyesEvaluationSprite;
 		}
@@ -556,9 +569,10 @@ public class PancakeLevelManager : MonoBehaviour
 			Debug.Log("Wrong Syrup");
 			SyrupStateImage.sprite = SadEvaluationSprite;
 		}
+	}
 
-
-		//Toppings Evaluation.
+	private void EvaluateToppingStage()
+	{
 		if (CurrentSweeter != null && CurrentSweeter.IsSpecialSweeter)
 		{
 			SweetsStateImage.sprite = HeartEyesEvaluationSprite;
@@ -571,8 +585,10 @@ public class PancakeLevelManager : MonoBehaviour
 		{
 			SweetsStateImage.sprite = GoodEvaluationSprite;
 		}
+	}
 
-		//Flipping Evaluation.
+	private void EvaluateFlippingStage()
+	{
 		if (RightFlip)
 		{
 			FlippingStateImage.sprite = GoodEvaluationSprite;
@@ -582,9 +598,6 @@ public class PancakeLevelManager : MonoBehaviour
 			Debug.Log("Wrong Flip !!!");
 			FlippingStateImage.sprite = AngryEvaluationSprite;
 		}
-
-		//
-		SetEmojiBackgroundImages();
 	}
 
 	public void ShowResultCanvas()
@@ -614,23 +627,31 @@ public class PancakeLevelManager : MonoBehaviour
 
 	}
 
+	private void UpdateCoinsNumber()
+	{
+		CoinsValue += 50;
+		Coinstext.text = CoinsValue.ToString();
+
+	}
+
+	#region CustomersUI
 	public void EnableCustomerCanvas()
 	{
-        if (CustomersManager.CheckVipCustomer())
-        {
+		if (CustomersManager.CheckVipCustomer())
+		{
 			VipCustomerCanvas.SetActive(true);
-        }
+		}
 		else
-        {
+		{
 			NormalCustomerCanvas.SetActive(true);
-        }
+		}
 	}
 
 	public void DisableCustomerCanvas()
 	{
-	    VipCustomerCanvas.SetActive(false);
+		VipCustomerCanvas.SetActive(false);
 
-	    NormalCustomerCanvas.SetActive(false);	
+		NormalCustomerCanvas.SetActive(false);
 	}
 
 	public void OnClick_NoThanksButtons()
@@ -640,11 +661,20 @@ public class PancakeLevelManager : MonoBehaviour
 		EnableCustomerCanvas();
 	}
 
-	private void UpdateCoinsNumber()
-    {
-		CoinsValue += 50;
-		Coinstext.text = CoinsValue.ToString();
-
+	private  void EnableCollectCanvas()
+	{
+		CollectCanvas.SetActive(true);
 	}
 
+	private void DisableCollectCanvas()
+	{
+		CollectCanvas.SetActive(false);
+	}
+
+	public void OnClickCollectButton()
+	{
+		DisableCollectCanvas();
+		NextCustomer();
+	}
+	#endregion
 }
