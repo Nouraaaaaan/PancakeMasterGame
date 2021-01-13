@@ -25,7 +25,7 @@ public class CustomersManager : MonoBehaviour
 
     private IEnumerator MoveCustomerAwayCoroutine()
     {
-        Customers[0].transform.DOMove(ExitPos.position, 12f);
+        Customers[0].transform.DOMove(ExitPos.position, 12f).OnComplete(SetLastCustomerPosition);
         Customers[0].transform.LookAt(ExitPos);
         Customers[0].GetComponent<Animator>().SetBool("walk", true);
 
@@ -54,7 +54,7 @@ public class CustomersManager : MonoBehaviour
     
     private IEnumerator MoveCustomersCorotinue()
     {
-        for (int i = 0; i < Customers.Length; i++)
+        for (int i = 0; i < Customers.Length - 1; i++)
         {
             Customers[i].transform.DOMove(QueuePositions[i].transform.position, 1f);
             Customers[i].transform.LookAt(QueuePositions[i].transform);
@@ -64,8 +64,6 @@ public class CustomersManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         SetCustomersIdle();
-
-        //CheckVipCustomer();
     }
 
     private void SetCustomersIdle()
@@ -90,4 +88,8 @@ public class CustomersManager : MonoBehaviour
         }
     }
 
+    private void SetLastCustomerPosition()
+    {
+        Customers[QueuePositions.Length - 1].transform.position = QueuePositions[QueuePositions.Length - 1].position;
+    }
 }
