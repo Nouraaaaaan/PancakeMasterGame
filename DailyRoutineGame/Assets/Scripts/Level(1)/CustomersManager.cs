@@ -20,11 +20,18 @@ public class CustomersManager : MonoBehaviour
 
     private void MoveCustomerAway()
     {
-        Customers[0].transform.DOMove(ExitPos.position, 3f).OnComplete(MoveCustomers);
-        Customers[0].transform.LookAt(ExitPos);
+        StartCoroutine(MoveCustomerAwayCoroutine());
+    }
 
-        //CustomerAnimators[0].SetBool("walk", true);
+    private IEnumerator MoveCustomerAwayCoroutine()
+    {
+        Customers[0].transform.DOMove(ExitPos.position, 12f);
+        Customers[0].transform.LookAt(ExitPos);
         Customers[0].GetComponent<Animator>().SetBool("walk", true);
+
+        yield return new WaitForSeconds(2f);
+
+        MoveCustomers();
     }
 
     private void SwapCustomers()
