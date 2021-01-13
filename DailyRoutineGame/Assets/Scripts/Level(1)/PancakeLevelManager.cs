@@ -45,7 +45,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject Arrow;
 	public bool IsArrowInsideGreenArea;
 	public Material BurntMaterial;
-	private bool RightFlip;
+	public bool RightFlip;
 
 	[Header("Sweeting Attributes")]
 	public GameObject SweetsStage;
@@ -84,6 +84,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	[Header("Evaluation Attributes")]
 	public Sprite SadEvaluationSprite;
+	public Sprite AngryEvaluationSprite;
 	public Sprite GoodEvaluationSprite;
 	public Image FlippingStateImage;
 	public Image SyrupStateImage;
@@ -128,11 +129,11 @@ public class PancakeLevelManager : MonoBehaviour
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
+				currentState = State.SyrupState;
+
 				if (IsArrowInsideGreenArea)
 				{
 					ClickAtrightTime();
-					currentState = State.SyrupState;
-
 				}
 				else
 				{
@@ -141,32 +142,6 @@ public class PancakeLevelManager : MonoBehaviour
 			}
 		}
 
-		/*
-		else if ((currentState == State.SyrupState) && (CurrentSyrup != null))
-		{
-			if (Input.GetMouseButtonDown(0))
-			{
-				CurrentSyrup.PouringSyrup();
-			}
-
-			else if (Input.GetMouseButton(0))
-			{
-				if (Physics.Raycast(CurrentSyrup.PouringPoint.transform.position, -Vector3.up, out hit, 50, PaintLayer))
-				{
-					var paintObject = hit.transform.GetComponent<InkCanvas>();
-
-					if (paintObject != null)
-						paintObject.Paint(CurrentSyrup.Syrupbrush, hit);
-
-				}
-			}
-
-			else if (Input.GetMouseButtonUp(0))
-			{
-				CurrentSyrup.StopPouringSyrup();
-			}
-		}
-		*/
 	}
 
 	#endregion
@@ -316,17 +291,25 @@ public class PancakeLevelManager : MonoBehaviour
 	public void ClickAtrightTime()
 	{
 		RightFlip = true;
+
 		Meter.StopArrow();
 		Pancake.Flip();
 		PanAnimation();
+
 		Smoke.SetActive(false);
 	}
 
 	public void ClickAtWrongTime()
 	{
 		RightFlip = false;
+
 		ChangePancakeMaterial();
 		BadEmojis[Random.Range(0, BadEmojis.Length - 1)].Play();
+
+		Meter.StopArrow();
+		Pancake.Flip();
+		PanAnimation();
+
 		Smoke.SetActive(false);
 	}
 
@@ -537,15 +520,22 @@ public class PancakeLevelManager : MonoBehaviour
 	#region Result Region
 	public void CheckResult()
 	{
+		//Syrup Evaluation.
 		if (!OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
 		{
 			SyrupStateImage.sprite = SadEvaluationSprite;
+		}
+		else if (CurrentSyrup != null && CurrentSyrup.IsHotSauce)
+		{
+			SyrupStateImage.sprite = AngryEvaluationSprite;
 		}
 		else
 		{
 			SyrupStateImage.sprite = GoodEvaluationSprite;
 		}
 
+		
+		//Toppings Evaluation.
 		if (!OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder))
 		{
 			SweetsStateImage.sprite = SadEvaluationSprite;
@@ -555,13 +545,15 @@ public class PancakeLevelManager : MonoBehaviour
 			SweetsStateImage.sprite = GoodEvaluationSprite;
 		}
 
+		//Flipping Evaluation.
 		if (RightFlip)
 		{
 			FlippingStateImage.sprite = GoodEvaluationSprite;
 		}
 		else
 		{
-			FlippingStateImage.sprite = SadEvaluationSprite;
+			Debug.Log("Wrong Flip !!!");
+			FlippingStateImage.sprite = AngryEvaluationSprite;
 		}
 	}
 

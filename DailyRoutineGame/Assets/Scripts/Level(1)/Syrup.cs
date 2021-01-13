@@ -34,6 +34,7 @@ public class Syrup : MonoBehaviour
 
     [Header("Special Attributes")]
     public bool IsSpecialSyrup;
+    public bool IsHotSauce;
 
 
     private void OnMouseDown()
