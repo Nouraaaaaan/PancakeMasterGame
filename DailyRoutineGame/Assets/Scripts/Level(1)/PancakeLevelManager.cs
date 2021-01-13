@@ -521,17 +521,20 @@ public class PancakeLevelManager : MonoBehaviour
 	public void CheckResult()
 	{
 		//Syrup Evaluation.
-		if (!OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
+		if (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
 		{
-			SyrupStateImage.sprite = SadEvaluationSprite;
+			Debug.Log("Right Syrup");
+			SyrupStateImage.sprite = GoodEvaluationSprite;
 		}
 		else if (CurrentSyrup != null && CurrentSyrup.IsHotSauce)
 		{
+			Debug.Log("HotSauce Syrup");
 			SyrupStateImage.sprite = AngryEvaluationSprite;
 		}
 		else
 		{
-			SyrupStateImage.sprite = GoodEvaluationSprite;
+			Debug.Log("Wrong Syrup");
+			SyrupStateImage.sprite = SadEvaluationSprite;
 		}
 
 		

@@ -10,7 +10,8 @@ public class Syrup : MonoBehaviour
     {
         withChocolateSyrup,
         withStrawberrySyrup,
-        withMapleSyrup
+        withMapleSyrup,
+        HotSauce
     }
     public SyrupType syrupType;
 

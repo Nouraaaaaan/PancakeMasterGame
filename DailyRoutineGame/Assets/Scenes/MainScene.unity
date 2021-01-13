@@ -1536,6 +1536,7 @@ MonoBehaviour:
   Arrow: {fileID: 951232271}
   IsArrowInsideGreenArea: 0
   BurntMaterial: {fileID: 2100000, guid: dac78b6d402497a43a9fc6556d3a621b, type: 2}
+  RightFlip: 0
   SweetsStage: {fileID: 1267105585}
   PancakeNewPos: {fileID: 628126477}
   PancakeInitialPos: {fileID: 1105405336}
@@ -11698,7 +11699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01377b92858a74f8f2e573f04389ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syrupType: 0
+  syrupType: 3
   SyrupColor: {r: 1, g: 0.3534872, b: 0, a: 1}
   SyrupObject: {fileID: 1372909960}
   SyrupInitialPos: {fileID: 156924436}
