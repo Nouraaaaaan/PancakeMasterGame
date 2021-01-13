@@ -103,6 +103,17 @@ public class PancakeLevelManager : MonoBehaviour
 	[Header("Customers Attributes")]
 	public CustomersManager CustomersManager;
 	public GameObject PreparedOrder;
+	//Syrup
+	public GameObject CocolateSyrup;
+	public GameObject StrawberrySyrup;
+	public GameObject MapleSyrup;
+	public GameObject HotSyrup;
+	//Toppings
+	public GameObject CocolateTopping;
+	public GameObject StrawberryTopping;
+	public GameObject BlueberryTopping;
+	public GameObject SprinklesTopping;
+
 
 	[Header("ObiFluid Attributes")]
 	public ObiFluidRenderer ObiFluidRenderer;
@@ -489,6 +500,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		//2.Show Prepared Order.
 		PreparedOrder.SetActive(true);
+		PrepareCustomerOrder();
 
 		//3.Reset
 		Reset();
@@ -521,6 +533,7 @@ public class PancakeLevelManager : MonoBehaviour
 		//Disable Prepared Order.
 		PreparedOrder.SetActive(false);
 
+
 		//enable let's cook button.
 		//OrderButton.SetActive(true);
 		EnableCustomerCanvas();
@@ -551,22 +564,22 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		if (CurrentSyrup != null && CurrentSyrup.IsSpecialSyrup)
 		{
-			Debug.Log("Special Syrup");
+			//Debug.Log("Special Syrup");
 			SyrupStateImage.sprite = HeartEyesEvaluationSprite;
 		}
 		else if (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
 		{
-			Debug.Log("Right Syrup");
+			//Debug.Log("Right Syrup");
 			SyrupStateImage.sprite = GoodEvaluationSprite;
 		}
 		else if (CurrentSyrup != null && CurrentSyrup.IsHotSauce)
 		{
-			Debug.Log("HotSauce Syrup");
+			//Debug.Log("HotSauce Syrup");
 			SyrupStateImage.sprite = AngryEvaluationSprite;
 		}
 		else
 		{
-			Debug.Log("Wrong Syrup");
+			//Debug.Log("Wrong Syrup");
 			SyrupStateImage.sprite = SadEvaluationSprite;
 		}
 	}
@@ -677,4 +690,53 @@ public class PancakeLevelManager : MonoBehaviour
 		NextCustomer();
 	}
 	#endregion
+
+	private void PrepareCustomerOrder()
+	{
+		CocolateSyrup.SetActive(false);
+	    StrawberrySyrup.SetActive(false);
+		MapleSyrup.SetActive(false);
+		HotSyrup.SetActive(false);
+		//Syrup
+		if (SyrupOrder.Equals("withChocolateSyrup"))
+		{
+			CocolateSyrup.SetActive(true);
+		}
+        else if (SyrupOrder.Equals("withStrawberrySyrup"))
+        {
+			StrawberrySyrup.SetActive(true);
+		}
+		else if (SyrupOrder.Equals("withMapleSyrup"))
+		{
+			MapleSyrup.SetActive(true);
+		}
+		else
+		{
+			HotSyrup.SetActive(true);
+		}
+
+		//Topping
+		CocolateTopping.SetActive(false);
+		StrawberryTopping.SetActive(false);
+		BlueberryTopping.SetActive(false);
+		SprinklesTopping.SetActive(false);
+
+		if (SweetsOrder.Equals("withChocolate"))
+		{
+			CocolateTopping.SetActive(true);
+		}
+		else if (SweetsOrder.Equals("withStrawberry"))
+		{
+			StrawberryTopping.SetActive(true);
+		}
+		else if(SweetsOrder.Equals("withBlueBerries"))
+		{
+			BlueberryTopping.SetActive(true);
+		}
+		else
+        {
+			SprinklesTopping.SetActive(true);
+		}
+		
+	}
 }
