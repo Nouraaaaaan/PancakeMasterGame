@@ -550,6 +550,7 @@ public class PancakeLevelManager : MonoBehaviour
 		EnableCustomerCanvas();
 
 		//enable orderCanvas and generate random order.
+		yield return new WaitForSeconds(3f);
 		OrderCanvas.SetActive(true);
 		OrderManager.GenerateRandomOrder();
 	}
