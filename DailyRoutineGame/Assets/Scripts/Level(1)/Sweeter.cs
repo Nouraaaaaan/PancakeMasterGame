@@ -31,6 +31,18 @@ public class Sweeter : MonoBehaviour
     public bool Finished = false;
     public bool arrived = false;
 
+    [Header("Dragging Attributes")]
+    public float DragSpeed;
+    Vector3 lastMousePos;
+    [Space(20)]
+    public float MaxPosX;
+    public float MinPosX;
+    [Space(20)]
+    public float MaxPosZ;
+    public float MinPosZ;
+
+    
+
     private void Update()
     {
         counter -= Time.deltaTime;
@@ -49,7 +61,9 @@ public class Sweeter : MonoBehaviour
     private void OnMouseDown()
     {
         if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSweets))
-        {        
+        {
+            lastMousePos = Input.mousePosition;
+
             PancakeLevelManager.Instance.CurrentSweeter = this;
             PancakeLevelManager.Instance.SweetsOrder = OrderType;
             PancakeLevelManager.Instance.CanAddSweets = false;
@@ -70,6 +84,7 @@ public class Sweeter : MonoBehaviour
         if ((!Finished) && (arrived))
         {
             CanInstantiate = true;
+            UpdatePosition();
         }   
     }
 
@@ -144,6 +159,22 @@ public class Sweeter : MonoBehaviour
     private void DisableSweetingStage()
     {
         PancakeLevelManager.Instance.DiableSweetingStage();
+    }
+
+    private void UpdatePosition()
+    {
+        Vector3 delta = Input.mousePosition - lastMousePos;
+        Vector3 pos = transform.position;
+
+        pos.x += delta.x * DragSpeed * -1f;
+        pos.z += delta.y * DragSpeed * -1f;
+
+        if ((MinPosX <= pos.x) && (MaxPosX >= pos.x) && (MinPosZ <= pos.z) && (MaxPosZ >= pos.z))
+        {
+            transform.position = pos;
+        }
+
+        lastMousePos = Input.mousePosition;
     }
 
 }

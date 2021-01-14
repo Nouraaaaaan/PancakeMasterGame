@@ -23,8 +23,6 @@ ScriptsOnlyBuild:
     - DG.Tweening.Core.DOTweenSettings
     GoogleMobileAds.Editor.dll:
     - GoogleMobileAds.Editor.GoogleMobileAdsSettings
-    GoogleMobileAds.dll:
-    - GoogleMobileAds.Common.MobileAdsEventExecutor
     Obi.dll:
     - Obi.ObiCollider
     - Obi.ObiCollisionMaterial

@@ -20,12 +20,15 @@ public class DraggableObject : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Debug.Log(gameObject.transform.parent.gameObject.name);
         lastMousePos = Input.mousePosition;
     }
 
 
     void OnMouseDrag()
     {
+        Debug.Log(gameObject.transform.parent.gameObject.name);
+
         Vector3 delta = Input.mousePosition - lastMousePos;
         Vector3 pos = transform.position;
 

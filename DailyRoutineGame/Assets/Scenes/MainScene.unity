@@ -1274,7 +1274,6 @@ GameObject:
   - component: {fileID: 120021810}
   - component: {fileID: 120021809}
   - component: {fileID: 120021811}
-  - component: {fileID: 120021812}
   m_Layer: 0
   m_Name: Sweeter
   m_TagString: Untagged
@@ -1312,7 +1311,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -1358,18 +1357,6 @@ MonoBehaviour:
   CanInstantiate: 0
   Finished: 0
   arrived: 0
---- !u!114 &120021812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120021807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdee97d7a6a5a2f47bf1d065ac519752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   DragSpeed: 0.007
   MaxPosX: 32.8
   MinPosX: 31
@@ -8561,7 +8548,6 @@ GameObject:
   - component: {fileID: 847448266}
   - component: {fileID: 847448270}
   - component: {fileID: 847448269}
-  - component: {fileID: 847448273}
   - component: {fileID: 847448271}
   m_Layer: 0
   m_Name: strawberry_syrup
@@ -8679,8 +8665,6 @@ MonoBehaviour:
   SyrupInitialPos: {fileID: 146708411}
   SyrupFinalPos: {fileID: 1406057819}
   CanPourSyrup: 0
-  SyrupVFX: {fileID: 2006047873}
-  PouringPoint: {fileID: 595258286}
   SyrupMesh: {fileID: 1809910344000613319, guid: c24f2d6ad4c6cc44aa50202175f3d553,
     type: 3}
   Syrupbrush:
@@ -8699,18 +8683,6 @@ MonoBehaviour:
     heightBlendType: 5
   IsSpecialSyrup: 0
   IsHotSauce: 0
---- !u!114 &847448273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 847448265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 283cbc687dba8af4982afa08af3e53d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   DragSpeed: 0.007
   MaxPosX: 32.4
   MinPosX: 31.88296
@@ -9452,7 +9424,6 @@ GameObject:
   - component: {fileID: 894422439}
   - component: {fileID: 894422438}
   - component: {fileID: 894422437}
-  - component: {fileID: 894422436}
   m_Layer: 0
   m_Name: Sweeter
   m_TagString: Untagged
@@ -9478,23 +9449,6 @@ Transform:
   m_Father: {fileID: 800795203}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &894422436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 894422434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdee97d7a6a5a2f47bf1d065ac519752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DragSpeed: 0.007
-  MaxPosX: 32.87489
-  MinPosX: 32.45
-  MaxPosZ: 0.7372439
-  MinPosZ: 0.1
 --- !u!114 &894422437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9524,6 +9478,11 @@ MonoBehaviour:
   CanInstantiate: 0
   Finished: 0
   arrived: 0
+  DragSpeed: 0.007
+  MaxPosX: 32.87489
+  MinPosX: 32.45
+  MaxPosZ: 0.7372439
+  MinPosZ: 0.1
 --- !u!54 &894422438
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9536,7 +9495,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -11909,7 +11868,6 @@ GameObject:
   - component: {fileID: 989508500}
   - component: {fileID: 989508506}
   - component: {fileID: 989508505}
-  - component: {fileID: 989508504}
   - component: {fileID: 989508503}
   m_Layer: 0
   m_Name: Chololate_syrup
@@ -11998,8 +11956,6 @@ MonoBehaviour:
   SyrupInitialPos: {fileID: 31957993}
   SyrupFinalPos: {fileID: 1623153370}
   CanPourSyrup: 0
-  SyrupVFX: {fileID: 1961925401}
-  PouringPoint: {fileID: 464888065}
   SyrupMesh: {fileID: 1809910344000613319, guid: c24f2d6ad4c6cc44aa50202175f3d553,
     type: 3}
   Syrupbrush:
@@ -12018,18 +11974,6 @@ MonoBehaviour:
     heightBlendType: 5
   IsSpecialSyrup: 0
   IsHotSauce: 0
---- !u!114 &989508504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 989508499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 283cbc687dba8af4982afa08af3e53d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   DragSpeed: 0.007
   MaxPosX: 32.4
   MinPosX: 31.88296
@@ -12548,7 +12492,6 @@ GameObject:
   - component: {fileID: 1038576478}
   - component: {fileID: 1038576481}
   - component: {fileID: 1038576479}
-  - component: {fileID: 1038576480}
   m_Layer: 0
   m_Name: Sweeter
   m_TagString: Untagged
@@ -12618,18 +12561,6 @@ MonoBehaviour:
   CanInstantiate: 0
   Finished: 0
   arrived: 0
---- !u!114 &1038576480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038576476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdee97d7a6a5a2f47bf1d065ac519752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   DragSpeed: 0.007
   MaxPosX: 32.87489
   MinPosX: 32.45
@@ -12647,7 +12578,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -14973,7 +14904,6 @@ GameObject:
   - component: {fileID: 1318031288}
   - component: {fileID: 1318031294}
   - component: {fileID: 1318031293}
-  - component: {fileID: 1318031295}
   - component: {fileID: 1318031291}
   m_Layer: 0
   m_Name: maple_syrup
@@ -15063,8 +14993,6 @@ MonoBehaviour:
   SyrupInitialPos: {fileID: 916593729}
   SyrupFinalPos: {fileID: 776695160}
   CanPourSyrup: 0
-  SyrupVFX: {fileID: 2099991150}
-  PouringPoint: {fileID: 399167245}
   SyrupMesh: {fileID: 1809910344000613319, guid: c24f2d6ad4c6cc44aa50202175f3d553,
     type: 3}
   Syrupbrush:
@@ -15083,6 +15011,13 @@ MonoBehaviour:
     heightBlendType: 5
   IsSpecialSyrup: 1
   IsHotSauce: 0
+  DragSpeed: 0.007
+  MaxPosX: 32.5
+  MinPosX: 31.88296
+  MaxPosZ: 0.3
+  MinPosZ: -0.2
+  PouringPoint: {fileID: 399167245}
+  Emitter: {fileID: 937391763}
 --- !u!54 &1318031293
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15112,25 +15047,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.10486582, y: 0.1446778, z: 0.06046563}
   m_Center: {x: 0.000000013038518, y: -0.0000000037252907, z: -0.00053897506}
---- !u!114 &1318031295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318031287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 283cbc687dba8af4982afa08af3e53d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DragSpeed: 0.007
-  MaxPosX: 32.5
-  MinPosX: 31.88296
-  MaxPosZ: 0.3
-  MinPosZ: -0.2
-  PouringPoint: {fileID: 399167245}
-  Emitter: {fileID: 937391763}
 --- !u!1001 &1346325847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15542,7 +15458,6 @@ GameObject:
   - component: {fileID: 1372909961}
   - component: {fileID: 1372909965}
   - component: {fileID: 1372909964}
-  - component: {fileID: 1372909967}
   - component: {fileID: 1372909966}
   m_Layer: 0
   m_Name: hot_sauce
@@ -15660,8 +15575,6 @@ MonoBehaviour:
   SyrupInitialPos: {fileID: 156924436}
   SyrupFinalPos: {fileID: 1873178284}
   CanPourSyrup: 0
-  SyrupVFX: {fileID: 1746976618}
-  PouringPoint: {fileID: 1042651310}
   SyrupMesh: {fileID: 1809910344000613319, guid: c24f2d6ad4c6cc44aa50202175f3d553,
     type: 3}
   Syrupbrush:
@@ -15680,18 +15593,6 @@ MonoBehaviour:
     heightBlendType: 5
   IsSpecialSyrup: 0
   IsHotSauce: 1
---- !u!114 &1372909967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372909960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 283cbc687dba8af4982afa08af3e53d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   DragSpeed: 0.007
   MaxPosX: 32.4
   MinPosX: 31.88296
@@ -17440,7 +17341,6 @@ GameObject:
   - component: {fileID: 1589009031}
   - component: {fileID: 1589009030}
   - component: {fileID: 1589009029}
-  - component: {fileID: 1589009028}
   m_Layer: 0
   m_Name: Sweeter
   m_TagString: Untagged
@@ -17466,23 +17366,6 @@ Transform:
   m_Father: {fileID: 1603071151}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1589009028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589009026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdee97d7a6a5a2f47bf1d065ac519752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DragSpeed: 0.007
-  MaxPosX: 32.87489
-  MinPosX: 31
-  MaxPosZ: 0.7372439
-  MinPosZ: 0.01
 --- !u!114 &1589009029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17512,6 +17395,11 @@ MonoBehaviour:
   CanInstantiate: 0
   Finished: 0
   arrived: 0
+  DragSpeed: 0.007
+  MaxPosX: 32.87489
+  MinPosX: 31
+  MaxPosZ: 0.7372439
+  MinPosZ: 0.01
 --- !u!54 &1589009030
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17524,7 +17412,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -18514,12 +18402,6 @@ PrefabInstance:
 --- !u!4 &1746976617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6733674089533832343, guid: 53cadc265c8e7e544b8b258f8982b778,
-    type: 3}
-  m_PrefabInstance: {fileID: 1746976616}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1746976618 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3202571475188807916, guid: 53cadc265c8e7e544b8b258f8982b778,
     type: 3}
   m_PrefabInstance: {fileID: 1746976616}
   m_PrefabAsset: {fileID: 0}
@@ -20708,12 +20590,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1961925399}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &1961925401 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3202571475188807916, guid: 53cadc265c8e7e544b8b258f8982b778,
-    type: 3}
-  m_PrefabInstance: {fileID: 1961925399}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1962370776
 GameObject:
   m_ObjectHideFlags: 0
@@ -21354,12 +21230,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2006047871}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &2006047873 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3202571475188807916, guid: 53cadc265c8e7e544b8b258f8982b778,
-    type: 3}
-  m_PrefabInstance: {fileID: 2006047871}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2015566123
 GameObject:
   m_ObjectHideFlags: 0
@@ -21862,6 +21732,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 40422600}
     m_Modifications:
+    - target: {fileID: 1592082543843408803, guid: 39b8989982144a142a3108181e0c91f3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c2ca40bfe129240b894e058c103fa9, type: 2}
+    - target: {fileID: 1592082543843408803, guid: 39b8989982144a142a3108181e0c91f3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 73c2ca40bfe129240b894e058c103fa9, type: 2}
     - target: {fileID: 1998164141170908671, guid: 39b8989982144a142a3108181e0c91f3,
         type: 3}
       propertyPath: CollisionModule.enabled
@@ -22219,12 +22099,6 @@ PrefabInstance:
 --- !u!4 &2099991149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6733674089533832343, guid: 53cadc265c8e7e544b8b258f8982b778,
-    type: 3}
-  m_PrefabInstance: {fileID: 2099991148}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2099991150 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3202571475188807916, guid: 53cadc265c8e7e544b8b258f8982b778,
     type: 3}
   m_PrefabInstance: {fileID: 2099991148}
   m_PrefabAsset: {fileID: 0}
