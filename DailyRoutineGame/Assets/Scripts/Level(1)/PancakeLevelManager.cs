@@ -530,6 +530,16 @@ public class PancakeLevelManager : MonoBehaviour
 
 		//Disable result canvas.
 		ResultCanvas.SetActive(false);
+		  //1.Stage One
+		FlippingStateImage.gameObject.SetActive(false);
+		OrderFlippingImage.gameObject.SetActive(false);
+		  //2.Stage Two
+		SyrupStateImage.gameObject.SetActive(false);
+		OrderSyrupImage.gameObject.SetActive(false);
+		  //3.Stage Three
+		SweetsStateImage.gameObject.SetActive(false);
+		OrderSweetsImage.gameObject.SetActive(false);
+
 
 		//Disable Prepared Order.
 		PreparedOrder.SetActive(false);
