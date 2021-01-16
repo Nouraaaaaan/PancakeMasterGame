@@ -5,9 +5,13 @@ using UnityEngine.UI;
 using Es.InkPainter;
 using DG.Tweening;
 using Obi;
+using System.IO;
+
 
 public class PancakeLevelManager : MonoBehaviour
 {
+	public SaveTest SaveTest;
+
 	public enum State
 	{
 		FillingState,
@@ -133,12 +137,21 @@ public class PancakeLevelManager : MonoBehaviour
 		{
 			Destroy(this.gameObject);
 		}
+
+		string dir = Path.Combine(Application.persistentDataPath, "SaveData");
+		if (!Directory.Exists(dir))
+		{
+			SaveTest.Save();
+		}
 	}
 	#endregion
 
 	#region Callbacks Region
 	private void Start()
 	{
+		SaveTest.Load();
+		LoadConisNumber();
+
 		OrderManager.GenerateRandomOrder();
 
 		color = PancakeMaterial.color;
@@ -530,29 +543,27 @@ public class PancakeLevelManager : MonoBehaviour
 
 		//Disable result canvas.
 		ResultCanvas.SetActive(false);
-		  //1.Stage One
-		FlippingStateImage.gameObject.SetActive(false);
-		OrderFlippingImage.gameObject.SetActive(false);
-		  //2.Stage Two
-		SyrupStateImage.gameObject.SetActive(false);
-		OrderSyrupImage.gameObject.SetActive(false);
-		  //3.Stage Three
-		SweetsStateImage.gameObject.SetActive(false);
-		OrderSweetsImage.gameObject.SetActive(false);
-
+		//1.Stage One
+		FlippingStateImage.rectTransform.sizeDelta = new Vector2(0f, 0f);
+		OrderFlippingImage.rectTransform.sizeDelta = new Vector2(0f, 0f);
+		//2.Stage Two
+		SyrupStateImage.rectTransform.sizeDelta = new Vector2(0f, 0f);
+		OrderSyrupImage.rectTransform.sizeDelta = new Vector2(0f, 0f);
+		//3.Stage Three
+		SweetsStateImage.rectTransform.sizeDelta = new Vector2(0f, 0f);
+		OrderSweetsImage.rectTransform.sizeDelta = new Vector2(0f, 0f);
 
 		//Disable Prepared Order.
 		PreparedOrder.SetActive(false);
 
-
-		//enable let's cook button.
-		//OrderButton.SetActive(true);
-		EnableCustomerCanvas();
+		yield return new WaitForSeconds(2f);
 
 		//enable orderCanvas and generate random order.
-		yield return new WaitForSeconds(3f);
 		OrderCanvas.SetActive(true);
 		OrderManager.GenerateRandomOrder();
+
+		//enable let's cook button.
+		EnableCustomerCanvas();
 	}
 
 	#endregion
@@ -620,7 +631,7 @@ public class PancakeLevelManager : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("Wrong Flip !!!");
+			//Debug.Log("Wrong Flip !!!");
 			FlippingStateImage.sprite = AngryEvaluationSprite;
 		}
 	}
@@ -628,7 +639,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public void ShowResultCanvas()
 	{
 		ResultCanvas.SetActive(true);
-		UpdateCoinsNumber();
+		//UpdateCoinsNumber();
 		StartCoroutine(PopupEvaluationIcons());
 	}
 
@@ -643,18 +654,22 @@ public class PancakeLevelManager : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 
 		//1.Stage One
-		FlippingStateImage.gameObject.SetActive(true);
-		OrderFlippingImage.gameObject.SetActive(true);
+		FlippingStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
+		OrderFlippingImage.rectTransform.DOSizeDelta(new Vector2(250f, 250f), 0.5f);
 		yield return new WaitForSeconds(1f);
 
 		//2.Stage Two
-		SyrupStateImage.gameObject.SetActive(true);
-		OrderSyrupImage.gameObject.SetActive(true);
+		SyrupStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
+		OrderSyrupImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
 		yield return new WaitForSeconds(1f);
 
+
 		//3.Stage Three
-		SweetsStateImage.gameObject.SetActive(true);
-		OrderSweetsImage.gameObject.SetActive(true);
+		SweetsStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
+		OrderSweetsImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
+		yield return new WaitForSeconds(1f);
+
+
 		yield return new WaitForSeconds(1f);
 	}
 
@@ -677,6 +692,14 @@ public class PancakeLevelManager : MonoBehaviour
 		CoinsValue += 50;
 		Coinstext.text = CoinsValue.ToString();
 
+		SaveTest.SaveObject.PlayerCurrency = CoinsValue;
+		SaveTest.Save();
+	}
+
+	private void LoadConisNumber()
+	{
+		CoinsValue = SaveTest.SaveObject.PlayerCurrency;
+		Coinstext.text = CoinsValue.ToString();
 	}
 
 	#region CustomersUI
@@ -701,9 +724,23 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void OnClick_NoThanksButtons()
 	{
+		StartCoroutine(NoThanksButton());
+	}
+
+	IEnumerator NoThanksButton()
+	{
 		CustomersManager.NextCustomer();
 		DisableCustomerCanvas();
+		OrderCanvas.SetActive(false);
+
+
+		yield return new WaitForSeconds(2f);
+
+		//enable orderCanvas and generate random order.
+		yield return new WaitForSeconds(3f);
+		OrderCanvas.SetActive(true);
 		EnableCustomerCanvas();
+		OrderManager.GenerateRandomOrder();
 	}
 
 	private  void EnableCollectCanvas()
@@ -718,6 +755,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void OnClickCollectButton()
 	{
+		UpdateCoinsNumber();
 		DisableCollectCanvas();
 		NextCustomer();
 	}

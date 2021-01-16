@@ -19,11 +19,24 @@ public class ShopManager : MonoBehaviour
         public int price;
         public GameObject model;
         public bool sold;
+        public bool CurrentlyUsed;
+        public GameObject DefaultObject;
     }
 
-    public ShopItem[] Items;
+    [Header("Tables")]
+    public ShopItem[] TableItems;
+    public Button[] TableButtons;
 
-    public Button[] buttons;
+    [Header("Decorations")]
+    public ShopItem[] DecorationsItems;
+    public Button[] DecorationsButtons;
+
+    [Header("Floor")]
+    public ShopItem[] FloorsItems;
+    public Button[] FloorsButtons;
+
+    [Header("UI Manager")]
+    public Button TablesTabButton;
 
     #endregion
 
@@ -31,73 +44,76 @@ public class ShopManager : MonoBehaviour
     private void Awake()
     {
         string dir = Path.Combine(Application.persistentDataPath, "SaveData");
-
         Debug.Log(dir);
 
         if (!Directory.Exists(dir))
         {
             SaveTest.Save();
-        }            
+        }
     }
 
     private void Start()
     {
         //SaveTest.SaveObject.PlayerCurrency = 1000;
         //SaveTest.Save();
-      
+
         SaveTest.Load();
         LoadSavedCurrency();
-        LoadBoughtItem();
+        LoadItems();
         ShowAllSoldItems();
         UpdateButtons();
+
+        CheckForDefaultTablesObjects();
     }
 
     #endregion
 
-    public void OnClicked(Button button)
+    #region TablesRegion
+    public void OnClick_TableItem(Button button)
     {
-        if(button.interactable)
+        if (button.interactable)
         {
-            BuyItem(GetItemByName(button.name));
+            //Debug.Log("Debug.Log"+button.name);
+            Buy_TableItem(GetByName_TableItem(button.name));
         }
     }
 
-    private void BuyItem(int index)
+    private void Buy_TableItem(int index)
     {
-        if (!Items[index].sold)
+        //Debug.Log("Buy table item of index :"+index);
+
+        if (!TableItems[index].sold)
         {
-            Items[index].sold = true;
-            SaveTest.SaveObject.BoughtItems[index] = true;
+            TableItems[index].sold = true;
+            SaveTest.SaveObject.Tables[index] = true;
             SaveTest.Save();
 
-            buttons[index].transform.GetChild(0).transform.gameObject.SetActive(false);
+            TableButtons[index].transform.GetChild(0).transform.gameObject.SetActive(false);
 
-            ShowItemModel(index);
-            UpdateCurrencyValue(index);
+            Show_TabletemModel(index);
+
+            UpdateCurrencyValue(TableItems[index].price);
             UpdateCurrencyUI();
             UpdateButtons();
-        }
-        
-    }
 
-    private void LoadBoughtItem()
-    {
-        for (int i = 0; i < SaveTest.SaveObject.BoughtItems.Length; i++)
-        {
-            if (SaveTest.SaveObject.BoughtItems[i] == true)
+            if (TableItems[index].DefaultObject != null)
             {
-                Items[i].sold = true;
+                TableItems[index].DefaultObject.SetActive(false);
             }
         }
+        else if (TableItems[index].sold && !(TableItems[index].CurrentlyUsed))
+        {
+            Show_TabletemModel(index);
+        }
     }
 
-    private int GetItemByName(string name)
+    private int GetByName_TableItem(string name)
     {
         int index = 0;
 
-        for (int i = 0; i < Items.Length; i++)
+        for (int i = 0; i < TableItems.Length; i++)
         {
-            if (Items[i].name.Equals(name))
+            if (TableItems[i].name.Equals(name))
             {
                 index = i;
                 break;
@@ -107,17 +123,257 @@ public class ShopManager : MonoBehaviour
         return index;
     }
 
-    private void ShowItemModel(int index)
+    private void Show_TabletemModel(int index)
     {
-        if (Items[index].model != null)
+        //Disable all items.
+        foreach (var item in TableItems)
         {
-            Items[index].model.SetActive(true);
+            item.model.SetActive(false);
+        }
+
+        //All other items are not currently used.
+        for (int i = 0; i < TableItems.Length; i++)
+        {
+            TableItems[i].CurrentlyUsed = false;
+            SaveTest.SaveObject.CurrentlyUsedTables[i] = false;
+        }
+        TableItems[index].CurrentlyUsed = true;
+        SaveTest.SaveObject.CurrentlyUsedTables[index] = true;
+
+        //Saving.
+        SaveTest.SaveObject.Tables[index] = true;
+        SaveTest.Save();
+
+
+        //Show model.
+        if (TableItems[index].model != null)
+        {
+            TableItems[index].model.SetActive(true);
+        }
+    }
+
+    private void CheckForDefaultTablesObjects()
+    {
+        foreach (var item in TableItems)
+        {
+            if(item.sold)
+            {
+                if (item.DefaultObject != null)
+                {
+                    item.DefaultObject.SetActive(false);
+                }
+            }
+        }
+
+        foreach (var item in DecorationsItems)
+        {
+            if (item.sold)
+            {
+                if (item.DefaultObject != null)
+                {
+                    item.DefaultObject.SetActive(false);
+                }
+            }
+        }
+
+        foreach (var item in FloorsItems)
+        {
+            if (item.sold)
+            {
+                if (item.DefaultObject != null)
+                {
+                    item.DefaultObject.SetActive(false);
+                }
+            }
+        }
+    }
+
+    #endregion
+
+    #region DecorationsRegion
+    public void OnClick_DecorationItem(Button button)
+    {
+        Debug.Log("OnClick_DecorationItem : "+ button.name);
+
+        if (button.interactable)
+        {
+            Buy_DecorationItem(GetByName_DecorationItem(button.name));
+        }
+    }
+
+    private void Buy_DecorationItem(int index)
+    {
+        Debug.Log("Buy_DecorationItem : " + index);
+
+        if (!DecorationsItems[index].sold)
+        {
+            DecorationsItems[index].sold = true;
+            SaveTest.SaveObject.Decorations[index] = true;
+            SaveTest.Save();
+
+            DecorationsButtons[index].transform.GetChild(0).transform.gameObject.SetActive(false);
+
+            Show_DecorationtemModel(index);
+            UpdateCurrencyValue(DecorationsItems[index].price);
+            UpdateCurrencyUI();
+            UpdateButtons();
+
+            if (DecorationsItems[index].DefaultObject != null)
+            {
+                DecorationsItems[index].DefaultObject.SetActive(false);
+            }
+        }
+
+    }
+
+    private int GetByName_DecorationItem(string name)
+    {
+        int index = 0;
+
+        for (int i = 0; i < DecorationsItems.Length; i++)
+        {
+            if (DecorationsItems[i].name.Equals(name))
+            {
+                index = i;
+                break;
+            }
+        }
+
+        return index;
+    }
+
+    private void Show_DecorationtemModel(int index)
+    {
+        if (DecorationsItems[index].model != null)
+        {
+            DecorationsItems[index].model.SetActive(true);
+        }
+    }
+
+    #endregion
+
+    #region DecorationsRegion
+    public void OnClick_FloorItem(Button button)
+    {
+        //Debug.Log("OnClick_DecorationItem : " + button.name);
+
+        if (button.interactable)
+        {
+            Buy_FloorItem(GetByName_FloorItem(button.name));
+        }
+    }
+
+    private void Buy_FloorItem(int index)
+    {
+        //Debug.Log("Buy_DecorationItem : " + index);
+
+        if (!FloorsItems[index].sold)
+        {
+            FloorsItems[index].sold = true;
+            SaveTest.SaveObject.Floors[index] = true;
+            SaveTest.Save();
+
+            FloorsButtons[index].transform.GetChild(0).transform.gameObject.SetActive(false);
+
+            Show_FloorItemModel(index);
+            UpdateCurrencyValue(FloorsItems[index].price);
+            UpdateCurrencyUI();
+            UpdateButtons();
+
+            if (TableItems[index].DefaultObject != null)
+            {
+                TableItems[index].DefaultObject.SetActive(false);
+            }
+        }
+
+    }
+
+    private int GetByName_FloorItem(string name)
+    {
+        int index = 0;
+
+        for (int i = 0; i < FloorsItems.Length; i++)
+        {
+            if (FloorsItems[i].name.Equals(name))
+            {
+                index = i;
+                break;
+            }
+        }
+
+        return index;
+    }
+
+    private void Show_FloorItemModel(int index)
+    {
+        if (FloorsItems[index].model != null)
+        {
+            FloorsItems[index].model.SetActive(true);
+        }
+    }
+
+    #endregion
+
+    private void LoadItems()
+    {
+        //Tables & Chairs.
+        for (int i = 0; i < SaveTest.SaveObject.Tables.Length; i++)
+        {
+            if (SaveTest.SaveObject.Tables[i] == true)
+            {
+                TableItems[i].sold = true;
+                TableButtons[i].transform.GetChild(0).transform.gameObject.SetActive(false);
+            }
+        }
+
+        for (int i = 0; i < SaveTest.SaveObject.Tables.Length; i++)
+        {
+            if (SaveTest.SaveObject.CurrentlyUsedTables[i] == true)
+            {
+                TableItems[i].CurrentlyUsed = true;
+            }
+        }
+
+        //Decorations.
+        for (int i = 0; i < SaveTest.SaveObject.Decorations.Length; i++)
+        {
+            if (SaveTest.SaveObject.Decorations[i] == true)
+            {
+                DecorationsItems[i].sold = true;
+                DecorationsButtons[i].transform.GetChild(0).transform.gameObject.SetActive(false);
+            }
+        }
+
+        //Floor.
+        for (int i = 0; i < SaveTest.SaveObject.Floors.Length; i++)
+        {
+            if (SaveTest.SaveObject.Floors[i] == true)
+            {
+                FloorsItems[i].sold = true;
+                FloorsButtons[i].transform.GetChild(0).transform.gameObject.SetActive(false);
+            }
         }
     }
 
     private void ShowAllSoldItems()
     {
-        foreach (var item in Items)
+        foreach (var item in TableItems)
+        {
+            if ((item.sold) && (item.CurrentlyUsed))
+            {
+                item.model.SetActive(true);
+            }
+        }
+
+        foreach (var item in DecorationsItems)
+        {
+            if (item.sold)
+            {
+                item.model.SetActive(true);
+            }
+        }
+
+        foreach (var item in FloorsItems)
         {
             if (item.sold)
             {
@@ -128,12 +384,27 @@ public class ShopManager : MonoBehaviour
 
     private void UpdateButtons()
     {
-        for (int i = 0; i < Items.Length; i++)
+        for (int i = 0; i < TableItems.Length; i++)
         {
-            if (Items[i].price > CurrentCurrency)
+            if (TableItems[i].price > CurrentCurrency)
             {
-                //Debug.Log("Diable button "+i);
-                buttons[i].interactable = false;
+                TableButtons[i].interactable = false;
+            }
+        }
+
+        for (int i = 0; i < DecorationsItems.Length; i++)
+        {
+            if (DecorationsItems[i].price > CurrentCurrency)
+            {
+                DecorationsButtons[i].interactable = false;
+            }
+        }
+
+        for (int i = 0; i < FloorsItems.Length; i++)
+        {
+            if (FloorsItems[i].price > CurrentCurrency)
+            {
+                FloorsButtons[i].interactable = false;
             }
         }
     }
@@ -146,13 +417,19 @@ public class ShopManager : MonoBehaviour
         UpdateCurrencyUI();
     }
 
-    private void UpdateCurrencyValue(int index)
+    
+    private void UpdateCurrencyValue(int value)
     {
         Debug.Log("Update Currency Value");
-        CurrentCurrency -= Items[index].price;
+
+        CurrentCurrency -= value;
+
         SaveTest.SaveObject.PlayerCurrency = CurrentCurrency;
+
         SaveTest.Save();
     }
+
+    
 
     private void UpdateCurrencyUI()
     {

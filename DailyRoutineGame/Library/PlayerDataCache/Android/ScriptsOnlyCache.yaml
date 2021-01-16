@@ -6,8 +6,6 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AdsManager
     - CustomersManager
-    - DraggableObject
-    - DraggableSyrup
     - Filler
     - FillerCollisionPoint
     - Meter
@@ -23,6 +21,8 @@ ScriptsOnlyBuild:
     - DG.Tweening.Core.DOTweenSettings
     GoogleMobileAds.Editor.dll:
     - GoogleMobileAds.Editor.GoogleMobileAdsSettings
+    GoogleMobileAds.dll:
+    - GoogleMobileAds.Common.MobileAdsEventExecutor
     Obi.dll:
     - Obi.ObiCollider
     - Obi.ObiCollisionMaterial
@@ -98,81 +98,77 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11608}
     - Class: 114
-      Script: {instanceID: 11636}
+      Script: {instanceID: 11640}
     - Class: 114
-      Script: {instanceID: 11738}
+      Script: {instanceID: 11742}
     - Class: 114
-      Script: {instanceID: 11764}
+      Script: {instanceID: 11768}
     - Class: 114
-      Script: {instanceID: 11850}
+      Script: {instanceID: 11854}
     - Class: 114
-      Script: {instanceID: 11950}
+      Script: {instanceID: 11954}
     - Class: 114
-      Script: {instanceID: 12018}
+      Script: {instanceID: 12022}
     - Class: 114
-      Script: {instanceID: 12166}
+      Script: {instanceID: 12170}
     - Class: 114
-      Script: {instanceID: 12390}
+      Script: {instanceID: 12394}
     - Class: 114
-      Script: {instanceID: 12570}
+      Script: {instanceID: 12574}
     - Class: 114
-      Script: {instanceID: 12584}
+      Script: {instanceID: 12588}
     - Class: 114
-      Script: {instanceID: 12656}
+      Script: {instanceID: 12660}
     - Class: 114
-      Script: {instanceID: 12858}
+      Script: {instanceID: 12862}
     - Class: 114
-      Script: {instanceID: 12958}
+      Script: {instanceID: 12962}
     - Class: 114
-      Script: {instanceID: 13014}
+      Script: {instanceID: 13018}
     - Class: 114
-      Script: {instanceID: 13048}
+      Script: {instanceID: 13052}
     - Class: 114
-      Script: {instanceID: 13202}
+      Script: {instanceID: 13216}
     - Class: 114
-      Script: {instanceID: 13212}
+      Script: {instanceID: 13248}
     - Class: 114
-      Script: {instanceID: 13244}
-    - Class: 114
-      Script: {instanceID: 13300}
-    - Class: 114
-      Script: {instanceID: 13344}
+      Script: {instanceID: 13304}
     - Class: 114
       Script: {instanceID: 13348}
     - Class: 114
-      Script: {instanceID: 13576}
+      Script: {instanceID: 13580}
     - Class: 114
-      Script: {instanceID: 13784}
+      Script: {instanceID: 13788}
     - Class: 114
-      Script: {instanceID: 13932}
-    - Class: 114
-      Script: {instanceID: 14016}
+      Script: {instanceID: 13936}
     - Class: 114
       Script: {instanceID: 14020}
     - Class: 114
-      Script: {instanceID: 14058}
+      Script: {instanceID: 14024}
     - Class: 114
-      Script: {instanceID: 14108}
+      Script: {instanceID: 14062}
     - Class: 114
-      Script: {instanceID: 14130}
+      Script: {instanceID: 14112}
     - Class: 114
-      Script: {instanceID: 14152}
+      Script: {instanceID: 14134}
     - Class: 114
-      Script: {instanceID: 14260}
+      Script: {instanceID: 14156}
     - Class: 114
-      Script: {instanceID: 14272}
+      Script: {instanceID: 14264}
     - Class: 114
-      Script: {instanceID: 14330}
+      Script: {instanceID: 14276}
     - Class: 114
-      Script: {instanceID: 14536}
+      Script: {instanceID: 14334}
     - Class: 114
-      Script: {instanceID: 14840}
+      Script: {instanceID: 14540}
     - Class: 114
-      Script: {instanceID: 14864}
+      Script: {instanceID: 14844}
     - Class: 114
-      Script: {instanceID: 14866}
+      Script: {instanceID: 14868}
     - Class: 114
-      Script: {instanceID: 14906}
+      Script: {instanceID: 14870}
+    - Class: 114
+      Script: {instanceID: 14910}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1102,7 +1098,7 @@ ScriptsOnlyBuild:
     className: TestingZLegacyExt
   - hash:
       serializedVersion: 2
-      Hash: db2acfed1f4817f6e4852aaa7c5a5fd1
+      Hash: 752c616981b326ba4ced2cca0bb6fdcf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Syrup
@@ -1360,7 +1356,7 @@ ScriptsOnlyBuild:
     className: Toggle
   - hash:
       serializedVersion: 2
-      Hash: 13889b1078c982547c9f619e6be155ab
+      Hash: b3decf084adc3f4fee04be9b072b6991
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Sweeter

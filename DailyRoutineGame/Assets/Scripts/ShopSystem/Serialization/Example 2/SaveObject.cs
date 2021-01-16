@@ -6,11 +6,11 @@ using UnityEngine;
 public class SaveObject
 {
     public int PlayerCurrency;
-    public bool[] BoughtItems;
 
-    /*
-    public string PlayerName;
-    public int CoinsNumber;
-    public bool[] Truth;
-    */
+    public bool[] Tables;
+    public bool[] CurrentlyUsedTables;
+
+    public bool[] Decorations;
+
+    public bool[] Floors;
 }
