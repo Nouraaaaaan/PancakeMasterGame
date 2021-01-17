@@ -6,7 +6,7 @@ using Es.InkPainter;
 using DG.Tweening;
 using Obi;
 using System.IO;
-
+using UnityEngine.SceneManagement;
 
 public class PancakeLevelManager : MonoBehaviour
 {
@@ -78,6 +78,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject CollectCanvas;
 	public GameObject NormalCustomerCanvas;
 	public GameObject VipCustomerCanvas;
+	public GameObject StoreCanvas;
 	private int CoinsValue = 0;
 	public Text Coinstext;
 
@@ -293,9 +294,10 @@ public class PancakeLevelManager : MonoBehaviour
 		FillerCollisionPointsHolder.gameObject.SetActive(false);
 
 		StartCookingState();
-
 		StartCoroutine(Cook());
+
 		CookingCanvas.SetActive(false);
+		//StoreCanvas.SetActive(false);
 	}
 
 	private IEnumerator Cook()
@@ -744,6 +746,8 @@ public class PancakeLevelManager : MonoBehaviour
 	#region CustomersUI
 	public void EnableCustomerCanvas()
 	{
+		StoreCanvas.SetActive(true);
+
 		if (CustomersManager.CheckVipCustomer())
 		{
 			VipCustomerCanvas.SetActive(true);
@@ -758,8 +762,8 @@ public class PancakeLevelManager : MonoBehaviour
 	public void DisableCustomerCanvas()
 	{
 		VipCustomerCanvas.SetActive(false);
-
 		NormalCustomerCanvas.SetActive(false);
+		StoreCanvas.SetActive(false);
 	}
 
 	public void OnClick_NoThanksButtons()
@@ -859,5 +863,10 @@ public class PancakeLevelManager : MonoBehaviour
 			SprinklesTopping.SetActive(true);
 		}
 		
+	}
+
+	public void Onclick_StoreButton()
+	{
+		SceneManager.LoadScene("StoreScene");
 	}
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
+using DanielLochner.Assets.SimpleSideMenu;
 
 public class ShopManager : MonoBehaviour
 {
@@ -75,6 +77,7 @@ public class ShopManager : MonoBehaviour
         {
             //Debug.Log("Debug.Log"+button.name);
             Buy_TableItem(GetByName_TableItem(button.name));
+            SimpleSideMenu.Close();
         }
     }
 
@@ -193,17 +196,18 @@ public class ShopManager : MonoBehaviour
     #region DecorationsRegion
     public void OnClick_DecorationItem(Button button)
     {
-        Debug.Log("OnClick_DecorationItem : "+ button.name);
+        //Debug.Log("OnClick_DecorationItem : "+ button.name);
 
         if (button.interactable)
         {
             Buy_DecorationItem(GetByName_DecorationItem(button.name));
+            SimpleSideMenu.Close();
         }
     }
 
     private void Buy_DecorationItem(int index)
     {
-        Debug.Log("Buy_DecorationItem : " + index);
+        //Debug.Log("Buy_DecorationItem : " + index);
 
         if (!DecorationsItems[index].sold)
         {
@@ -252,7 +256,7 @@ public class ShopManager : MonoBehaviour
 
     #endregion
 
-    #region DecorationsRegion
+    #region FloorsRegion
     public void OnClick_FloorItem(Button button)
     {
         //Debug.Log("OnClick_DecorationItem : " + button.name);
@@ -260,6 +264,7 @@ public class ShopManager : MonoBehaviour
         if (button.interactable)
         {
             Buy_FloorItem(GetByName_FloorItem(button.name));
+            SimpleSideMenu.Close();
         }
     }
 
@@ -313,6 +318,8 @@ public class ShopManager : MonoBehaviour
     }
 
     #endregion
+
+    public SimpleSideMenu SimpleSideMenu;
 
     private void LoadItems()
     {
@@ -434,6 +441,14 @@ public class ShopManager : MonoBehaviour
     private void UpdateCurrencyUI()
     {
         CurrentCurrencyText.text = CurrentCurrency.ToString();
+    }
+
+    #endregion
+
+    #region UIManager
+    public void Onclick_BackButton()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 
     #endregion
