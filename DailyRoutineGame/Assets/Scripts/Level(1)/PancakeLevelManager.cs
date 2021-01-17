@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class PancakeLevelManager : MonoBehaviour
 {
+	#region Fields
 	public SaveTest SaveTest;
 
 	public enum State
@@ -35,7 +36,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject PaintingQuad;
 	private GameObject paintingQuad;
 
-	
+
 	[Header("Cooking Attributes")]
 	public GameObject PancakeModel;
 	public Pancake Pancake;
@@ -65,7 +66,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public SyrupPoints[] SyrupCollisionPoints;
 	[SerializeField]
 	LayerMask PaintLayer;
-	
+
 	[Header("Order Attributes")]
 	public OrderManager OrderManager;
 	public string SyrupOrder;
@@ -79,6 +80,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject NormalCustomerCanvas;
 	public GameObject VipCustomerCanvas;
 	public GameObject StoreCanvas;
+	public GameObject UpgradeDinerStore;
 	private int CoinsValue = 0;
 	public Text Coinstext;
 
@@ -134,6 +136,8 @@ public class PancakeLevelManager : MonoBehaviour
 	public ObiFluidRenderer ObiFluidRenderer;
 	public ObiParticleRenderer ObiParticleRenderer;
 	public ObiEmitter ObiEmitter;
+
+	#endregion
 
 	#region Singelton Region
 	public static PancakeLevelManager Instance;
@@ -548,6 +552,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		//2.Show Prepared Order.
 		PreparedOrder.SetActive(true);
+		PreparedOrder.transform.DOMoveX(PreparedOrder.transform.position.x + 0.8f, 1.5f);
 		PrepareCustomerOrder();
 
 		//3.Reset
@@ -589,6 +594,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		//Disable Prepared Order.
 		PreparedOrder.SetActive(false);
+		PreparedOrder.transform.localPosition = new Vector3(-109.568f , 0.237f, 3.082f);
 
 		yield return new WaitForSeconds(2f);
 
@@ -816,6 +822,15 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void OnClickCollectButton()
 	{
+		UpdateNumberOfInitialCustomers();
+
+		if (SaveTest.SaveObject.NumberOfInitialCustomers == 3)
+		{
+			UpgradeDiner();
+			UpdateCoinsNumber();
+			return;
+		}
+
 		//vfx.
 		StarField.Stop();
 		ConfettiShower.Stop();
@@ -823,9 +838,7 @@ public class PancakeLevelManager : MonoBehaviour
 		DollarBlast.Play();
 
 		UpdateCoinsNumber();
-
 		DisableCollectCanvas();
-
 		NextCustomer();
 	}
 
@@ -884,4 +897,34 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		SceneManager.LoadScene("StoreScene");
 	}
+
+	private void UpdateNumberOfInitialCustomers()
+	{
+		SaveTest.SaveObject.NumberOfInitialCustomers++;
+		SaveTest.Save();
+	}
+
+	#region UpgradeDinerStore
+	private void CheckForDinerUpgrade()
+	{
+		if (SaveTest.SaveObject.NumberOfInitialCustomers == 3)
+		{
+			UpgradeDiner();
+		}
+	}
+
+	private void UpgradeDiner()
+	{
+		CustomerScene.SetActive(false);
+		UpgradeDinerStore.SetActive(true);
+		ResultCanvas.SetActive(false);
+		CollectCanvas.SetActive(false);
+	}
+
+	public void Onclick_ClaimUpgradeButton()
+	{
+		SceneManager.LoadScene("StoreScene");
+	}
+	#endregion
+
 }

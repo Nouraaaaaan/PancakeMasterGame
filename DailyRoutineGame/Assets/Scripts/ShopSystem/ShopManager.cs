@@ -40,6 +40,12 @@ public class ShopManager : MonoBehaviour
     [Header("UI Manager")]
     public Button TablesTabButton;
 
+    [Header("Upgrade Attributes")]
+    public ParticleSystem ConfettiVFX;
+    public GameObject MessyDiner;
+    public GameObject SimpleDiner;
+
+
     #endregion
 
     #region CallBack Region
@@ -58,6 +64,7 @@ public class ShopManager : MonoBehaviour
     {
         //SaveTest.SaveObject.PlayerCurrency = 1000;
         //SaveTest.Save();
+        
 
         SaveTest.Load();
         LoadSavedCurrency();
@@ -66,6 +73,8 @@ public class ShopManager : MonoBehaviour
         UpdateButtons();
 
         CheckForDefaultTablesObjects();
+
+        ChechForDinerStoreUpgrade();
     }
 
     #endregion
@@ -453,4 +462,27 @@ public class ShopManager : MonoBehaviour
 
     #endregion
 
+    private void ChechForDinerStoreUpgrade()
+    {
+        //Debug.Log(SaveTest.SaveObject.NumberOfInitialCustomers);
+
+        if (SaveTest.SaveObject.NumberOfInitialCustomers == 3)
+        {
+            StartCoroutine(UpgradeDiner());
+        }
+        else if(SaveTest.SaveObject.NumberOfInitialCustomers > 3)
+        {
+            MessyDiner.SetActive(false);
+            SimpleDiner.SetActive(true);
+        }
+    }
+
+    IEnumerator UpgradeDiner()
+    {
+        yield return new WaitForSeconds(2f);
+
+        ConfettiVFX.Play();
+        MessyDiner.SetActive(false);
+        SimpleDiner.SetActive(true);
+    }
 }

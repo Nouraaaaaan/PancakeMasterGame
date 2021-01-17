@@ -6,6 +6,7 @@ using UnityEngine;
 public class SaveObject
 {
     public int PlayerCurrency;
+    public int NumberOfInitialCustomers;
 
     public bool[] Tables;
     public bool[] CurrentlyUsedTables;
