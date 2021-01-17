@@ -85,7 +85,16 @@ public class PancakeLevelManager : MonoBehaviour
 	public ParticleSystem[] GoodEmojis;
 	public ParticleSystem[] BadEmojis;
 	public TextEffect TextEffect;
-	public GameObject Smoke;
+	//public GameObject Smoke;
+	public GameObject CandelLight;
+	public ParticleSystem ConfettiBlast;
+	public ParticleSystem DollarBlast;
+	public ParticleSystem HeartPoof;
+	public ParticleSystem Steam;
+	public ParticleSystem ConfettiShower;
+	public ParticleSystem HeartStream;
+	public ParticleSystem StarField;
+	public ParticleSystem WhiteSmoke;
 
 	[Header("Evaluation Attributes")]
 	public Sprite SadEvaluationSprite;
@@ -118,7 +127,6 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject StrawberryTopping;
 	public GameObject BlueberryTopping;
 	public GameObject SprinklesTopping;
-
 
 	[Header("ObiFluid Attributes")]
 	public ObiFluidRenderer ObiFluidRenderer;
@@ -207,6 +215,10 @@ public class PancakeLevelManager : MonoBehaviour
 
 		//4.Move Camera.
 		StartCoroutine(FillingstateCameraMovement());
+
+		//5.
+		Steam.Play();
+		CandelLight.SetActive(true);
 	}
 
 	private IEnumerator FillingstateCameraMovement()
@@ -288,7 +300,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator Cook()
 	{
-		Smoke.SetActive(true);
+		//Smoke.SetActive(true);
 
 		while (PancakeMaterial.color.a < 1f)
 		{
@@ -327,25 +339,31 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		RightFlip = true;
 
+		//VFX.
+		Steam.Stop();
+		HeartPoof.Play();
+		
 		Meter.StopArrow();
 		Pancake.Flip();
 		PanAnimation();
 
-		Smoke.SetActive(false);
+		//Smoke.SetActive(false);
 	}
 
 	public void ClickAtWrongTime()
 	{
 		RightFlip = false;
 
+		//VFX.
+		Steam.Stop();
+		WhiteSmoke.Play();
+		//Smoke.SetActive(false);
 		ChangePancakeMaterial();
 		BadEmojis[Random.Range(0, BadEmojis.Length - 1)].Play();
 
 		Meter.StopArrow();
 		Pancake.Flip();
-		PanAnimation();
-
-		Smoke.SetActive(false);
+		PanAnimation();	
 	}
 
 	private void PanAnimation()
@@ -391,7 +409,11 @@ public class PancakeLevelManager : MonoBehaviour
 		Pancake.gameObject.transform.DOLocalRotate(new Vector3(-48.963f, 0.001f, 180f), 0.5f);
 		yield return new WaitForSeconds(0.65f);
 
+		//5.VFX
+		CandelLight.SetActive(false);
+		WhiteSmoke.Stop();
 
+		//6.Pan
 		Pancake.transform.parent = null;
 		Pan.SetActive(false);
 
@@ -458,13 +480,16 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void FinishSweetingStage()
 	{
+		//VFX.
 		TextEffect.PlayEffect();
+		ConfettiBlast.Play();
 
+
+		//Rest Sweeting Stage.
 		CurrentSweeter.ReturnSweeter();
 		CurrentSweeter.NumberOfSpawnedSweets = 0;
 		CurrentSweeter.Finished = false;
 		CurrentSweeter.arrived = false;
-		//SweetsStage.SetActive(false);
 		CanAddSweets = true;
 
 		
@@ -631,7 +656,6 @@ public class PancakeLevelManager : MonoBehaviour
 		}
 		else
 		{
-			//Debug.Log("Wrong Flip !!!");
 			FlippingStateImage.sprite = AngryEvaluationSprite;
 		}
 	}
@@ -656,21 +680,36 @@ public class PancakeLevelManager : MonoBehaviour
 		//1.Stage One
 		FlippingStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderFlippingImage.rectTransform.DOSizeDelta(new Vector2(250f, 250f), 0.5f);
+
 		yield return new WaitForSeconds(1f);
 
 		//2.Stage Two
 		SyrupStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderSyrupImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
+
 		yield return new WaitForSeconds(1f);
 
 
 		//3.Stage Three
 		SweetsStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderSweetsImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
-		yield return new WaitForSeconds(1f);
-
 
 		yield return new WaitForSeconds(1f);
+
+		if (   (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
+			 &&(OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder))
+			 &&(RightFlip)
+		   )
+		{
+			Debug.Log("All Is Good ! ");
+			ConfettiShower.Play();
+		}
+
+		if((CurrentSyrup != null && CurrentSyrup.IsSpecialSyrup) ||(CurrentSweeter != null && CurrentSweeter.IsSpecialSweeter))
+		{
+			HeartStream.Play();
+		}
+		
 	}
 
 	#endregion
@@ -708,6 +747,7 @@ public class PancakeLevelManager : MonoBehaviour
 		if (CustomersManager.CheckVipCustomer())
 		{
 			VipCustomerCanvas.SetActive(true);
+			StarField.Play();
 		}
 		else
 		{
@@ -729,6 +769,8 @@ public class PancakeLevelManager : MonoBehaviour
 
 	IEnumerator NoThanksButton()
 	{
+		StarField.Stop();
+
 		CustomersManager.NextCustomer();
 		DisableCustomerCanvas();
 		OrderCanvas.SetActive(false);
@@ -755,8 +797,16 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void OnClickCollectButton()
 	{
+		//vfx.
+		StarField.Stop();
+		ConfettiShower.Stop();
+		HeartStream.Stop();
+		DollarBlast.Play();
+
 		UpdateCoinsNumber();
+
 		DisableCollectCanvas();
+
 		NextCustomer();
 	}
 
