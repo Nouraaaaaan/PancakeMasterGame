@@ -46,7 +46,7 @@ public class ShopManager : MonoBehaviour
     private void Awake()
     {
         string dir = Path.Combine(Application.persistentDataPath, "SaveData");
-        Debug.Log(dir);
+        //Debug.Log(dir);
 
         if (!Directory.Exists(dir))
         {
@@ -427,7 +427,7 @@ public class ShopManager : MonoBehaviour
     
     private void UpdateCurrencyValue(int value)
     {
-        Debug.Log("Update Currency Value");
+        //Debug.Log("Update Currency Value");
 
         CurrentCurrency -= value;
 

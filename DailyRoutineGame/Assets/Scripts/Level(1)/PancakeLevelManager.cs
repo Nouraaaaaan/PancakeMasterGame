@@ -116,6 +116,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public Image OrderSweetsImage;
 
 	[Header("Customers Attributes")]
+	public GameObject CustomerScene;
 	public CustomersManager CustomersManager;
 	public GameObject PreparedOrder;
 	//Syrup
@@ -228,6 +229,9 @@ public class PancakeLevelManager : MonoBehaviour
 		Camera.transform.DOMoveZ(2.09f, 0.5f);
 
 		yield return new WaitForSeconds(1f);
+
+		//disable customer scene.
+		CustomerScene.SetActive(false);
 	}
 
 	public void UpdateNumberOfFilledPoints()
@@ -533,6 +537,9 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator ReturnToCustomer()
 	{
+		//enable customer scene.
+		CustomerScene.SetActive(true);
+
 		yield return new WaitForSeconds(2f);
 
 		//1.Move Camera.
@@ -730,7 +737,15 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private void UpdateCoinsNumber()
 	{
-		CoinsValue += 50;
+		if (CustomersManager.CheckVipCustomer())
+		{
+			CoinsValue += 100;
+		}
+		else
+		{
+			CoinsValue += 50;
+		}
+		
 		Coinstext.text = CoinsValue.ToString();
 
 		SaveTest.SaveObject.PlayerCurrency = CoinsValue;

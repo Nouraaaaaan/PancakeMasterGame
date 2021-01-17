@@ -8,7 +8,7 @@ public class SaveTest : MonoBehaviour
 
     public void Save()
     {
-        Debug.Log("saving...");
+        //Debug.Log("saving...");
         SaveManager.save(SaveObject);
     }
 
