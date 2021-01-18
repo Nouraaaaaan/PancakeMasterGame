@@ -9,6 +9,7 @@ using DanielLochner.Assets.SimpleSideMenu;
 public class ShopManager : MonoBehaviour
 {
     public SaveTest SaveTest;
+    public Button TapOneButton;
 
     #region Initialization Region
     public int CurrentCurrency;
@@ -64,7 +65,10 @@ public class ShopManager : MonoBehaviour
     {
         //SaveTest.SaveObject.PlayerCurrency = 1000;
         //SaveTest.Save();
-        
+
+        TapOneButton.gameObject.SetActive(true);
+        TapOneButton.Select();
+
 
         SaveTest.Load();
         LoadSavedCurrency();

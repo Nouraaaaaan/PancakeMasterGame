@@ -441,7 +441,7 @@ public class PancakeLevelManager : MonoBehaviour
 		Camera.transform.DOMove(new Vector3(32.58f, 1.84f, 1.81f), 0.5f);
 		Camera.transform.DORotate(new Vector3(40.43f, 180f, 0f), 0.5f);
 
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.2f);
 
 		SetOrderNotesImages();
 		PopupOrderNote();

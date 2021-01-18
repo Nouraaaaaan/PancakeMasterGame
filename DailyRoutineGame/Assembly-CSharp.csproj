@@ -132,6 +132,7 @@
     <Compile Include="Assets\Scripts\ShopSystem\Serialization\Example 2\SaveObject.cs" />
     <Compile Include="Assets\Scripts\ShopSystem\Serialization\Example 2\SaveTest.cs" />
     <Compile Include="Assets\Scripts\ShopSystem\ShopManager.cs" />
+    <Compile Include="Assets\Scripts\SpinAnimation.cs" />
     <Compile Include="Assets\Simple Side-Menu\Scripts\Runtime\SimpleSideMenu.cs" />
     <None Include="Assets\Obi\Samples\Fluid\SampleResources\Materials\StandardPerInstanceColor.shader" />
     <None Include="Assets\Obi\Resources\ObiMaterials\ParticleShader.shader" />
