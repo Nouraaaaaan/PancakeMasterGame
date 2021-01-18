@@ -81,6 +81,11 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject VipCustomerCanvas;
 	public GameObject StoreCanvas;
 	public GameObject UpgradeDinerStore;
+	//Order Notes.
+	public GameObject OrderNoteCanvas;
+	public Image OrderNote;
+	public Image SyrupNote;
+	public Image ToppingNote;
 	private int CoinsValue = 0;
 	public Text Coinstext;
 	public Text EarnedCoinsValue;
@@ -437,10 +442,12 @@ public class PancakeLevelManager : MonoBehaviour
 		Camera.transform.DORotate(new Vector3(40.43f, 180f, 0f), 0.5f);
 
 		yield return new WaitForSeconds(1f);
+
+		SetOrderNotesImages();
+		PopupOrderNote();
 	}
 
 	#region Syrup State
-
 	public void SetSyrupColor(Color color)
 	{
 		ObiParticleRenderer.particleColor = color;
@@ -491,6 +498,8 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void FinishSweetingStage()
 	{
+		OrderNoteCanvas.SetActive(false);
+
 		//VFX.
 		TextEffect.PlayEffect();
 		ConfettiBlast.Play();
@@ -563,7 +572,7 @@ public class PancakeLevelManager : MonoBehaviour
 		CheckResult();
 		ShowResultCanvas();
 
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(2f);
 
 		//5.Enable Collect Canvas.
 		EnableCollectCanvas();
@@ -691,33 +700,29 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator PopupEvaluationIcons()
 	{
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 
 		//1.Stage One
 		FlippingStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderFlippingImage.rectTransform.DOSizeDelta(new Vector2(250f, 250f), 0.5f);
 
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 
 		//2.Stage Two
 		SyrupStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderSyrupImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
 
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 
 
 		//3.Stage Three
 		SweetsStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderSweetsImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
 
-		yield return new WaitForSeconds(1f);
-
-		if (   (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
-			 &&(OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder))
-			 &&(RightFlip)
-		   )
+		
+		if ( (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder)) && (OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder)) && (RightFlip) )
 		{
-			//Debug.Log("All Is Good ! ");
+			//All Items Are Correct.
 			ConfettiShower.Play();
 		}
 
@@ -814,6 +819,15 @@ public class PancakeLevelManager : MonoBehaviour
 	private  void EnableCollectCanvas()
 	{
 		CollectCanvas.SetActive(true);
+
+		if (CustomersManager.CheckVipCustomer())
+		{
+			EarnedCoinsValue.text = "100";
+		}
+		else
+		{
+			EarnedCoinsValue.text = "50";
+		}
 	}
 
 	private void DisableCollectCanvas()
@@ -845,7 +859,26 @@ public class PancakeLevelManager : MonoBehaviour
 
 	#endregion
 
-	private void PrepareCustomerOrder()
+	#region Order Notes
+	private void SetOrderNotesImages()
+	{
+		SyrupNote.sprite = SyrupImage.sprite;
+		ToppingNote.sprite = SweetsImage.sprite;
+	}
+
+	private void PopupOrderNote()
+    {
+		OrderNoteCanvas.SetActive(true);
+
+		/*
+		OrderNote.rectTransform.DOSizeDelta(new Vector2(429.8884f, 366.8954f) ,1f);
+		SyrupNote.rectTransform.DOSizeDelta(new Vector2(240f, -344f), 1f);
+		ToppingNote.rectTransform.DOSizeDelta(new Vector2(383f, -368.0001f), 1f);*/
+	}
+
+    #endregion
+
+    private void PrepareCustomerOrder()
 	{
 		CocolateSyrup.SetActive(false);
 	    StrawberrySyrup.SetActive(false);
