@@ -552,7 +552,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		//2.Show Prepared Order.
 		PreparedOrder.SetActive(true);
-		PreparedOrder.transform.DOMoveX(PreparedOrder.transform.position.x + 0.8f, 1.5f);
+		PreparedOrder.transform.DOMoveX(PreparedOrder.transform.position.x + 0.8f, 0.8f);
 		PrepareCustomerOrder();
 
 		//3.Reset

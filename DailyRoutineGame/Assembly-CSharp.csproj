@@ -110,6 +110,7 @@
     <Compile Include="Assets\Obi\Samples\Fluid\SampleResources\Scripts\WaveGenerator.cs" />
     <Compile Include="Assets\Scripts\AdsManager.cs" />
     <Compile Include="Assets\Scripts\DraggableSyrup.cs" />
+    <Compile Include="Assets\Scripts\GuestSpawner.cs" />
     <Compile Include="Assets\Scripts\Level(1)\CustomersManager.cs" />
     <Compile Include="Assets\Scripts\Level(1)\DraggableObject.cs" />
     <Compile Include="Assets\Scripts\Level(1)\Filler.cs" />
@@ -123,6 +124,8 @@
     <Compile Include="Assets\Scripts\Level(1)\Syrup.cs" />
     <Compile Include="Assets\Scripts\Level(1)\SyrupPoints.cs" />
     <Compile Include="Assets\Scripts\Level(1)\TextEffect.cs" />
+    <Compile Include="Assets\Scripts\Pooling\ObjectPooler.cs" />
+    <Compile Include="Assets\Scripts\Pooling\Pool.cs" />
     <Compile Include="Assets\Scripts\SFXManager.cs" />
     <Compile Include="Assets\Scripts\ShopSystem\Serialization\Example 2\SaveManager.cs" />
     <Compile Include="Assets\Scripts\ShopSystem\Serialization\Example 2\SaveObject.cs" />

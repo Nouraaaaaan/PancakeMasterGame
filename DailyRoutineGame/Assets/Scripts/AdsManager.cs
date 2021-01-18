@@ -48,7 +48,7 @@ public class AdsManager : MonoBehaviour
             Debug.LogError("AdmobManager Singletone Error");
         }
 
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
