@@ -124,6 +124,7 @@
     <Compile Include="Assets\Scripts\Level(1)\Syrup.cs" />
     <Compile Include="Assets\Scripts\Level(1)\SyrupPoints.cs" />
     <Compile Include="Assets\Scripts\Level(1)\TextEffect.cs" />
+    <Compile Include="Assets\Scripts\PinchZoom.cs" />
     <Compile Include="Assets\Scripts\Pooling\ObjectPooler.cs" />
     <Compile Include="Assets\Scripts\Pooling\Pool.cs" />
     <Compile Include="Assets\Scripts\SFXManager.cs" />

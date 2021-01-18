@@ -294,9 +294,9 @@ public class ShopManager : MonoBehaviour
             UpdateCurrencyUI();
             UpdateButtons();
 
-            if (TableItems[index].DefaultObject != null)
+            if (FloorsItems[index].DefaultObject != null)
             {
-                TableItems[index].DefaultObject.SetActive(false);
+                FloorsItems[index].DefaultObject.SetActive(false);
             }
         }
 
