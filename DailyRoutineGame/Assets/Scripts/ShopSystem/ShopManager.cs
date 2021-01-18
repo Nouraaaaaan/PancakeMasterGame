@@ -100,7 +100,7 @@ public class ShopManager : MonoBehaviour
             SaveTest.SaveObject.Tables[index] = true;
             SaveTest.Save();
 
-            TableButtons[index].transform.GetChild(0).transform.gameObject.SetActive(false);
+            TableButtons[index].transform.GetChild(1).transform.gameObject.SetActive(false);
 
             Show_TabletemModel(index);
 
@@ -224,7 +224,7 @@ public class ShopManager : MonoBehaviour
             SaveTest.SaveObject.Decorations[index] = true;
             SaveTest.Save();
 
-            DecorationsButtons[index].transform.GetChild(0).transform.gameObject.SetActive(false);
+            DecorationsButtons[index].transform.GetChild(1).transform.gameObject.SetActive(false);
 
             Show_DecorationtemModel(index);
             UpdateCurrencyValue(DecorationsItems[index].price);
@@ -287,7 +287,7 @@ public class ShopManager : MonoBehaviour
             SaveTest.SaveObject.Floors[index] = true;
             SaveTest.Save();
 
-            FloorsButtons[index].transform.GetChild(0).transform.gameObject.SetActive(false);
+            FloorsButtons[index].transform.GetChild(1).transform.gameObject.SetActive(false);
 
             Show_FloorItemModel(index);
             UpdateCurrencyValue(FloorsItems[index].price);
@@ -338,7 +338,7 @@ public class ShopManager : MonoBehaviour
             if (SaveTest.SaveObject.Tables[i] == true)
             {
                 TableItems[i].sold = true;
-                TableButtons[i].transform.GetChild(0).transform.gameObject.SetActive(false);
+                TableButtons[i].transform.GetChild(1).transform.gameObject.SetActive(false);
             }
         }
 
@@ -356,7 +356,7 @@ public class ShopManager : MonoBehaviour
             if (SaveTest.SaveObject.Decorations[i] == true)
             {
                 DecorationsItems[i].sold = true;
-                DecorationsButtons[i].transform.GetChild(0).transform.gameObject.SetActive(false);
+                DecorationsButtons[i].transform.GetChild(1).transform.gameObject.SetActive(false);
             }
         }
 
@@ -366,7 +366,7 @@ public class ShopManager : MonoBehaviour
             if (SaveTest.SaveObject.Floors[i] == true)
             {
                 FloorsItems[i].sold = true;
-                FloorsButtons[i].transform.GetChild(0).transform.gameObject.SetActive(false);
+                FloorsButtons[i].transform.GetChild(1).transform.gameObject.SetActive(false);
             }
         }
     }
