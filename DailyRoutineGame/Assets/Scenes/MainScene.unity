@@ -6730,6 +6730,7 @@ MonoBehaviour:
   StoreCanvas: {fileID: 1818367744}
   UpgradeDinerStore: {fileID: 1773324562}
   Coinstext: {fileID: 1650196086}
+  EarnedCoinsValue: {fileID: 1530612593}
   GoodEmojis:
   - {fileID: 1087121049}
   - {fileID: 1138472101}

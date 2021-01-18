@@ -83,6 +83,7 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject UpgradeDinerStore;
 	private int CoinsValue = 0;
 	public Text Coinstext;
+	public Text EarnedCoinsValue;
 
 	[Header("VFX")]
 	public ParticleSystem[] GoodEmojis;
@@ -716,7 +717,7 @@ public class PancakeLevelManager : MonoBehaviour
 			 &&(RightFlip)
 		   )
 		{
-			Debug.Log("All Is Good ! ");
+			//Debug.Log("All Is Good ! ");
 			ConfettiShower.Play();
 		}
 
@@ -915,10 +916,14 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private void UpgradeDiner()
 	{
-		CustomerScene.SetActive(false);
 		UpgradeDinerStore.SetActive(true);
+
+		CustomerScene.SetActive(false);
 		ResultCanvas.SetActive(false);
 		CollectCanvas.SetActive(false);
+
+		ConfettiShower.Stop();
+		HeartStream.Stop();
 	}
 
 	public void Onclick_ClaimUpgradeButton()
