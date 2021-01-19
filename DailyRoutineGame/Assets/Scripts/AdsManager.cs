@@ -83,7 +83,8 @@ public class AdsManager : MonoBehaviour
     #region Banner AD
     private void RequestBanner()
     {
-        bannerView = new BannerView(bannerUniteID, new AdSize(AdSize.FullWidth, 35), AdPosition.Bottom);
+        AdSize adaptiveSize = AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
+        bannerView = new BannerView(bannerUniteID, adaptiveSize, AdPosition.Bottom);
         AdRequest request = new AdRequest.Builder().Build();
         bannerView.LoadAd(request);
     }
