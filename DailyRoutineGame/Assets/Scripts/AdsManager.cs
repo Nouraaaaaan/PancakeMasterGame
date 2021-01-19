@@ -287,6 +287,10 @@ public class AdsManager : MonoBehaviour
             case RewardType.VipCustomer:
                 PancakeLevelManager.Instance.MoveToKitchen();
                 break;
+
+            case RewardType.TripleCash:
+                PancakeLevelManager.Instance.TripleCashCallback();
+                break;
         }
     }
 
@@ -302,6 +306,6 @@ public class AdsManager : MonoBehaviour
     #endregion
     public enum RewardType
     {
-        SpecialSyrup, SpecialTopping, VipCustomer
+        SpecialSyrup, SpecialTopping, VipCustomer, TripleCash
     }
 }

@@ -771,16 +771,18 @@ public class PancakeLevelManager : MonoBehaviour
 
 	}
 
-	private void UpdateCoinsNumber()
+	private void UpdateCoinsNumber(bool earnTripleValue)
 	{
 		if (CustomersManager.CheckVipCustomer())
 		{
-			CoinsValue += 100;
+			CoinsValue = (earnTripleValue) ? (CoinsValue + 300) : (CoinsValue + 100); 
 		}
 		else
 		{
-			CoinsValue += 50;
+			CoinsValue = (earnTripleValue) ? (CoinsValue + 150) : (CoinsValue + 50);
 		}
+
+		
 		
 		Coinstext.text = CoinsValue.ToString();
 
@@ -865,7 +867,7 @@ public class PancakeLevelManager : MonoBehaviour
 		if (SaveTest.SaveObject.NumberOfInitialCustomers == 3)
 		{
 			UpgradeDiner();
-			UpdateCoinsNumber();
+			UpdateCoinsNumber(false);
 			return;
 		}
 
@@ -878,7 +880,19 @@ public class PancakeLevelManager : MonoBehaviour
 		HeartStream.Stop();
 		DollarBlast.Play();
 
-		UpdateCoinsNumber();
+		UpdateCoinsNumber(false);
+		DisableCollectCanvas();
+		NextCustomer();
+	}
+
+	public void OnClickCollectAdsButton()
+    {
+		AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.TripleCash);
+	}
+
+	public void TripleCashCallback()
+	{
+		UpdateCoinsNumber(true);
 		DisableCollectCanvas();
 		NextCustomer();
 	}
