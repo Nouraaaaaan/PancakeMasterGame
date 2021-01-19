@@ -20,6 +20,7 @@ ScriptsOnlyBuild:
     - SFXManager
     - SaveTest
     - ShopManager
+    - SpinAnimation
     - Sweet
     - Sweeter
     - Syrup
@@ -133,57 +134,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12668}
     - Class: 114
-      Script: {instanceID: 12870}
+      Script: {instanceID: 12700}
     - Class: 114
-      Script: {instanceID: 12974}
+      Script: {instanceID: 12872}
     - Class: 114
-      Script: {instanceID: 13030}
+      Script: {instanceID: 12976}
     - Class: 114
-      Script: {instanceID: 13064}
+      Script: {instanceID: 13032}
     - Class: 114
-      Script: {instanceID: 13230}
+      Script: {instanceID: 13066}
     - Class: 114
-      Script: {instanceID: 13264}
+      Script: {instanceID: 13232}
     - Class: 114
-      Script: {instanceID: 13320}
+      Script: {instanceID: 13266}
     - Class: 114
-      Script: {instanceID: 13364}
+      Script: {instanceID: 13322}
     - Class: 114
-      Script: {instanceID: 13428}
+      Script: {instanceID: 13366}
     - Class: 114
-      Script: {instanceID: 13598}
+      Script: {instanceID: 13430}
     - Class: 114
-      Script: {instanceID: 13806}
+      Script: {instanceID: 13600}
     - Class: 114
-      Script: {instanceID: 13954}
+      Script: {instanceID: 13810}
     - Class: 114
-      Script: {instanceID: 14040}
+      Script: {instanceID: 13958}
     - Class: 114
       Script: {instanceID: 14044}
     - Class: 114
-      Script: {instanceID: 14084}
+      Script: {instanceID: 14048}
     - Class: 114
-      Script: {instanceID: 14134}
+      Script: {instanceID: 14088}
     - Class: 114
-      Script: {instanceID: 14156}
+      Script: {instanceID: 14138}
     - Class: 114
-      Script: {instanceID: 14180}
+      Script: {instanceID: 14160}
     - Class: 114
-      Script: {instanceID: 14288}
+      Script: {instanceID: 14184}
     - Class: 114
-      Script: {instanceID: 14300}
+      Script: {instanceID: 14292}
     - Class: 114
-      Script: {instanceID: 14358}
+      Script: {instanceID: 14304}
     - Class: 114
-      Script: {instanceID: 14566}
+      Script: {instanceID: 14362}
     - Class: 114
-      Script: {instanceID: 14874}
+      Script: {instanceID: 14570}
     - Class: 114
-      Script: {instanceID: 14898}
+      Script: {instanceID: 14878}
     - Class: 114
-      Script: {instanceID: 14900}
+      Script: {instanceID: 14902}
     - Class: 114
-      Script: {instanceID: 14940}
+      Script: {instanceID: 14904}
+    - Class: 114
+      Script: {instanceID: 14944}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -233,6 +236,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -256,23 +263,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12668}
     - Class: 114
-      Script: {instanceID: 13042}
+      Script: {instanceID: 13044}
     - Class: 114
-      Script: {instanceID: 13254}
+      Script: {instanceID: 13256}
     - Class: 114
-      Script: {instanceID: 13744}
+      Script: {instanceID: 13746}
     - Class: 114
-      Script: {instanceID: 14288}
+      Script: {instanceID: 13802}
     - Class: 114
-      Script: {instanceID: 14616}
+      Script: {instanceID: 13810}
     - Class: 114
-      Script: {instanceID: 14802}
+      Script: {instanceID: 14044}
     - Class: 114
-      Script: {instanceID: 14874}
+      Script: {instanceID: 14292}
     - Class: 114
-      Script: {instanceID: 14988}
+      Script: {instanceID: 14620}
     - Class: 114
-      Script: {instanceID: 20570}
+      Script: {instanceID: 14806}
+    - Class: 114
+      Script: {instanceID: 14878}
+    - Class: 114
+      Script: {instanceID: 14992}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -708,7 +719,7 @@ ScriptsOnlyBuild:
     className: ObiParticleCounter
   - hash:
       serializedVersion: 2
-      Hash: cab1e8f64650d896e66a2e60f2d9f0ec
+      Hash: 81e09f915a13fbe3219a3aee32286088
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PancakeLevelManager
@@ -778,6 +789,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: Es.Utility
     className: SceneViewCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 622bcc7cb4a0250c2c35480cdda58544
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpinAnimation
   - hash:
       serializedVersion: 2
       Hash: 5cc439bf63c0539d39588e69465ac2ab
@@ -1122,7 +1139,7 @@ ScriptsOnlyBuild:
     className: ObiParticlePicker
   - hash:
       serializedVersion: 2
-      Hash: 0ddd634f83c35308521db5f49f69f29c
+      Hash: 162e019ed9d8945577dc974c47c67a8a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShopManager
@@ -1150,6 +1167,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalReceiver
+  - hash:
+      serializedVersion: 2
+      Hash: 45a6a094f75f06755dba2e9e0f5087f4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PinchZoom
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1606,12 +1629,6 @@ ScriptsOnlyBuild:
     assemblyName: Obi.dll
     namespaceName: Obi
     className: ParticleAdvector
-  - hash:
-      serializedVersion: 2
-      Hash: 45a6a094f75f06755dba2e9e0f5087f4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PinchZoom
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainScene.unity

@@ -10,11 +10,11 @@ public static class SaveManager
     {
         //string dir = Application.persistentDataPath + directory;
         string dir = Path.Combine(Application.persistentDataPath, "SaveData");
-        Debug.Log(dir);
+        //Debug.Log(dir);
 
         if (!Directory.Exists(dir))
         {
-            Debug.Log("Create directory !");
+            //Debug.Log("Create directory !");
             Directory.CreateDirectory(dir);
         }
 

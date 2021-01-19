@@ -407,7 +407,6 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		Meter.gameObject.SetActive(false);
 		Arrow.SetActive(false);
-
 		Pancake.FreezePancake();
 
 		StartCoroutine(MoveToPlate());		
@@ -442,6 +441,10 @@ public class PancakeLevelManager : MonoBehaviour
 		//6.Pan
 		Pancake.transform.parent = null;
 		Pan.SetActive(false);
+
+		//SFX
+		SFXManager.Instance.AudioSource.Stop();
+		SFXManager.Instance.SetAudioVolume(1f);
 
 		StartCoroutine(MoveCamera());
 	}
@@ -589,7 +592,7 @@ public class PancakeLevelManager : MonoBehaviour
 		CheckResult();
 		ShowResultCanvas();
 
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(3f);
 
 		//5.Enable Collect Canvas.
 		EnableCollectCanvas();

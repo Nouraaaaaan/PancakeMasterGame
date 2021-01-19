@@ -19,6 +19,9 @@ public class Pancake : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         gameObject.transform.DORotate(new Vector3(0f, 0f, 180f), 0.5f);
 
+        SFXManager.Instance.SetAudioVolume(0.1f);
+        SFXManager.Instance.PlaySoundEffect(7);
+
         yield return new WaitForSeconds(1f);
         PancakeLevelManager.Instance.FinishFlippingState();
     }

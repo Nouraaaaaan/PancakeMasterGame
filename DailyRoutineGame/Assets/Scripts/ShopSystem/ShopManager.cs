@@ -63,21 +63,17 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
-        //SaveTest.SaveObject.PlayerCurrency = 1000;
-        //SaveTest.Save();
-
         TapOneButton.gameObject.SetActive(true);
         TapOneButton.Select();
-
 
         SaveTest.Load();
         LoadSavedCurrency();
         LoadItems();
+
         ShowAllSoldItems();
         UpdateButtons();
 
         CheckForDefaultTablesObjects();
-
         ChechForDinerStoreUpgrade();
     }
 
