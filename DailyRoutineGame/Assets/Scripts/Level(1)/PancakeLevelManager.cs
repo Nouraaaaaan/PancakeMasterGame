@@ -83,9 +83,6 @@ public class PancakeLevelManager : MonoBehaviour
 	public GameObject UpgradeDinerStore;
 	//Order Notes.
 	public GameObject OrderNoteCanvas;
-	public Image OrderNote;
-	public Image SyrupNote;
-	public Image ToppingNote;
 	private int CoinsValue = 0;
 	public Text Coinstext;
 	public Text EarnedCoinsValue;
@@ -169,11 +166,14 @@ public class PancakeLevelManager : MonoBehaviour
 	#region Callbacks Region
 	private void Start()
 	{
+		//Load Coins Value Player has.
 		SaveTest.Load();
 		LoadConisNumber();
 
+		//Generate Rondom Order.
 		OrderManager.GenerateRandomOrder();
 
+		//Reset Transparency Of Pancake.
 		color = PancakeMaterial.color;
 		PancakeMaterial.color = new Color(color.r, color.g, color.b, 0f);
 	}
@@ -236,11 +236,6 @@ public class PancakeLevelManager : MonoBehaviour
 		//5.VFX
 		Steam.Play();
 		CandelLight.SetActive(true);
-
-		//SFX
-		SFXManager.Instance.EnableLoopingOption();
-		SFXManager.Instance.SetAudioVolume(0.3f);
-		SFXManager.Instance.PlaySoundEffect(7);
 	}
 
 	private IEnumerator FillingstateCameraMovement()
@@ -456,8 +451,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 		yield return new WaitForSeconds(0.2f);
 
-		SetOrderNotesImages();
-		PopupOrderNote();
+		OrderNoteCanvas.SetActive(true);
 	}
 
 	#region Syrup State
@@ -898,25 +892,6 @@ public class PancakeLevelManager : MonoBehaviour
 	}
 
 	#endregion
-
-	#region Order Notes
-	private void SetOrderNotesImages()
-	{
-		SyrupNote.sprite = SyrupImage.sprite;
-		ToppingNote.sprite = SweetsImage.sprite;
-	}
-
-	private void PopupOrderNote()
-    {
-		OrderNoteCanvas.SetActive(true);
-
-		/*
-		OrderNote.rectTransform.DOSizeDelta(new Vector2(429.8884f, 366.8954f) ,1f);
-		SyrupNote.rectTransform.DOSizeDelta(new Vector2(240f, -344f), 1f);
-		ToppingNote.rectTransform.DOSizeDelta(new Vector2(383f, -368.0001f), 1f);*/
-	}
-
-    #endregion
 
     private void PrepareCustomerOrder()
 	{

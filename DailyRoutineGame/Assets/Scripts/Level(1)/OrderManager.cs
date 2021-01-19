@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class OrderManager : MonoBehaviour
 {
     [Header("Syrup Order Attributes")]
-    public Image SyrupImage;
+    public Image SyrupOrderImage;
+    public Image SyrupNoteImage;
     public enum SyrupOrder
     {
         withChocolateSyrup,
@@ -15,10 +16,12 @@ public class OrderManager : MonoBehaviour
     }
     public SyrupOrder CustomerSyrupOrder;
     public Sprite[] SyrupsImages;
+    public Sprite[] SyrupsNoteImages;
 
 
-    [Header("Sweets Order Attributes")]
-    public Image SweetImage;
+    [Header("Topping Order Attributes")]
+    public Image ToppingOrderImage;
+    public Image ToppingNoteImage;
     public enum SweetsOrder
     {
         withStrawberry,
@@ -29,44 +32,49 @@ public class OrderManager : MonoBehaviour
     }
     public SweetsOrder CustomerSweetsOrder;
     public Sprite[] SweetsImages;
-    
+    public Sprite[] ToppingNoteImages;
 
-    private void Start()
-    {
-        //GenerateRandomOrder();
-    }
 
     public void GenerateRandomOrder()
     {
         GenerateRandomSyrupOrder();
-        GenerateRandomSweetsOrder();
+        GenerateRandomToppingOrder();
     }
 
+    #region Syrup Methods
     private void GenerateRandomSyrupOrder()
     {
         int randomSyrupIndex = Random.Range(0, 3);
 
         CustomerSyrupOrder = (SyrupOrder)randomSyrupIndex;
 
-        SetSyrupImage(randomSyrupIndex);
+        SetSyrupOrderImage(randomSyrupIndex);
     }
 
-    private void SetSyrupImage(int index)
+    private void SetSyrupOrderImage(int index)
     {
-        SyrupImage.sprite = SyrupsImages[index];
+        SyrupOrderImage.sprite = SyrupsImages[index];
+        SyrupNoteImage.sprite = SyrupsNoteImages[index];
     }
 
-    private void GenerateRandomSweetsOrder()
+    
+    #endregion
+
+    #region Toppings Methods
+    private void GenerateRandomToppingOrder()
     {
         int sweetSyrupIndex = Random.Range(0, 4);
 
         CustomerSweetsOrder = (SweetsOrder)sweetSyrupIndex;
 
-        SetSweetImage(sweetSyrupIndex);
+        SetToppingOrderImage(sweetSyrupIndex);
     }
 
-    private void SetSweetImage(int index)
+    private void SetToppingOrderImage(int index)
     {
-        SweetImage.sprite = SweetsImages[index];
+        ToppingOrderImage.sprite = SweetsImages[index];
+        ToppingNoteImage.sprite = ToppingNoteImages[index];
     }
+
+    #endregion
 }

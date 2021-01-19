@@ -31,8 +31,17 @@ public class Filler : MonoBehaviour
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
+				//VFX.
 				FillingParticle.Play();
-				//lastMousePos = Input.mousePosition;
+
+				//SFX.
+				if (!SFXManager.Instance.AudioSource.isPlaying)
+				{
+					//SFX
+					SFXManager.Instance.EnableLoopingOption();
+					SFXManager.Instance.SetAudioVolume(0.3f);
+					SFXManager.Instance.PlaySoundEffect(7);
+				}
 			}
 
 			else if (Input.GetMouseButton(0))
