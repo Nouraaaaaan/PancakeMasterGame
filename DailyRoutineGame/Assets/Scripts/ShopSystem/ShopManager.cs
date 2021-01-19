@@ -100,6 +100,8 @@ public class ShopManager : MonoBehaviour
 
         if (!TableItems[index].sold)
         {
+            SFXManager.Instance.PlaySoundEffect(1);
+
             TableItems[index].sold = true;
             SaveTest.SaveObject.Tables[index] = true;
             SaveTest.Save();
@@ -224,6 +226,7 @@ public class ShopManager : MonoBehaviour
 
         if (!DecorationsItems[index].sold)
         {
+            SFXManager.Instance.PlaySoundEffect(1);
             DecorationsItems[index].sold = true;
             SaveTest.SaveObject.Decorations[index] = true;
             SaveTest.Save();
@@ -287,6 +290,8 @@ public class ShopManager : MonoBehaviour
 
         if (!FloorsItems[index].sold)
         {
+            SFXManager.Instance.PlaySoundEffect(1);
+
             FloorsItems[index].sold = true;
             SaveTest.SaveObject.Floors[index] = true;
             SaveTest.Save();
@@ -486,6 +491,7 @@ public class ShopManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         ConfettiVFX.Play();
+        SFXManager.Instance.PlaySoundEffect(0);
         MessyDiner.SetActive(false);
         SimpleDiner.SetActive(true);
     }

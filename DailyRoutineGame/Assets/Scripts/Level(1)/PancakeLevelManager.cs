@@ -186,6 +186,11 @@ public class PancakeLevelManager : MonoBehaviour
 			{
 				currentState = State.SyrupState;
 
+				//sfx
+				SFXManager.Instance.StopLoopingOption();
+				SFXManager.Instance.SetAudioVolume(1f);
+				SFXManager.Instance.PlaySoundEffect(3);
+				
 				if (IsArrowInsideGreenArea)
 				{
 					ClickAtrightTime();
@@ -228,9 +233,14 @@ public class PancakeLevelManager : MonoBehaviour
 		//4.Move Camera.
 		StartCoroutine(FillingstateCameraMovement());
 
-		//5.
+		//5.VFX
 		Steam.Play();
 		CandelLight.SetActive(true);
+
+		//SFX
+		SFXManager.Instance.EnableLoopingOption();
+		SFXManager.Instance.SetAudioVolume(0.3f);
+		SFXManager.Instance.PlaySoundEffect(7);
 	}
 
 	private IEnumerator FillingstateCameraMovement()
@@ -500,18 +510,12 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		OrderNoteCanvas.SetActive(false);
 
-		//VFX.
-		TextEffect.PlayEffect();
-		ConfettiBlast.Play();
-
-
 		//Rest Sweeting Stage.
 		CurrentSweeter.ReturnSweeter();
 		CurrentSweeter.NumberOfSpawnedSweets = 0;
 		CurrentSweeter.Finished = false;
 		CurrentSweeter.arrived = false;
 		CanAddSweets = true;
-
 		
 		StartCoroutine(ReturnToCustomer());
 	}
@@ -519,6 +523,14 @@ public class PancakeLevelManager : MonoBehaviour
 	public void DiableSweetingStage()
 	{
 		SweetsStage.SetActive(false);
+
+		//SFX.
+		//SFXManager.Instance.AudioSource.Stop();
+		SFXManager.Instance.PlaySoundEffect(10);
+
+		//VFX.
+		TextEffect.PlayEffect();
+		ConfettiBlast.Play();
 	}
 
 	#endregion
@@ -551,8 +563,11 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator ReturnToCustomer()
 	{
+		yield return new WaitForSeconds(1.5f);
+
 		//enable customer scene.
 		CustomerScene.SetActive(true);
+		
 
 		yield return new WaitForSeconds(2f);
 
@@ -564,6 +579,8 @@ public class PancakeLevelManager : MonoBehaviour
 		PreparedOrder.SetActive(true);
 		PreparedOrder.transform.DOMoveX(PreparedOrder.transform.position.x + 0.8f, 0.8f);
 		PrepareCustomerOrder();
+		SFXManager.Instance.PlaySoundEffect(1);
+
 
 		//3.Reset
 		Reset();
@@ -700,17 +717,20 @@ public class PancakeLevelManager : MonoBehaviour
 
 	private IEnumerator PopupEvaluationIcons()
 	{
-		yield return new WaitForSeconds(0.5f);
+		//yield return new WaitForSeconds(0.5f);
+		yield return new WaitWhile(() => SFXManager.Instance.AudioSource.isPlaying);
 
 		//1.Stage One
 		FlippingStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderFlippingImage.rectTransform.DOSizeDelta(new Vector2(250f, 250f), 0.5f);
+		SFXManager.Instance.PlaySoundEffect(6);
 
 		yield return new WaitForSeconds(0.5f);
 
 		//2.Stage Two
 		SyrupStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderSyrupImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
+		SFXManager.Instance.PlaySoundEffect(6);
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -718,8 +738,9 @@ public class PancakeLevelManager : MonoBehaviour
 		//3.Stage Three
 		SweetsStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderSweetsImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
+		SFXManager.Instance.PlaySoundEffect(6);
 
-		
+
 		if ( (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder)) && (OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder)) && (RightFlip) )
 		{
 			//All Items Are Correct.
@@ -838,13 +859,15 @@ public class PancakeLevelManager : MonoBehaviour
 	public void OnClickCollectButton()
 	{
 		UpdateNumberOfInitialCustomers();
-
 		if (SaveTest.SaveObject.NumberOfInitialCustomers == 3)
 		{
 			UpgradeDiner();
 			UpdateCoinsNumber();
 			return;
 		}
+
+		//SFX
+		SFXManager.Instance.PlaySoundEffect(2);
 
 		//vfx.
 		StarField.Stop();
@@ -950,6 +973,7 @@ public class PancakeLevelManager : MonoBehaviour
 	private void UpgradeDiner()
 	{
 		UpgradeDinerStore.SetActive(true);
+		SFXManager.Instance.PlaySoundEffect(9);
 
 		CustomerScene.SetActive(false);
 		ResultCanvas.SetActive(false);

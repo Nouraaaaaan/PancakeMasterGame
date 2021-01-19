@@ -40,4 +40,14 @@ public class SFXManager : MonoBehaviour
     {
         AudioSource.loop = false;
     }
+
+    public void EnableLoopingOption()
+    {
+        AudioSource.loop = true;
+    }
+
+    public void SetAudioVolume(float value)
+    {
+        AudioSource.volume = value;
+    }
 }

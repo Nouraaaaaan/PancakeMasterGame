@@ -24,6 +24,9 @@ public class Sweeter : MonoBehaviour
     [Header("Special Sweeter Attributes")]
     public bool IsSpecialSweeter;
 
+    [Header("SFX")]
+    private bool StartPlayingSound;
+
 
     public bool CanInstantiate;
     private float counter = 0.1f;
@@ -40,8 +43,6 @@ public class Sweeter : MonoBehaviour
     [Space(20)]
     public float MaxPosZ;
     public float MinPosZ;
-
-    
 
     private void Update()
     {
@@ -95,7 +96,10 @@ public class Sweeter : MonoBehaviour
 
     private void InstantiateSweet()
     {
-        //Debug.Log("Instantiate Sweets !");   
+        //vfx.
+        if(!SFXManager.Instance.AudioSource.isPlaying)
+           SFXManager.Instance.PlaySoundEffect(0);
+        
 
         foreach (var spawnPoint in SpawnPoints)
         {
@@ -105,12 +109,11 @@ public class Sweeter : MonoBehaviour
         }
 
         NumberOfSpawnedSweets++;
-        //Debug.Log(NumberOfSpawnedSweets);
 
-        if (NumberOfSpawnedSweets >= MaxSpawnedSweets)
+        if ((NumberOfSpawnedSweets >= MaxSpawnedSweets) && (CanInstantiate))
         {
-            Finished = true;
             CanInstantiate = false;
+            Finished = true;
             PancakeLevelManager.Instance.FinishSweetingStage();
         }
     }
@@ -123,10 +126,12 @@ public class Sweeter : MonoBehaviour
 
     public void ReturnSweeter()
     {
-        //transform.DOLocalRotate(new Vector3(0f, 0f, 134.041f), 1f);
-        //Debug.Log(SweeterInitialPos.transform.rotation.eulerAngles.z);
         transform.DOLocalRotate(new Vector3(0f, 0f, SweeterInitialPos.transform.rotation.eulerAngles.z), 1f);
         transform.DOMove(SweeterInitialPos.position, 1f).OnComplete(DisableSweetingStage);
+
+        //vfx.
+        SFXManager.Instance.StopLoopingOption();
+        SFXManager.Instance.StopSoundEffect();
     }
 
     private void SweeterAnimationFinished()

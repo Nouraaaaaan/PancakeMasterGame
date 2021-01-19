@@ -100,10 +100,11 @@ public class Syrup : MonoBehaviour
 
     private void EnableSyrupPouring()
     {
-        CanPourSyrup = true;
+        //vfx.
+        SFXManager.Instance.PlaySoundEffect(5);
 
+        CanPourSyrup = true;
         PancakeLevelManager.Instance.StartObiFluid();
-        
         StartCoroutine(ReturnSyrupCoroutine());
     }
 
