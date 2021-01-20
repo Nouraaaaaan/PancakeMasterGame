@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Es.InkPainter;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 
 public class Syrup : MonoBehaviour
 {
@@ -88,6 +89,9 @@ public class Syrup : MonoBehaviour
         }
 
         lastMousePos = Input.mousePosition;
+
+        //Haptic.
+        HapticsManager.Instance.HapticPulse(HapticTypes.MediumImpact);
     }
 
     public void MoveSyrup()

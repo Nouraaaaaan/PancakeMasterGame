@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Es.InkPainter;
+using MoreMountains.NiceVibrations;
 
 public class Filler : MonoBehaviour
 {
@@ -42,6 +43,9 @@ public class Filler : MonoBehaviour
 					SFXManager.Instance.SetAudioVolume(0.3f);
 					SFXManager.Instance.PlaySoundEffect(7);
 				}
+
+				//Haptic.
+				HapticsManager.Instance.HapticPulse(HapticTypes.LightImpact);
 			}
 
 			else if (Input.GetMouseButton(0))
@@ -56,6 +60,9 @@ public class Filler : MonoBehaviour
 				}
 
 				DragFiller();
+
+				//Haptic.
+				HapticsManager.Instance.HapticPulse(HapticTypes.LightImpact);
 			}
 
 			else if (Input.GetMouseButtonUp(0))

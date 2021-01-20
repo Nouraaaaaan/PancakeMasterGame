@@ -7,6 +7,7 @@ using DG.Tweening;
 using Obi;
 using System.IO;
 using UnityEngine.SceneManagement;
+using MoreMountains.NiceVibrations;
 
 public class PancakeLevelManager : MonoBehaviour
 {
@@ -721,6 +722,7 @@ public class PancakeLevelManager : MonoBehaviour
 		FlippingStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderFlippingImage.rectTransform.DOSizeDelta(new Vector2(250f, 250f), 0.5f);
 		SFXManager.Instance.PlaySoundEffect(6);
+		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -728,6 +730,7 @@ public class PancakeLevelManager : MonoBehaviour
 		SyrupStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderSyrupImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
 		SFXManager.Instance.PlaySoundEffect(6);
+		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -736,6 +739,7 @@ public class PancakeLevelManager : MonoBehaviour
 		SweetsStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderSweetsImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
 		SFXManager.Instance.PlaySoundEffect(6);
+		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
 
 
 		if ( (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder)) && (OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder)) && (RightFlip) )

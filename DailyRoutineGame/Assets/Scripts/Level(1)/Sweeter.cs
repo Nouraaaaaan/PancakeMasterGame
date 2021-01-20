@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 
 public class Sweeter : MonoBehaviour
 {
@@ -98,9 +99,13 @@ public class Sweeter : MonoBehaviour
     {
         //vfx.
         if(!SFXManager.Instance.AudioSource.isPlaying)
-           SFXManager.Instance.PlaySoundEffect(0);
-        
+        {
+            SFXManager.Instance.PlaySoundEffect(0);
 
+            //Haptic.
+            HapticsManager.Instance.HapticPulse(HapticTypes.HeavyImpact);
+        }
+           
         foreach (var spawnPoint in SpawnPoints)
         {
             randomPrefab = Random.Range(0, SweetsPrefabs.Length);
