@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
 using DanielLochner.Assets.SimpleSideMenu;
+using DG.Tweening;
 
 public class ShopManager : MonoBehaviour
 {
@@ -63,8 +64,10 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
+        /*
         TapOneButton.gameObject.SetActive(true);
         TapOneButton.Select();
+        */
 
         SaveTest.Load();
         LoadSavedCurrency();
@@ -417,7 +420,8 @@ public class ShopManager : MonoBehaviour
         {
             if (DecorationsItems[i].price > CurrentCurrency)
             {
-                DecorationsButtons[i].interactable = false;
+                if(DecorationsButtons[i] != null)
+                   DecorationsButtons[i].interactable = false;
             }
         }
 
@@ -463,6 +467,17 @@ public class ShopManager : MonoBehaviour
     public void Onclick_BackButton()
     {
         SceneManager.LoadScene("MainScene");
+    }
+
+    public RectTransform RectTransform;
+    public void OpenStoreUI()
+    {
+        RectTransform.DOAnchorPos3DY(1160, 0.5f);
+    }
+
+    public void CloseStoreUI()
+    {
+        RectTransform.DOAnchorPos3DY(722f, 0.5f);
     }
 
     #endregion

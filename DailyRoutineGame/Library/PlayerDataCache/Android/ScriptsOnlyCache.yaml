@@ -261,6 +261,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12668}
     - Class: 114
+      Script: {instanceID: 13032}
+    - Class: 114
       Script: {instanceID: 13044}
     - Class: 114
       Script: {instanceID: 13256}
@@ -1133,7 +1135,7 @@ ScriptsOnlyBuild:
     className: ObiParticlePicker
   - hash:
       serializedVersion: 2
-      Hash: 162e019ed9d8945577dc974c47c67a8a
+      Hash: 33f0cb797f9d432e2b399ee7448c245c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShopManager
