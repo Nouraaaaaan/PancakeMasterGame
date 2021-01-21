@@ -20,20 +20,37 @@ public class AdsManager : MonoBehaviour
     private bool noAds = false; // used with purchaser when user buy no ads
 
     #region AD_IDs
+    /*
+    #if UNITY_ANDROID   // test ids
+        private readonly string videoAdMobId = "ca-app-pub-3940256099942544/5224354917";    //test id
+        private readonly string bannerUniteID = "ca-app-pub-3940256099942544/6300978111";    // test id
+        private readonly string interstitialUnitID = "ca-app-pub-3940256099942544/1033173712"; // test id
+    #elif UNITY_IPHONE
+          private readonly string videoAdMobId = "ca-app-pub-8505877826751443/9780697346";
+          private readonly string adbannerUniteIDUnitId = "ca-app-pub-8505877826751443/1677994018";
+          private readonly string interstitialUnitID = "ca-app-pub-8505877826751443/3154727210";
+    #else
+        private readonly string videoAdMobId = "unexpected_platform";
+          private readonly string adbannerUniteIDUnitId = "unexpected_platform";
+          private readonly string interstitialUnitID = "unexpected_platform";
+    #endif
+    */
 
-#if UNITY_ANDROID   // test ids
-    private readonly string videoAdMobId = "ca-app-pub-3940256099942544/5224354917";    //test id
-    private readonly string bannerUniteID = "ca-app-pub-3940256099942544/6300978111";    // test id
-    private readonly string interstitialUnitID = "ca-app-pub-3940256099942544/1033173712"; // test id
+    
+#if UNITY_ANDROID   // real ids
+    private readonly string videoAdMobId = "ca-app-pub-9860273259136456/6105652853";    
+    private readonly string bannerUniteID = "ca-app-pub-9860273259136456/1894961018";    
+    private readonly string interstitialUnitID = "ca-app-pub-9860273259136456/1044897866"; 
 #elif UNITY_IPHONE
-      private readonly string videoAdMobId = "ca-app-pub-8505877826751443/9780697346";
-      private readonly string adbannerUniteIDUnitId = "ca-app-pub-8505877826751443/1677994018";
-      private readonly string interstitialUnitID = "ca-app-pub-8505877826751443/3154727210";
+      private readonly string videoAdMobId = "ca-app-pub-9860273259136456/2086532702";
+      private readonly string adbannerUniteIDUnitId = "ca-app-pub-9860273259136456/5175714564";
+      private readonly string interstitialUnitID = "ca-app-pub-9860273259136456/3399614377";
 #else
     private readonly string videoAdMobId = "unexpected_platform";
       private readonly string adbannerUniteIDUnitId = "unexpected_platform";
       private readonly string interstitialUnitID = "unexpected_platform";
 #endif
+
 
     #endregion
 
