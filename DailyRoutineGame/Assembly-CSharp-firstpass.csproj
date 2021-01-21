@@ -162,6 +162,7 @@
     <None Include="Assets\Plugins\InkPainter\Shader\Effective\GrabArea.shader" />
     <None Include="Assets\Plugins\Android\GoogleMobileAdsAdColonyMediation\AndroidManifest.xml" />
     <None Include="Assets\Plugins\InkPainter\Shader\Lib\InkPainterFoundation.cginc" />
+    <None Include="Assets\Plugins\Android\GoogleMobileAdsAppLovinMediation\AndroidManifest.xml" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

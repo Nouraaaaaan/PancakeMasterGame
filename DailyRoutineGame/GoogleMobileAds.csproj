@@ -88,6 +88,7 @@
     <Compile Include="Assets\GoogleMobileAds\Api\InterstitialAd.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\Mediation\AdColony\AdColonyAppOptions.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\Mediation\AdColony\AdColonyMediationExtras.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\AppLovin\AppLovin.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\Mediation\MediationExtras.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\MobileAds.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\ResponseInfo.cs" />
@@ -110,6 +111,8 @@
     <Compile Include="Assets\GoogleMobileAds\Common\IRewardedInterstitialAdClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\Mediation\AdColony\DummyClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\Mediation\AdColony\IAdColonyAppOptionsClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Mediation\AppLovin\DummyClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Mediation\AppLovin\IAppLovinClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\MobileAdsEventExecutor.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\RewardedAdDummyClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\RewardedInterstitialAdDummyClient.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\InitializationStatusClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\InterstitialClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Mediation\AdColony\AdColonyAppOptionsClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Mediation\AppLovin\AppLovinClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\MobileAdsClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\RequestConfigurationClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\ResponseInfoClient.cs" />
@@ -129,6 +133,7 @@
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Utils.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\GoogleMobileAdsClientFactory.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Mediation\AdColonyAppOptionsClientFactory.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Mediation\AppLovinClientFactory.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Unity\InitializationStatusDummyClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\AdLoaderClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\BannerClient.cs" />
@@ -139,6 +144,8 @@
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\InterstitialClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\AdColony\AdColonyAppOptionsClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\AdColony\Externs.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\AppLovin\AppLovinClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\AppLovin\Externs.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MobileAdsClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MonoPInvokeCallbackAttribute.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\RequestConfigurationClient.cs" />
