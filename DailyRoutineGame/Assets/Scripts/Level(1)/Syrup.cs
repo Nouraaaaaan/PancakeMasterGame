@@ -4,6 +4,7 @@ using UnityEngine;
 using Es.InkPainter;
 using DG.Tweening;
 using MoreMountains.NiceVibrations;
+using UnityEngine.EventSystems;
 
 public class Syrup : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class Syrup : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSyrup))
+        if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSyrup) && (!IsPointerOverUIObject()))
         {
             lastMousePos = Input.mousePosition;
             Emitter.transform.position = PouringPoint.transform.position;
@@ -75,6 +76,9 @@ public class Syrup : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (IsPointerOverUIObject())
+            return;
+
         Emitter.transform.position = PouringPoint.transform.position;
 
         Vector3 delta = Input.mousePosition - lastMousePos;
@@ -91,7 +95,7 @@ public class Syrup : MonoBehaviour
         lastMousePos = Input.mousePosition;
 
         //Haptic.
-        HapticsManager.Instance.HapticPulse(HapticTypes.MediumImpact);
+        HapticsManager.Instance.HapticPulse(HapticTypes.Selection);
     }
 
     public void MoveSyrup()
@@ -130,5 +134,14 @@ public class Syrup : MonoBehaviour
     private void FinishSyrupState()
     {
         PancakeLevelManager.Instance.FinishSyrupState();
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }

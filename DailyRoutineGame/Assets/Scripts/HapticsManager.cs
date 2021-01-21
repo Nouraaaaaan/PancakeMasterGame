@@ -25,7 +25,13 @@ public class HapticsManager : MonoBehaviour
     public void HapticPulse(HapticTypes hapticType)
     {
         if(CanPlayHaptic)
-           MMVibrationManager.Haptic(hapticType, false, true);
+           MMVibrationManager.Haptic(hapticType);
+    }
+
+    public void RumbleHapticPulse(HapticTypes hapticType)
+    {
+        if (CanPlayHaptic)
+            MMVibrationManager.Haptic(hapticType, false, true);
     }
 
     public void RepetitiveHaptic(int duration)
@@ -38,7 +44,7 @@ public class HapticsManager : MonoBehaviour
     {
         for (int i = 0; i < duration; i++)
         {
-            MMVibrationManager.Haptic(HapticTypes.HeavyImpact, false, true);
+            HapticPulse(HapticTypes.SoftImpact);
 
             yield return new WaitForSeconds(0.15f);
         }

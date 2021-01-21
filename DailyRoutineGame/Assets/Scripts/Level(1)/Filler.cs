@@ -26,7 +26,14 @@ public class Filler : MonoBehaviour
 	[Header("VFX Attributes")]
 	public ParticleSystem FillingParticle;
 
-	private void Update()
+	private IEnumerator coroutine;
+
+    private void Start()
+    {
+		coroutine = ContinousVibration();
+	}
+
+    private void Update()
     {
 		if (PancakeLevelManager.Instance.currentState == PancakeLevelManager.State.FillingState)
 		{
@@ -45,7 +52,8 @@ public class Filler : MonoBehaviour
 				}
 
 				//Haptic.
-				HapticsManager.Instance.HapticPulse(HapticTypes.LightImpact);
+				StartCoroutine(coroutine);
+
 			}
 
 			else if (Input.GetMouseButton(0))
@@ -60,14 +68,15 @@ public class Filler : MonoBehaviour
 				}
 
 				DragFiller();
-
-				//Haptic.
-				HapticsManager.Instance.HapticPulse(HapticTypes.LightImpact);
 			}
 
 			else if (Input.GetMouseButtonUp(0))
 			{
+				//VFX.
 				FillingParticle.Stop();
+
+				//Haptic.
+				StopCoroutine(coroutine);
 			}
 		}
 	}
@@ -88,5 +97,15 @@ public class Filler : MonoBehaviour
 		}
 
 		lastMousePos = Input.mousePosition;
+	}
+
+	private IEnumerator ContinousVibration()
+	{
+		while (true)
+		{
+			//Debug.Log("Vibrating...");
+			HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
+			yield return new WaitForSeconds(0.15f);
+		}
 	}
 }

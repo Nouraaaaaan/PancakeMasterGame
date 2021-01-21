@@ -90,7 +90,7 @@ public class ShopManager : MonoBehaviour
         if (button.interactable)
         {
             PlayButtonHapticEffect();
-            HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+            HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
             Buy_TableItem(GetByName_TableItem(button.name));
         }
     }
@@ -511,6 +511,6 @@ public class ShopManager : MonoBehaviour
 
     public void PlayButtonHapticEffect()
     {
-        HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+        HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
     }
 }

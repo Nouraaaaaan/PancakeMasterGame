@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using MoreMountains.NiceVibrations;
+using UnityEngine.EventSystems;
 
 public class Sweeter : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class Sweeter : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSweets))
+        if (Input.GetMouseButtonDown(0) && (PancakeLevelManager.Instance.CanAddSweets) && (!IsPointerOverUIObject()))
         {
             lastMousePos = Input.mousePosition;
 
@@ -83,7 +84,7 @@ public class Sweeter : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if ((!Finished) && (arrived))
+        if ((!Finished) && (arrived) && (!IsPointerOverUIObject()))
         {
             CanInstantiate = true;
             UpdatePosition();
@@ -103,7 +104,7 @@ public class Sweeter : MonoBehaviour
             SFXManager.Instance.PlaySoundEffect(0);
 
             //Haptic.
-            HapticsManager.Instance.HapticPulse(HapticTypes.HeavyImpact);
+            HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
         }
            
         foreach (var spawnPoint in SpawnPoints)
@@ -185,6 +186,15 @@ public class Sweeter : MonoBehaviour
         }
 
         lastMousePos = Input.mousePosition;
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 
 }

@@ -85,6 +85,7 @@ public class PancakeLevelManager : MonoBehaviour
 	//Order Notes.
 	public GameObject OrderNoteCanvas;
 	private int CoinsValue = 0;
+	private int EarnedCoins;
 	public Text Coinstext;
 	public Text EarnedCoinsValue;
 
@@ -104,19 +105,19 @@ public class PancakeLevelManager : MonoBehaviour
 	public ParticleSystem WhiteSmoke;
 
 	[Header("Evaluation Attributes")]
+	private int NumberOfCorrectItems;
 	public Sprite SadEvaluationSprite;
 	public Sprite AngryEvaluationSprite;
-
 	public Sprite GoodEvaluationSprite;
 	public Sprite HeartEyesEvaluationSprite;
-
+	//Flipping
 	public Image FlippingStateImage;
 	public Image OrderFlippingImage;
-
+	//Syrup
 	public Image SyrupStateImage;
 	public Image SyrupImage;
 	public Image OrderSyrupImage;
-
+	//Topping
 	public Image SweetsStateImage;
 	public Image SweetsImage;
 	public Image OrderSweetsImage;
@@ -537,7 +538,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void Onclick_CookBtn()
     {
-		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+		HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
 
 		if (CustomersManager.CheckVipCustomer())
 		{
@@ -638,6 +639,8 @@ public class PancakeLevelManager : MonoBehaviour
 	#region Result Region
 	public void CheckResult()
 	{
+		NumberOfCorrectItems = 0;
+
 		//Syrup Evaluation.
 		EvaluateSyrupStage();
 
@@ -656,11 +659,13 @@ public class PancakeLevelManager : MonoBehaviour
 		{
 			//Debug.Log("Special Syrup");
 			SyrupStateImage.sprite = HeartEyesEvaluationSprite;
+			NumberOfCorrectItems++;
 		}
 		else if (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder))
 		{
 			//Debug.Log("Right Syrup");
 			SyrupStateImage.sprite = GoodEvaluationSprite;
+			NumberOfCorrectItems++;
 		}
 		else if (CurrentSyrup != null && CurrentSyrup.IsHotSauce)
 		{
@@ -679,6 +684,7 @@ public class PancakeLevelManager : MonoBehaviour
 		if (CurrentSweeter != null && CurrentSweeter.IsSpecialSweeter)
 		{
 			SweetsStateImage.sprite = HeartEyesEvaluationSprite;
+			NumberOfCorrectItems++;
 		}
 		else if (!OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder))
 		{
@@ -687,6 +693,7 @@ public class PancakeLevelManager : MonoBehaviour
 		else
 		{
 			SweetsStateImage.sprite = GoodEvaluationSprite;
+			NumberOfCorrectItems++;
 		}
 	}
 
@@ -695,6 +702,7 @@ public class PancakeLevelManager : MonoBehaviour
 		if (RightFlip)
 		{
 			FlippingStateImage.sprite = GoodEvaluationSprite;
+			NumberOfCorrectItems++;
 		}
 		else
 		{
@@ -724,7 +732,7 @@ public class PancakeLevelManager : MonoBehaviour
 		FlippingStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderFlippingImage.rectTransform.DOSizeDelta(new Vector2(250f, 250f), 0.5f);
 		SFXManager.Instance.PlaySoundEffect(6);
-		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+		HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -732,7 +740,7 @@ public class PancakeLevelManager : MonoBehaviour
 		SyrupStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderSyrupImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
 		SFXManager.Instance.PlaySoundEffect(6);
-		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+		HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -741,7 +749,7 @@ public class PancakeLevelManager : MonoBehaviour
 		SweetsStateImage.rectTransform.DOSizeDelta(new Vector2(90.20227f, 97.96326f), 0.5f);
 		OrderSweetsImage.rectTransform.DOSizeDelta(new Vector2(190f, 190f), 0.5f);
 		SFXManager.Instance.PlaySoundEffect(6);
-		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+		HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
 
 
 		if ( (OrderManager.CustomerSyrupOrder.ToString().Equals(SyrupOrder)) && (OrderManager.CustomerSweetsOrder.ToString().Equals(SweetsOrder)) && (RightFlip) )
@@ -775,11 +783,11 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		if (CustomersManager.CheckVipCustomer())
 		{
-			CoinsValue = (earnTripleValue) ? (CoinsValue + 300) : (CoinsValue + 100); 
+			CoinsValue = (earnTripleValue) ? ((CoinsValue + (EarnedCoins*2))*3) : (CoinsValue + (EarnedCoins*2)); 
 		}
 		else
 		{
-			CoinsValue = (earnTripleValue) ? (CoinsValue + 150) : (CoinsValue + 50);
+			CoinsValue = (earnTripleValue) ? ((CoinsValue + EarnedCoins)*3) : (CoinsValue + EarnedCoins);
 		}
 
 		
@@ -821,7 +829,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void OnClick_NoThanksButtons()
 	{
-		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+		HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
 		StartCoroutine(NoThanksButton());
 	}
 
@@ -847,13 +855,50 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		CollectCanvas.SetActive(true);
 
+		#region Calculate Earned Value
+
+		EarnedCoins = 0;
+
+		if (NumberOfCorrectItems == 2)
+		{
+			EarnedCoins = 75;
+		}
+		else if (NumberOfCorrectItems == 1)
+		{
+			EarnedCoins = 50;
+		}
+		else if (NumberOfCorrectItems == 3)
+		{
+			EarnedCoins = 100;
+		}
+
+		if (CurrentSyrup != null && CurrentSyrup.IsSpecialSyrup)
+		{
+			EarnedCoins += 50;
+		}
+
+		if (CurrentSweeter != null && CurrentSweeter.IsSpecialSweeter)
+		{
+			EarnedCoins += 50;
+		}
+
+		if (CurrentSyrup != null && CurrentSyrup.IsHotSauce)
+		{
+			EarnedCoins -= 50;
+		}
+
+		if (EarnedCoins < 0)
+			EarnedCoins = 0;
+
+		#endregion
+
 		if (CustomersManager.CheckVipCustomer())
 		{
-			EarnedCoinsValue.text = "100";
+			EarnedCoinsValue.text = ((EarnedCoins * 2).ToString());
 		}
 		else
 		{
-			EarnedCoinsValue.text = "50";
+			EarnedCoinsValue.text = EarnedCoins.ToString();
 		}
 	}
 
@@ -954,7 +999,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void Onclick_StoreButton()
 	{
-		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+		HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
 		SceneManager.LoadScene("StoreScene");
 	}
 
@@ -966,7 +1011,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void PlayHapticBtnEffect()
 	{
-		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+		HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
 	}
 
 	#region UpgradeDinerStore
@@ -993,7 +1038,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void Onclick_ClaimUpgradeButton()
 	{
-		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+		HapticsManager.Instance.HapticPulse(HapticTypes.SoftImpact);
 		SceneManager.LoadScene("StoreScene");
 	}
 	#endregion

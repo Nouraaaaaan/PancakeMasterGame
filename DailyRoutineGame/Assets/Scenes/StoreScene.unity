@@ -156,6 +156,10 @@ MonoBehaviour:
   AudioClips:
   - {fileID: 8300000, guid: 206556c97f3f9174fbcfc6300cbaacf5, type: 3}
   - {fileID: 8300000, guid: 148eb1319665f0948a8a860939363959, type: 3}
+  MusicOnButton: {fileID: 0}
+  MusicOffButton: {fileID: 0}
+  SFXOnButton: {fileID: 0}
+  SFXOffButton: {fileID: 0}
   CanPlaySFX: 0
   CanPlayMusic: 0
 --- !u!4 &2349193
@@ -10241,7 +10245,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 400
 --- !u!222 &1081076000
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11676,8 +11680,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 34.26, y: -87.7}
-  m_SizeDelta: {x: 105.45691, y: 100.74301}
+  m_AnchoredPosition: {x: 56.89, y: -87.7}
+  m_SizeDelta: {x: 150.71979, y: 100.74301}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1254400289
 MonoBehaviour:
@@ -11711,7 +11715,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 80
+  m_Text: 200
 --- !u!222 &1254400290
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11897,8 +11901,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 41.33, y: -85.1}
-  m_SizeDelta: {x: 111.85124, y: 100.83234}
+  m_AnchoredPosition: {x: 61.64, y: -85.1}
+  m_SizeDelta: {x: 152.4777, y: 100.83234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1282356661
 MonoBehaviour:
@@ -11932,7 +11936,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 60
+  m_Text: 200
 --- !u!222 &1282356662
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13586,7 +13590,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 300
+  m_Text: 200
 --- !u!222 &1446363973
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13664,7 +13668,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 300
 --- !u!222 &1447701540
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16296,7 +16300,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 500
 --- !u!222 &1735037588
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16341,7 +16345,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 50, y: -135}
-  m_SizeDelta: {x: 150.65695, y: 100.437965}
+  m_SizeDelta: {x: 200.87593, y: 100.437965}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1743005636
 MonoBehaviour:
@@ -16389,7 +16393,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 1000
 --- !u!222 &1743005638
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19077,8 +19081,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 26.92, y: -84.27}
-  m_SizeDelta: {x: 100.835205, y: 103.535095}
+  m_AnchoredPosition: {x: 51.95, y: -84.27}
+  m_SizeDelta: {x: 150.89812, y: 103.535095}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1983976010
 MonoBehaviour:
@@ -19112,7 +19116,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 50
+  m_Text: 200
 --- !u!222 &1983976011
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19234,8 +19238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 27.09, y: -84.3}
-  m_SizeDelta: {x: 101.18509, y: 102.89203}
+  m_AnchoredPosition: {x: 52.07, y: -84.3}
+  m_SizeDelta: {x: 151.14474, y: 102.89203}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1991580362
 MonoBehaviour:
@@ -19269,7 +19273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 50
+  m_Text: 300
 --- !u!222 &1991580363
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19925,19 +19929,19 @@ MonoBehaviour:
   MessyDinerTables: {fileID: 2100772140}
   TableItems:
   - name: Item1
-    price: 100
+    price: 400
     model: {fileID: 773850019}
     sold: 0
     CurrentlyUsed: 0
     DefaultObject: {fileID: 1200379806}
   - name: Item2
-    price: 200
+    price: 300
     model: {fileID: 1320761223}
     sold: 0
     CurrentlyUsed: 0
     DefaultObject: {fileID: 1200379806}
   - name: Item3
-    price: 300
+    price: 200
     model: {fileID: 1773820844}
     sold: 0
     CurrentlyUsed: 0
@@ -19948,37 +19952,37 @@ MonoBehaviour:
   - {fileID: 1976218717}
   DecorationsItems:
   - name: Item1
-    price: 100
+    price: 500
     model: {fileID: 43541726}
     sold: 0
     CurrentlyUsed: 0
     DefaultObject: {fileID: 658047243}
   - name: Item2
-    price: 60
+    price: 200
     model: {fileID: 28575248}
     sold: 0
     CurrentlyUsed: 0
     DefaultObject: {fileID: 658047243}
   - name: Item3
-    price: 80
+    price: 200
     model: {fileID: 611059458}
     sold: 0
     CurrentlyUsed: 0
     DefaultObject: {fileID: 658047243}
   - name: Item4
-    price: 100
+    price: 500
     model: {fileID: 1558662615}
     sold: 0
     CurrentlyUsed: 0
     DefaultObject: {fileID: 0}
   - name: Item5
-    price: 50
+    price: 200
     model: {fileID: 2032366566}
     sold: 0
     CurrentlyUsed: 0
     DefaultObject: {fileID: 658047243}
   - name: Item6
-    price: 50
+    price: 300
     model: {fileID: 1348505141}
     sold: 0
     CurrentlyUsed: 0
@@ -20020,7 +20024,7 @@ MonoBehaviour:
   - {fileID: 0}
   FloorsItems:
   - name: Item1
-    price: 100
+    price: 1000
     model: {fileID: 1581540650}
     sold: 0
     CurrentlyUsed: 0
@@ -20334,7 +20338,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 500
 --- !u!222 &2124335451
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -99,6 +99,7 @@ public class SFXManager : MonoBehaviour
 
     public void TurnOffSFX()
     {
+        AudioSource.Stop();
         CanPlaySFX = false;
         SaveTest.SaveObject.CanPlaySFX = false;
         SaveTest.Save();
