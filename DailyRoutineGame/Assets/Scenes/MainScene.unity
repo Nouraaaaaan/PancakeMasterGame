@@ -33962,7 +33962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syrupType: 0
-  SyrupColor: {r: 0.5943396, g: 0.34264863, b: 0.31118724, a: 1}
+  SyrupColor: {r: 0.88235295, g: 0.7764706, b: 0.7137255, a: 1}
   SyrupObject: {fileID: 989508499}
   SyrupInitialPos: {fileID: 31957993}
   SyrupFinalPos: {fileID: 1623153370}

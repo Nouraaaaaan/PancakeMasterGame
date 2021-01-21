@@ -86,6 +86,8 @@
     <Compile Include="Assets\GoogleMobileAds\Api\CustomNativeTemplateAd.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\InitializationStatus.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\InterstitialAd.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\AdColony\AdColonyAppOptions.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Api\Mediation\AdColony\AdColonyMediationExtras.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\Mediation\MediationExtras.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\MobileAds.cs" />
     <Compile Include="Assets\GoogleMobileAds\Api\ResponseInfo.cs" />
@@ -106,6 +108,8 @@
     <Compile Include="Assets\GoogleMobileAds\Common\IRewardBasedVideoAdClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\IRewardedAdClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\IRewardedInterstitialAdClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Mediation\AdColony\DummyClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Common\Mediation\AdColony\IAdColonyAppOptionsClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\MobileAdsEventExecutor.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\RewardedAdDummyClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Common\RewardedInterstitialAdDummyClient.cs" />
@@ -116,6 +120,7 @@
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\DisplayMetrics.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\InitializationStatusClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\InterstitialClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Mediation\AdColony\AdColonyAppOptionsClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\MobileAdsClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\RequestConfigurationClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\ResponseInfoClient.cs" />
@@ -123,6 +128,7 @@
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\RewardedAdClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Android\Utils.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\GoogleMobileAdsClientFactory.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\Mediation\AdColonyAppOptionsClientFactory.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\Unity\InitializationStatusDummyClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\AdLoaderClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\BannerClient.cs" />
@@ -131,6 +137,8 @@
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\GoogleMobileAdsClientFactory.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\InitializationStatusClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\InterstitialClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\AdColony\AdColonyAppOptionsClient.cs" />
+    <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\Mediation\AdColony\Externs.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MobileAdsClient.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MonoPInvokeCallbackAttribute.cs" />
     <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\RequestConfigurationClient.cs" />
@@ -715,11 +723,11 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.16f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

@@ -69,6 +69,7 @@
     <Compile Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsSettingsEditor.cs" />
     <Compile Include="Assets\GoogleMobileAds\Editor\ManifestProcessor.cs" />
     <Compile Include="Assets\GoogleMobileAds\Editor\PListProcessor.cs" />
+    <None Include="Assets\GoogleMobileAds\Editor\AdColonyMediationDependencies.xml" />
     <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAds.Editor.asmdef" />
     <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsDependencies.xml" />
     <Reference Include="UnityEngine">
@@ -662,11 +663,11 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
