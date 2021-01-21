@@ -15,7 +15,7 @@ public class CustomersManager : MonoBehaviour
     public void NextCustomer()
     {
         MoveCustomerAway();
-        SwapCustomers();
+        //SwapCustomers();
     }
 
     private void MoveCustomerAway()
@@ -29,6 +29,7 @@ public class CustomersManager : MonoBehaviour
         Customers[0].transform.LookAt(ExitPos);
         Customers[0].GetComponent<Animator>().SetBool("walk", true);
 
+        SwapCustomers();
         yield return new WaitForSeconds(2f);
 
         MoveCustomers();
@@ -58,7 +59,8 @@ public class CustomersManager : MonoBehaviour
         {
             Customers[i].transform.DOMove(QueuePositions[i].transform.position, 1f);
             Customers[i].transform.LookAt(QueuePositions[i].transform);
-            CustomerAnimators[i].SetBool("walk", true);
+            //CustomerAnimators[i].SetBool("walk", true);
+            Customers[i].GetComponent<Animator>().SetBool("walk", true);
         }
 
         yield return new WaitForSeconds(1f);

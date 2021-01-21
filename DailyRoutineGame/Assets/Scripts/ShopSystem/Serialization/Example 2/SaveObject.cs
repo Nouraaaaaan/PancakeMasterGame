@@ -14,4 +14,8 @@ public class SaveObject
     public bool[] Decorations;
 
     public bool[] Floors;
+
+    //Settings
+    public bool CanPlayMusic;
+    public bool CanPlaySFX;
 }

@@ -65,6 +65,11 @@ public class AdsManager : MonoBehaviour
         ShowBanner();
     }
 
+    public void DiableAds()
+    {
+        disableAds = true;
+    }
+
     public void CheckToPlayAD()
     {
         if (noAds || disableAds)

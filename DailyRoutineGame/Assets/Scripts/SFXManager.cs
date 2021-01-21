@@ -16,19 +16,52 @@ public class SFXManager : MonoBehaviour
     }
 
     #endregion
+    public SaveTest SaveTest;
 
     public AudioSource AudioSource;
+    public AudioSource MusicAudioSource;
     public AudioClip[] AudioClips;
 
+    public GameObject MusicOnButton;
+    public GameObject MusicOffButton;
+
+    public GameObject SFXOnButton;
+    public GameObject SFXOffButton;
+
+    public bool CanPlaySFX;
+    public bool CanPlayMusic;
+
+    private void Start()
+    {
+        SaveTest.Load();
+
+        CanPlayMusic = SaveTest.SaveObject.CanPlayMusic;
+        if (CanPlayMusic)
+        {
+            TurnOnMusic();
+        }
+        else
+        {
+            TurnOffMusic();
+        }
+
+        CanPlaySFX = SaveTest.SaveObject.CanPlaySFX;
+        if (CanPlaySFX)
+        {
+            TurnOnSFX();
+        }
+        else
+        {
+            TurnOffSFX();
+        }
+    }
     public void PlaySoundEffect(int index)
-    {     
-        /*
-        if (GameData.Instance.GetSoundSetting().Equals("false"))
-            return; 
-        */
-        
-        AudioSource.clip = AudioClips[index];
-        AudioSource.Play();
+    {
+        if (CanPlaySFX)
+        {
+            AudioSource.clip = AudioClips[index];
+            AudioSource.Play();
+        }
     }
 
     public void StopSoundEffect()
@@ -49,5 +82,59 @@ public class SFXManager : MonoBehaviour
     public void SetAudioVolume(float value)
     {
         AudioSource.volume = value;
+    }
+
+    public void TurnOnSFX()
+    {
+        CanPlaySFX = true;
+        SaveTest.SaveObject.CanPlaySFX = true;
+        SaveTest.Save();
+
+        if (SFXOnButton != null & SFXOffButton != null)
+        {
+            SFXOnButton.SetActive(true);
+            SFXOffButton.SetActive(false);
+        }
+    }
+
+    public void TurnOffSFX()
+    {
+        CanPlaySFX = false;
+        SaveTest.SaveObject.CanPlaySFX = false;
+        SaveTest.Save();
+
+        if (SFXOnButton != null & SFXOffButton != null)
+        {
+            SFXOnButton.SetActive(false);
+            SFXOffButton.SetActive(true);
+        }
+    }
+
+    public void TurnOnMusic()
+    {
+        MusicAudioSource.Play();
+        SaveTest.SaveObject.CanPlayMusic = true;
+        CanPlayMusic = true;
+        SaveTest.Save();
+
+        if (MusicOnButton != null & MusicOffButton != null)
+        {
+            MusicOnButton.SetActive(true);
+            MusicOffButton.SetActive(false);
+        }
+    }
+
+    public void TurnOffMusic()
+    {
+        MusicAudioSource.Stop();
+        SaveTest.SaveObject.CanPlayMusic = false;
+        CanPlayMusic = false;
+        SaveTest.Save();
+
+        if (MusicOnButton != null & MusicOffButton != null)
+        {
+            MusicOnButton.SetActive(false);
+            MusicOffButton.SetActive(true);
+        }
     }
 }

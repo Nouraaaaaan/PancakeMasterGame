@@ -6,6 +6,7 @@ using System.IO;
 using UnityEngine.SceneManagement;
 using DanielLochner.Assets.SimpleSideMenu;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 
 public class ShopManager : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class ShopManager : MonoBehaviour
     }
 
     [Header("Tables")]
+    public GameObject MessyDinerTables;
     public ShopItem[] TableItems;
     public Button[] TableButtons;
 
@@ -87,9 +89,9 @@ public class ShopManager : MonoBehaviour
     {
         if (button.interactable)
         {
-            //Debug.Log("Debug.Log"+button.name);
+            PlayButtonHapticEffect();
+            HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
             Buy_TableItem(GetByName_TableItem(button.name));
-            SimpleSideMenu.Close();
         }
     }
 
@@ -113,6 +115,7 @@ public class ShopManager : MonoBehaviour
             UpdateCurrencyUI();
             UpdateButtons();
 
+            MessyDinerTables.SetActive(false); //will be removed later.
             if (TableItems[index].DefaultObject != null)
             {
                 TableItems[index].DefaultObject.SetActive(false);
@@ -178,6 +181,7 @@ public class ShopManager : MonoBehaviour
                 if (item.DefaultObject != null)
                 {
                     item.DefaultObject.SetActive(false);
+                    MessyDinerTables.SetActive(false); //will be removed later.
                 }
             }
         }
@@ -210,12 +214,11 @@ public class ShopManager : MonoBehaviour
     #region DecorationsRegion
     public void OnClick_DecorationItem(Button button)
     {
-        //Debug.Log("OnClick_DecorationItem : "+ button.name);
-
+        
         if (button.interactable)
         {
+            PlayButtonHapticEffect();
             Buy_DecorationItem(GetByName_DecorationItem(button.name));
-            SimpleSideMenu.Close();
         }
     }
 
@@ -274,12 +277,10 @@ public class ShopManager : MonoBehaviour
     #region FloorsRegion
     public void OnClick_FloorItem(Button button)
     {
-        //Debug.Log("OnClick_DecorationItem : " + button.name);
-
         if (button.interactable)
         {
+            PlayButtonHapticEffect();
             Buy_FloorItem(GetByName_FloorItem(button.name));
-            SimpleSideMenu.Close();
         }
     }
 
@@ -466,6 +467,7 @@ public class ShopManager : MonoBehaviour
     #region UIManager
     public void Onclick_BackButton()
     {
+        PlayButtonHapticEffect();
         SceneManager.LoadScene("MainScene");
     }
 
@@ -505,5 +507,10 @@ public class ShopManager : MonoBehaviour
         SFXManager.Instance.PlaySoundEffect(0);
         MessyDiner.SetActive(false);
         SimpleDiner.SetActive(true);
+    }
+
+    public void PlayButtonHapticEffect()
+    {
+        HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
     }
 }

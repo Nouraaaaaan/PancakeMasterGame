@@ -513,6 +513,9 @@
     <Reference Include="DOTweenProEditor">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/MMFeedbacks/NiceVibrations/ThirdParty/Newtonsoft/Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Google.IOSResolver_v1.2.163">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/PackageCache/com.google.external-dependency-manager@1.2.163/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.163.dll</HintPath>
     </Reference>
@@ -530,9 +533,6 @@
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/PackageCache/com.unity.ext.nunit@1.0.5/net35/unity-custom/nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/MMFeedbacks/NiceVibrations/ThirdParty/Newtonsoft/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.16f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -879,11 +879,11 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.16f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

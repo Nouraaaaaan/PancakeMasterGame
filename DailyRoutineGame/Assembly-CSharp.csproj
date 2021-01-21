@@ -347,11 +347,11 @@
     <Reference Include="DOTweenPro">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/PackageCache/com.unity.ext.nunit@1.0.5/net35/unity-custom/nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Assets/Plugins/MMFeedbacks/NiceVibrations/ThirdParty/Newtonsoft/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>D:/Maysalward/DailyRoutinueGame/DailyRoutineGame/Library/PackageCache/com.unity.ext.nunit@1.0.5/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.16f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -734,22 +734,6 @@
       <Project>{BAF2DC31-B5D0-1955-D1AB-E12478B02B33}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
-    <ProjectReference Include="Obi.csproj">
-      <Project>{AF7898AE-719E-A183-D2C7-1F4171269D8F}</Project>
-      <Name>Obi</Name>
-    </ProjectReference>
-    <ProjectReference Include="GoogleMobileAds.csproj">
-      <Project>{FCDD0E69-6C2B-86DA-2514-8C39A078A653}</Project>
-      <Name>GoogleMobileAds</Name>
-    </ProjectReference>
-    <ProjectReference Include="GoogleMobileAds.Editor.csproj">
-      <Project>{5365E9C2-0676-695F-8619-86D10C1B9662}</Project>
-      <Name>GoogleMobileAds.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Obi.Editor.csproj">
-      <Project>{DE1FCC5E-8D88-BC9D-43B4-62D4CAFC5A3B}</Project>
-      <Name>Obi.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.Feedbacks.Editor.csproj">
       <Project>{FE903BD2-60A4-72E4-E0DA-B2B86617290A}</Project>
       <Name>MoreMountains.Tools.Feedbacks.Editor</Name>
@@ -761,6 +745,10 @@
     <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
       <Project>{83B66DE9-3D23-D5E1-DE8E-25C5C7464A08}</Project>
       <Name>MoreMountains.Tools.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Obi.csproj">
+      <Project>{AF7898AE-719E-A183-D2C7-1F4171269D8F}</Project>
+      <Name>Obi</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.Feedbacks.csproj">
       <Project>{90C43418-9335-7382-7658-440414F84F0D}</Project>
@@ -778,6 +766,10 @@
       <Project>{6DB7A5EC-C403-6751-EBEA-D3DD38E823D1}</Project>
       <Name>MoreMountains.NiceVibrations.Haptics</Name>
     </ProjectReference>
+    <ProjectReference Include="GoogleMobileAds.csproj">
+      <Project>{FCDD0E69-6C2B-86DA-2514-8C39A078A653}</Project>
+      <Name>GoogleMobileAds</Name>
+    </ProjectReference>
     <ProjectReference Include="MoreMountains.Tools.csproj">
       <Project>{BFC88723-3635-38B0-E874-6BFDACB1D71F}</Project>
       <Name>MoreMountains.Tools</Name>
@@ -790,6 +782,10 @@
       <Project>{F56D274F-1E11-6BB0-002A-166A9251D3E0}</Project>
       <Name>MoreMountains.NiceVibrations</Name>
     </ProjectReference>
+    <ProjectReference Include="GoogleMobileAds.Editor.csproj">
+      <Project>{5365E9C2-0676-695F-8619-86D10C1B9662}</Project>
+      <Name>GoogleMobileAds.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="MoreMountains.NiceVibrations.Editor.csproj">
       <Project>{A9985B11-DFC2-399E-B36C-0DD3E93909AD}</Project>
       <Name>MoreMountains.NiceVibrations.Editor</Name>
@@ -797,6 +793,10 @@
     <ProjectReference Include="MoreMountains.NiceVibrations.Demos.csproj">
       <Project>{5DAA668C-BD49-456F-56AD-045D437F2234}</Project>
       <Name>MoreMountains.NiceVibrations.Demos</Name>
+    </ProjectReference>
+    <ProjectReference Include="Obi.Editor.csproj">
+      <Project>{DE1FCC5E-8D88-BC9D-43B4-62D4CAFC5A3B}</Project>
+      <Name>Obi.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

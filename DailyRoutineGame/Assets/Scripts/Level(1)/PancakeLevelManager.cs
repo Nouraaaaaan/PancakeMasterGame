@@ -537,6 +537,8 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void Onclick_CookBtn()
     {
+		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
+
 		if (CustomersManager.CheckVipCustomer())
 		{
 			AdsManager.ins.ShowRewardedVideo(AdsManager.RewardType.VipCustomer);
@@ -819,6 +821,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void OnClick_NoThanksButtons()
 	{
+		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
 		StartCoroutine(NoThanksButton());
 	}
 
@@ -869,7 +872,7 @@ public class PancakeLevelManager : MonoBehaviour
 			return;
 		}
 
-		//SFX
+		//SFX.
 		SFXManager.Instance.PlaySoundEffect(2);
 
 		//vfx.
@@ -877,6 +880,9 @@ public class PancakeLevelManager : MonoBehaviour
 		ConfettiShower.Stop();
 		HeartStream.Stop();
 		DollarBlast.Play();
+
+		//Haptics.
+		HapticsManager.Instance.RepetitiveHaptic(6);
 
 		UpdateCoinsNumber(false);
 		DisableCollectCanvas();
@@ -948,6 +954,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void Onclick_StoreButton()
 	{
+		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
 		SceneManager.LoadScene("StoreScene");
 	}
 
@@ -955,6 +962,11 @@ public class PancakeLevelManager : MonoBehaviour
 	{
 		SaveTest.SaveObject.NumberOfInitialCustomers++;
 		SaveTest.Save();
+	}
+
+	public void PlayHapticBtnEffect()
+	{
+		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
 	}
 
 	#region UpgradeDinerStore
@@ -981,6 +993,7 @@ public class PancakeLevelManager : MonoBehaviour
 
 	public void Onclick_ClaimUpgradeButton()
 	{
+		HapticsManager.Instance.HapticPulse(HapticTypes.Warning);
 		SceneManager.LoadScene("StoreScene");
 	}
 	#endregion
