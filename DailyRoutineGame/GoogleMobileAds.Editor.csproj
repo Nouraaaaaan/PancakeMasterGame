@@ -73,6 +73,7 @@
     <None Include="Assets\GoogleMobileAds\Editor\AdColonyMediationDependencies.xml" />
     <None Include="Assets\GoogleMobileAds\Editor\FacebookMediationDependencies.xml" />
     <None Include="Assets\GoogleMobileAds\Editor\AppLovinMediationDependencies.xml" />
+    <None Include="Assets\GoogleMobileAds\Editor\UnityMediationDependencies.xml" />
     <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAds.Editor.asmdef" />
     <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsDependencies.xml" />
     <Reference Include="UnityEngine">
