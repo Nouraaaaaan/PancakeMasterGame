@@ -262,6 +262,8 @@ public class AdsManager : MonoBehaviour
     public void HandleRewardedAdFailedToLoad(object sender, AdErrorEventArgs args)
     {
         MonoBehaviour.print("HandleRewardedAdFailedToLoad event received with message: " + args.Message);
+        PancakeLevelManager.Instance.CanAddSweets = true;
+        PancakeLevelManager.Instance.CanAddSyrup = true;
     }
 
     public void HandleRewardedAdOpening(object sender, EventArgs args)
@@ -274,7 +276,8 @@ public class AdsManager : MonoBehaviour
     public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
     {
         MonoBehaviour.print("HandleRewardedAdFailedToShow event received with message: " + args.Message);
-
+        PancakeLevelManager.Instance.CanAddSweets = true;
+        PancakeLevelManager.Instance.CanAddSyrup = true;
     }
 
     public void HandleRewardedAdClosed(object sender, EventArgs args)
